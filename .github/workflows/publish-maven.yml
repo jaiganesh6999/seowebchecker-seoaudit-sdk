@@ -24,33 +24,31 @@ jobs:
           cd java
           mvn clean package -DskipTests=false
 
-      - name: Generate GPG Key, Sign Artifacts & Create Checksums
+      - name: Generate GPG Key, Sign Artifacts & Create Maven Central Bundle
         run: |
           cd java
-          # 1. Generate GPG Key for signing
+          # 1. Generate RSA 4096 GPG Key for signing
           export GPG_TTY=$(tty || echo "")
-          gpg --batch --passphrase '' --quick-generate-key "SEOWebChecker <support@seowebchecker.com>" default default never
-          KEY_ID=$(gpg --list-keys --with-colons "support@seowebchecker.com" | awk -F: '/^pub:/ { print $5 }')
+          gpg --batch --passphrase '' --quick-generate-key "SEOWebChecker <support@seowebchecker.com>" rsa4096 default never
+          KEY_ID=$(gpg --list-keys --with-colons "support@seowebchecker.com" | awk -F: '/^pub:/ { print $5 }' | tail -n 1)
           echo "Generated GPG Key ID: $KEY_ID"
 
-          # Publish public key to keyservers (required by Sonatype validation)
-          gpg --keyserver keyserver.ubuntu.com --send-keys "$KEY_ID" || true
-          gpg --keyserver keys.openpgp.org --send-keys "$KEY_ID" || true
+          # Publish public key to keyservers
+          gpg --keyserver hkp://keyserver.ubuntu.com --send-keys "$KEY_ID" || true
+          gpg --keyserver hkp://keys.openpgp.org --send-keys "$KEY_ID" || true
 
-          # 2. Copy and rename pom to standard Maven artifact name
-          cp pom.xml target/seowebchecker-seoaudit-sdk-1.0.0.pom
+          # 2. Setup standard Maven Repository Layout hierarchy
+          BUNDLE_DIR="bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0"
+          mkdir -p "$BUNDLE_DIR"
 
-          # 3. Create bundle staging directory
-          mkdir -p bundle_flat
-
-          # Copy all 4 base artifacts
-          cp target/seowebchecker-seoaudit-sdk-1.0.0.pom bundle_flat/
-          cp target/seowebchecker-seoaudit-sdk-1.0.0.jar bundle_flat/
-          cp target/seowebchecker-seoaudit-sdk-1.0.0-sources.jar bundle_flat/
-          cp target/seowebchecker-seoaudit-sdk-1.0.0-javadoc.jar bundle_flat/
+          # 3. Copy artifacts into Maven coordinate directory
+          cp pom.xml "$BUNDLE_DIR/seowebchecker-seoaudit-sdk-1.0.0.pom"
+          cp target/seowebchecker-seoaudit-sdk-1.0.0.jar "$BUNDLE_DIR/"
+          cp target/seowebchecker-seoaudit-sdk-1.0.0-sources.jar "$BUNDLE_DIR/"
+          cp target/seowebchecker-seoaudit-sdk-1.0.0-javadoc.jar "$BUNDLE_DIR/"
 
           # 4. Sign and create md5/sha1 checksums for each artifact
-          cd bundle_flat
+          cd "$BUNDLE_DIR"
           for f in *; do
             if [[ -f "$f" ]]; then
               echo "Signing and hashing: $f"
@@ -62,14 +60,11 @@ jobs:
             fi
           done
 
-          echo "Bundle contents:"
-          ls -la
-
-          # 5. Create final zip bundle for Sonatype Central Portal
-          zip -r ../sonatype-central-bundle.zip .
+          echo "Final bundle layout:"
+          find "$GITHUB_WORKSPACE/java/bundle" -type f
 
       - name: Upload Sonatype Central Bundle
         uses: actions/upload-artifact@v4
         with:
           name: sonatype-central-bundle
-          path: java/sonatype-central-bundle.zip
+          path: java/bundle/
