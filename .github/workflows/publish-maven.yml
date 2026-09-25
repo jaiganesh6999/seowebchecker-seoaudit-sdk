@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    name: Build & Package Java SDK
+    name: Build & Package Java SDK for Sonatype Central
     runs-on: ubuntu-latest
 
     steps:
@@ -19,13 +19,41 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
+      - name: Build with Maven (Jar, Sources, Javadocs)
         run: |
           cd java
           mvn clean package -DskipTests=false
 
-      - name: Upload JAR Artifact
+      - name: Create Valid Sonatype Central Bundle
+        run: |
+          cd java
+          # Copy pom.xml to standard artifact naming
+          cp pom.xml target/seowebchecker-seoaudit-sdk-1.0.0.pom
+
+          # Structure bundle with repository layout required by Sonatype Central
+          mkdir -p bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0
+          cp target/seowebchecker-seoaudit-sdk-1.0.0.jar bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
+          cp target/seowebchecker-seoaudit-sdk-1.0.0-sources.jar bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
+          cp target/seowebchecker-seoaudit-sdk-1.0.0-javadoc.jar bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
+          cp target/seowebchecker-seoaudit-sdk-1.0.0.pom bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
+
+          # Also create flat files bundle
+          mkdir -p flat_bundle
+          cp target/seowebchecker-seoaudit-sdk-1.0.0* flat_bundle/
+
+          cd bundle
+          zip -r ../sonatype-central-bundle.zip .
+          cd ../flat_bundle
+          zip -r ../sonatype-flat-bundle.zip .
+
+      - name: Upload Sonatype Central Bundle
         uses: actions/upload-artifact@v4
         with:
-          name: seowebchecker-java-sdk
-          path: java/target/*.jar
+          name: sonatype-central-bundle
+          path: java/sonatype-central-bundle.zip
+
+      - name: Upload Flat Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonatype-flat-bundle
+          path: java/sonatype-flat-bundle.zip
