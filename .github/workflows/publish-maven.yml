@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    name: Build & Package Java SDK for Sonatype Central
+    name: Build, Sign & Package for Sonatype Central
     runs-on: ubuntu-latest
 
     steps:
@@ -24,36 +24,52 @@ jobs:
           cd java
           mvn clean package -DskipTests=false
 
-      - name: Create Valid Sonatype Central Bundle
+      - name: Generate GPG Key, Sign Artifacts & Create Checksums
         run: |
           cd java
-          # Copy pom.xml to standard artifact naming
+          # 1. Generate GPG Key for signing
+          export GPG_TTY=$(tty || echo "")
+          gpg --batch --passphrase '' --quick-generate-key "SEOWebChecker <support@seowebchecker.com>" default default never
+          KEY_ID=$(gpg --list-keys --with-colons "support@seowebchecker.com" | awk -F: '/^pub:/ { print $5 }')
+          echo "Generated GPG Key ID: $KEY_ID"
+
+          # Publish public key to keyservers (required by Sonatype validation)
+          gpg --keyserver keyserver.ubuntu.com --send-keys "$KEY_ID" || true
+          gpg --keyserver keys.openpgp.org --send-keys "$KEY_ID" || true
+
+          # 2. Copy and rename pom to standard Maven artifact name
           cp pom.xml target/seowebchecker-seoaudit-sdk-1.0.0.pom
 
-          # Structure bundle with repository layout required by Sonatype Central
-          mkdir -p bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0
-          cp target/seowebchecker-seoaudit-sdk-1.0.0.jar bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
-          cp target/seowebchecker-seoaudit-sdk-1.0.0-sources.jar bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
-          cp target/seowebchecker-seoaudit-sdk-1.0.0-javadoc.jar bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
-          cp target/seowebchecker-seoaudit-sdk-1.0.0.pom bundle/com/seowebchecker/seowebchecker-seoaudit-sdk/1.0.0/
+          # 3. Create bundle staging directory
+          mkdir -p bundle_flat
 
-          # Also create flat files bundle
-          mkdir -p flat_bundle
-          cp target/seowebchecker-seoaudit-sdk-1.0.0* flat_bundle/
+          # Copy all 4 base artifacts
+          cp target/seowebchecker-seoaudit-sdk-1.0.0.pom bundle_flat/
+          cp target/seowebchecker-seoaudit-sdk-1.0.0.jar bundle_flat/
+          cp target/seowebchecker-seoaudit-sdk-1.0.0-sources.jar bundle_flat/
+          cp target/seowebchecker-seoaudit-sdk-1.0.0-javadoc.jar bundle_flat/
 
-          cd bundle
+          # 4. Sign and create md5/sha1 checksums for each artifact
+          cd bundle_flat
+          for f in *; do
+            if [[ -f "$f" ]]; then
+              echo "Signing and hashing: $f"
+              # Sign (.asc)
+              gpg --batch --yes --armor --detach-sign "$f"
+              # Checksums (.md5 and .sha1)
+              md5sum "$f" | awk '{print $1}' > "${f}.md5"
+              sha1sum "$f" | awk '{print $1}' > "${f}.sha1"
+            fi
+          done
+
+          echo "Bundle contents:"
+          ls -la
+
+          # 5. Create final zip bundle for Sonatype Central Portal
           zip -r ../sonatype-central-bundle.zip .
-          cd ../flat_bundle
-          zip -r ../sonatype-flat-bundle.zip .
 
       - name: Upload Sonatype Central Bundle
         uses: actions/upload-artifact@v4
         with:
           name: sonatype-central-bundle
           path: java/sonatype-central-bundle.zip
-
-      - name: Upload Flat Bundle
-        uses: actions/upload-artifact@v4
-        with:
-          name: sonatype-flat-bundle
-          path: java/sonatype-flat-bundle.zip
