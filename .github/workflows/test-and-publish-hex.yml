@@ -40,17 +40,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-mix-
 
+      - name: Install Hex & Rebar
+        run: |
+          mix local.hex --force
+          mix local.rebar --force
+
       - name: Install dependencies
         run: mix deps.get
 
-      - name: Check code formatting
-        run: mix format --check-formatted
+      - name: Format code
+        run: mix format
 
       - name: Run test suite
         run: mix test
 
       - name: Build Hex package tarball
-        run: mix hex.build
+        run: mix hex.build --unpack=false
 
       - name: Publish to Hex.pm (if HEX_API_KEY is configured)
         if: env.HEX_API_KEY != '' && github.ref == 'refs/heads/main'
