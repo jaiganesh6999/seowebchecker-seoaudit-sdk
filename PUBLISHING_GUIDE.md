@@ -114,11 +114,22 @@ make dist
 
 ## 10. Julia Packages (`juliahub.com` - DA 84 / `julialang.org`)
 1. Ensure the package in `julia/` has valid `Project.toml` and test suite (`test/runtests.jl`).
-2. Install the **[JuliaRegistrator GitHub App](https://github.com/apps/registrator)** on this GitHub repository.
+2. Install the **[JuliaRegistrator GitHub App](https://github.com/apps/juliaregistrator)** on this GitHub repository.
 3. In any commit or issue on GitHub, comment:
 ```text
 @JuliaRegistrator register subdir=julia
 ```
 4. Registrator automatically tests the package and opens a registration PR on `JuliaRegistries/General`.
 5. After the automated 3-day community waiting period, it is merged and indexed automatically on [JuliaHub.com](https://juliahub.com) and the Julia ecosystem.
+
+---
+
+## 11. CRAN (`cran.r-project.org` - DA 99)
+1. Build the CRAN-compliant package source archive (`seowebchecker_1.0.0.tar.gz` in `r/` or download via the GitHub Actions `Build and Check R Package for CRAN` workflow).
+2. Go to the official CRAN package submission web portal:
+   **[https://xmpalantir.wu.ac.at/cransubmit/](https://xmpalantir.wu.ac.at/cransubmit/)** (or [cran.r-project.org/submit.html](https://cran.r-project.org/submit.html))
+3. Upload `seowebchecker_1.0.0.tar.gz`.
+4. Enter your maintainer name and email (`support@seowebchecker.com` or your preferred email).
+5. Click **Upload Package**.
+6. Check your inbox and click the confirmation link sent by CRAN to initiate automated incoming checks.
 

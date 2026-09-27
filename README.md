@@ -5,6 +5,7 @@
 [![NuGet](https://img.shields.io/nuget/v/SeoWebChecker.SeoAudit.svg?color=blue)](https://www.nuget.org/packages/SeoWebChecker.SeoAudit/)
 [![Packagist](https://img.shields.io/packagist/v/seowebchecker/seoaudit-sdk.svg?color=orange)](https://packagist.org/packages/seowebchecker/seoaudit-sdk)
 [![RubyGems](https://badge.fury.io/rb/seowebchecker-seoaudit-sdk.svg)](https://rubygems.org/gems/seowebchecker-seoaudit-sdk)
+[![CRAN](https://img.shields.io/badge/CRAN-seowebchecker-276DC3.svg)](https://cran.r-project.org)
 [![Crates.io](https://img.shields.io/crates/v/seowebchecker-seoaudit-sdk.svg)](https://crates.io/crates/seowebchecker-seoaudit-sdk)
 [![Julia](https://img.shields.io/badge/Julia-SeoWebCheckerAudit-purple.svg)](https://juliahub.com)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seowebchecker/seoaudit-sdk.svg)](https://hub.docker.com/r/seowebchecker/seoaudit-sdk)
@@ -21,6 +22,7 @@ Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
 
 | Registry | Language / Ecosystem | Package Identifier | Domain Authority | Package Directory |
 | :--- | :--- | :--- | :---: | :--- |
+| **[CRAN](https://cran.r-project.org)** | R (>= 3.5) | `seowebchecker` | **DA 99** | [`r/`](./r) |
 | **[NPM](https://npmjs.com)** | Node.js & TypeScript | `seowebchecker-seoaudit-sdk` | **DA 95** | [`npm/`](./npm) |
 | **[Docker Hub](https://hub.docker.com)** | Containers & CLI | `seowebchecker/seoaudit-sdk` | **DA 94** | [`docker/`](./docker) |
 | **[PyPI](https://pypi.org)** | Python 3.8+ | `seowebchecker-seoaudit-sdk` | **DA 94** | [`python/`](./python) |
@@ -32,7 +34,7 @@ Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
 | **[Crates.io](https://crates.io)** | Rust | `seowebchecker-seoaudit-sdk` | **DA 90** | [`rust/`](./rust) |
 | **[JuliaHub](https://juliahub.com)** | Julia 1.6+ | `SeoWebCheckerAudit` | **DA 84** | [`julia/`](./julia) |
 
-*Step-by-step instructions for building and publishing to all 10 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 11 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
