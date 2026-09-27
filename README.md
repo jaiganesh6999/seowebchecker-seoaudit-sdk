@@ -23,22 +23,22 @@ Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
 
 ## 📦 Multi-Ecosystem Distribution Matrix
 
-| Registry | Language / Ecosystem | Package Identifier | Domain Authority | Package Directory |
-| :--- | :--- | :--- | :---: | :--- |
-| **[CRAN](https://cran.r-project.org)** | R (>= 3.5) | `seowebchecker` | **DA 99** | [`r/`](./r) |
-| **[NPM](https://npmjs.com)** | Node.js & TypeScript | `seowebchecker-seoaudit-sdk` | **DA 95** | [`npm/`](./npm) |
-| **[Docker Hub](https://hub.docker.com)** | Containers & CLI | `seowebchecker/seoaudit-sdk` | **DA 94** | [`docker/`](./docker) |
-| **[PyPI](https://pypi.org)** | Python 3.8+ | `seowebchecker-seoaudit-sdk` | **DA 94** | [`python/`](./python) |
-| **[Maven Central](https://central.sonatype.com)** | Java 11+ | `com.seowebchecker:seowebchecker-seoaudit-sdk` | **DA 93** | [`java/`](./java) |
-| **[pkg.go.dev](https://pkg.go.dev/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)** | Go (>= 1.20) | `github.com/jaiganesh6999/seowebchecker-seoaudit-sdk` | **DA 93** | [Root (`./`)](./) |
-| **[RubyGems](https://rubygems.org)** | Ruby 2.7+ | `seowebchecker-seoaudit-sdk` | **DA 92** | [`ruby/`](./ruby) |
-| **[NuGet](https://nuget.org)** | .NET / C# | `SeoWebChecker.SeoAudit` | **DA 92** | [`dotnet/`](./dotnet) |
-| **[Packagist](https://packagist.org)** | PHP 8.2+ | `seowebchecker/seoaudit-sdk` | **DA 91** | [`php/`](./php) |
-| **[CPAN](https://metacpan.org)** | Perl 5 | `SeoWebChecker::SeoAudit` | **DA 91** | [`perl/`](./perl) |
-| **[Crates.io](https://crates.io)** | Rust | `seowebchecker-seoaudit-sdk` | **DA 90** | [`rust/`](./rust) |
-| **[Hackage](https://hackage.haskell.org)** | Haskell | `seowebchecker` | **DA 87** | [`haskell/`](./haskell) |
-| **[JuliaHub](https://juliahub.com)** | Julia 1.6+ | `SeoWebCheckerAudit` | **DA 84** | [`julia/`](./julia) |
-| **[Clojars](https://clojars.org)** | Clojure / JVM | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | **DA 75** | [`clojure/`](./clojure) |
+| Registry | Language / Ecosystem | Package Identifier | Package Directory |
+| :--- | :--- | :--- | :--- |
+| **[CRAN](https://cran.r-project.org)** | R (>= 3.5) | `seowebchecker` | [`r/`](./r) |
+| **[NPM](https://npmjs.com)** | Node.js & TypeScript | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
+| **[Docker Hub](https://hub.docker.com)** | Containers & CLI | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
+| **[PyPI](https://pypi.org)** | Python 3.8+ | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
+| **[Maven Central](https://central.sonatype.com)** | Java 11+ | `com.seowebchecker:seowebchecker-seoaudit-sdk` | [`java/`](./java) |
+| **[pkg.go.dev](https://pkg.go.dev/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)** | Go (>= 1.20) | `github.com/jaiganesh6999/seowebchecker-seoaudit-sdk` | [Root (`./`)](./) |
+| **[RubyGems](https://rubygems.org)** | Ruby 2.7+ | `seowebchecker-seoaudit-sdk` | [`ruby/`](./ruby) |
+| **[NuGet](https://nuget.org)** | .NET / C# | `SeoWebChecker.SeoAudit` | [`dotnet/`](./dotnet) |
+| **[Packagist](https://packagist.org)** | PHP 8.2+ | `seowebchecker/seoaudit-sdk` | [`php/`](./php) |
+| **[CPAN](https://metacpan.org)** | Perl 5 | `SeoWebChecker::SeoAudit` | [`perl/`](./perl) |
+| **[Crates.io](https://crates.io)** | Rust | `seowebchecker-seoaudit-sdk` | [`rust/`](./rust) |
+| **[Hackage](https://hackage.haskell.org)** | Haskell | `seowebchecker` | [`haskell/`](./haskell) |
+| **[JuliaHub](https://juliahub.com)** | Julia 1.6+ | `SeoWebCheckerAudit` | [`julia/`](./julia) |
+| **[Clojars](https://clojars.org)** | Clojure / JVM | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 
 *Step-by-step instructions for building and publishing to all 14 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
