@@ -8,7 +8,7 @@ Provides a lightweight client SDK and utility suite for automated on-page techni
 Official web audit portal and tools available at \url{https://seowebchecker.com}.
 }
 \author{
-Rahul Gupta \email{support@seowebchecker.com} [aut, cre]
+Rahul Gupta \email{jaiganesh6999@gmail.com} [aut, cre]
 
 SEOWebChecker \url{https://seowebchecker.com} [cph]
 }

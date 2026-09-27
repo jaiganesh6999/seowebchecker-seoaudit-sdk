@@ -2,9 +2,10 @@ Package: seowebchecker
 Title: Comprehensive Website SEO Audit and Analysis Tools
 Version: 1.0.0
 Authors@R: c(
-    person("Rahul", "Gupta", email = "support@seowebchecker.com", role = c("aut", "cre")),
+    person("Rahul", "Gupta", email = "jaiganesh6999@gmail.com", role = c("aut", "cre")),
     person("SEOWebChecker", role = "cph")
   )
+Maintainer: Rahul Gupta <jaiganesh6999@gmail.com>
 Description: Provides a lightweight client SDK and utility suite for
     automated website technical SEO audits, meta tag validations,
     Core Web Vitals checks, and search engine optimization scoring.
