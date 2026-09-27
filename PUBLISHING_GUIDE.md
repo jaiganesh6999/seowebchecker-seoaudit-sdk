@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 15 Package Registries
+# Comprehensive Publishing Guide for 16 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 15 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 16 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
 
 ---
 
@@ -22,6 +22,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Rust** | [crates.io](https://crates.io) | **90** | `seowebchecker-seoaudit-sdk` | [`rust/`](./rust) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
+| **Elixir / Erlang** | [hex.pm](https://hex.pm) | **83** | `seowebchecker` | [`elixir/`](./elixir) |
 | **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 
 ---
@@ -206,6 +207,29 @@ Package name: **`seowebchecker`** (verified available).
    *The Dart CLI will display a one-time Google authentication link. Open it in your browser and sign in with your Google Account (`jaiganesh6999@gmail.com`).*
 3. Once authenticated, your package will be immediately live at:
    👉 **[https://pub.dev/packages/seowebchecker](https://pub.dev/packages/seowebchecker)**
+
+---
+
+## 16. Elixir & Erlang (`hex.pm` - DA 83)
+Package name: **`seowebchecker`** (verified available).
+1. Create a free account at **[hex.pm/signup](https://hex.pm/signup)**.
+2. In your Hex account settings, navigate to **[API Keys](https://hex.pm/dashboard/keys)** and generate a new key named `github-publish` with the `api:write` or `publish:packages` permission.
+3. **Publish Method A (GitHub Actions - Recommended)**:
+   - In your GitHub repo settings, add repository secret `HEX_API_KEY`: `<your_hex_api_key>`.
+   - Trigger the GitHub Actions workflow **`Elixir Test & Hex Publish`** (`workflow_dispatch` or push to `main`).
+   - It will run `mix test`, `mix hex.build`, and publish via `mix hex.publish --yes`.
+4. **Publish Method B (CLI)**:
+   ```bash
+   cd elixir
+   mix deps.get
+   mix test
+   mix hex.user auth
+   mix hex.publish
+   ```
+5. Once published, your package and documentation will be live at:
+   👉 **[https://hex.pm/packages/seowebchecker](https://hex.pm/packages/seowebchecker)**
+   👉 **[https://hexdocs.pm/seowebchecker](https://hexdocs.pm/seowebchecker)**
+
 
 
 

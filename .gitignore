@@ -16,6 +16,7 @@ eggs/
 !perl/lib/
 !ruby/lib/
 !npm/lib/
+!elixir/lib/
 parts/
 sdist/
 var/
@@ -50,4 +51,10 @@ Thumbs.db
 # Dart / Flutter
 .dart_tool/
 pubspec.lock
+
+# Elixir / Hex
+_build/
+deps/
+*.ez
+
 
