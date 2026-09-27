@@ -11,6 +11,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Node.js** | [npmjs.com](https://npmjs.com) | **95** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Containers** | [hub.docker.com](https://hub.docker.com) | **94** | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
 | **Python** | [pypi.org](https://pypi.org) | **94** | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
+| **Go** | [pkg.go.dev](https://pkg.go.dev) | **93** | `github.com/jaiganesh6999/seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Java** | [central.sonatype.com](https://central.sonatype.com) | **93** | `com.seowebchecker:seowebchecker-seoaudit-sdk` | [`java/`](./java) |
 | **Ruby** | [rubygems.org](https://rubygems.org) | **92** | `seowebchecker-seoaudit-sdk` | [`ruby/`](./ruby) |
 | **.NET** | [nuget.org](https://nuget.org) | **92** | `SeoWebChecker.SeoAudit` | [`dotnet/`](./dotnet) |
@@ -164,6 +165,24 @@ make dist
    ```bash
    cabal upload haskell/dist/seowebchecker-1.0.0.tar.gz
    ```
+
+---
+
+## 14. Go Modules (`pkg.go.dev` - DA 93)
+Go packages are decentralized and automatically indexed by Google's Go Proxy:
+1. Ensure `go.mod`, `doc.go`, and code are committed and pushed to GitHub `main`.
+2. Create and push a semver git tag:
+   ```bash
+   git tag v1.0.1
+   git push origin v1.0.1
+   ```
+3. Trigger instant indexing on the official Go module proxy:
+   ```bash
+   curl -s "https://proxy.golang.org/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/@v/v1.0.1.info"
+   ```
+4. Visit your live documentation page on pkg.go.dev:
+   👉 **[https://pkg.go.dev/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk](https://pkg.go.dev/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)**
+
 
 
 
