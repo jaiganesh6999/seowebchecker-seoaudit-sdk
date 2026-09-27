@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 16 Package Registries
+# Comprehensive Publishing Guide for 17 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 16 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 17 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
 
 ---
 
@@ -23,6 +23,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **Elixir / Erlang** | [hex.pm](https://hex.pm) | **83** | `seowebchecker` | [`elixir/`](./elixir) |
+| **Lua** | [luarocks.org](https://luarocks.org) | **82** | `seowebchecker` | [`lua/`](./lua) |
 | **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 
 ---
@@ -229,6 +230,29 @@ Package name: **`seowebchecker`** (verified available).
 5. Once published, your package and documentation will be live at:
    👉 **[https://hex.pm/packages/seowebchecker](https://hex.pm/packages/seowebchecker)**
    👉 **[https://hexdocs.pm/seowebchecker](https://hexdocs.pm/seowebchecker)**
+
+---
+
+## 17. Lua (`luarocks.org` - DA 82)
+Package name: **`seowebchecker`** (verified available).
+1. Create a free account at **[luarocks.org](https://luarocks.org)**.
+2. Locate the rockspec file in the repository:
+   `seowebchecker-1.0.0-1.rockspec` (or `lua/seowebchecker-1.0.0-1.rockspec`).
+3. **Publish Method A (Web Upload - Easiest)**:
+   - Go to 👉 **[https://luarocks.org/upload](https://luarocks.org/upload)**.
+   - Click "Browse" and select `seowebchecker-1.0.0-1.rockspec`.
+   - Click **Submit**.
+   - LuaRocks will validate the rockspec and publish the module immediately!
+4. **Publish Method B (CLI)**:
+   - In your LuaRocks account settings, copy your API key.
+   - Run:
+     ```bash
+     luarocks upload seowebchecker-1.0.0-1.rockspec --api-key=<YOUR_LUAROCKS_API_KEY>
+     ```
+5. Once uploaded, your module will be immediately live at:
+   👉 **[https://luarocks.org/modules/seoaitools/seowebchecker](https://luarocks.org/modules/seoaitools/seowebchecker)**
+   (or under your LuaRocks username).
+
 
 
 
