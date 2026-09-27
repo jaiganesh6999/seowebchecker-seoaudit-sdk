@@ -46,3 +46,8 @@ composer.phar
 *.log
 .DS_Store
 Thumbs.db
+
+# Dart / Flutter
+.dart_tool/
+pubspec.lock
+
