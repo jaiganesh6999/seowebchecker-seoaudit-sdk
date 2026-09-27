@@ -133,3 +133,24 @@ make dist
 5. Click **Upload Package**.
 6. Check your inbox and click the confirmation link sent by CRAN to initiate automated incoming checks.
 
+---
+
+## 12. Clojars (`clojars.org` - DA 75)
+1. Sign up or log in to **[clojars.org](https://clojars.org)** using your GitHub account (`jaiganesh6999`).
+   - By logging in with GitHub, the group `com.github.jaiganesh6999` is automatically verified!
+2. In your Clojars Account Profile, generate a **Deploy Token**.
+3. Deploy directly via Leiningen or GitHub Actions:
+   - **Method A (GitHub Actions)**:
+     - In your GitHub repo settings, add repository secrets:
+       - `CLOJARS_USERNAME`: your Clojars username
+       - `CLOJARS_PASSWORD`: your Clojars deploy token
+     - Run the workflow `Test and Publish Clojure Package to Clojars`.
+   - **Method B (CLI)**:
+     ```bash
+     cd clojure
+     export CLOJARS_USERNAME="your-username"
+     export CLOJARS_PASSWORD="your-deploy-token"
+     lein deploy clojars
+     ```
+
+
