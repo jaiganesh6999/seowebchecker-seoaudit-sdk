@@ -83,7 +83,7 @@ docker push <YOUR_DOCKER_USERNAME>/seoaudit-sdk:latest
 2. Run in terminal:
 ```bash
 cd rust
-cargo login <YOUR_CRATES_TOKEN>
+cargo login dsd
 cargo publish
 ```
 
@@ -109,3 +109,16 @@ perl Makefile.PL
 make dist
 ```
 3. Upload the generated `SeoWebChecker-SeoAudit-1.0.0.tar.gz` via PAUSE web upload interface.
+
+---
+
+## 10. Julia Packages (`juliahub.com` - DA 84 / `julialang.org`)
+1. Ensure the package in `julia/` has valid `Project.toml` and test suite (`test/runtests.jl`).
+2. Install the **[JuliaRegistrator GitHub App](https://github.com/apps/registrator)** on this GitHub repository.
+3. In any commit or issue on GitHub, comment:
+```text
+@JuliaRegistrator register subdir=julia
+```
+4. Registrator automatically tests the package and opens a registration PR on `JuliaRegistries/General`.
+5. After the automated 3-day community waiting period, it is merged and indexed automatically on [JuliaHub.com](https://juliahub.com) and the Julia ecosystem.
+

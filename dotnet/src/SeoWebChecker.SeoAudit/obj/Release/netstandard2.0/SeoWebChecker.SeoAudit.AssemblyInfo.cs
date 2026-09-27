@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Lightweight open-source client SDK for website SEO audits, on-page analysis, and " +
     "Core Web Vitals checks by SEOWebChecker."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ea7d5b8b44baf2b28a3557c31798ea54d3a80e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4d3751f0b7addfadaf94a9f4675e6e242ebbded")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeoWebChecker.SeoAudit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeoWebChecker.SeoAudit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
