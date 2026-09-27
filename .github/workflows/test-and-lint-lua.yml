@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        luaVersion: ["5.1", "5.2", "5.3", "5.4", "luajit"]
+        luaVersion: ["5.1", "5.2", "5.3", "5.4", "luajit-2.1"]
 
     steps:
       - name: Checkout repository
