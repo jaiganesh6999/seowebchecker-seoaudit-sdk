@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 9 Package Registries
+# Comprehensive Publishing Guide for 15 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 9 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 15 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
 
 ---
 
@@ -8,16 +8,21 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 
 | Ecosystem | Registry | Domain Authority (DA) | Package Name | Directory |
 | :--- | :--- | :---: | :--- | :--- |
+| **R** | [cran.r-project.org](https://cran.r-project.org) | **99** | `seowebchecker` | [`r/`](./r) |
 | **Node.js** | [npmjs.com](https://npmjs.com) | **95** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Containers** | [hub.docker.com](https://hub.docker.com) | **94** | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
 | **Python** | [pypi.org](https://pypi.org) | **94** | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
 | **Go** | [pkg.go.dev](https://pkg.go.dev) | **93** | `github.com/jaiganesh6999/seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Java** | [central.sonatype.com](https://central.sonatype.com) | **93** | `com.seowebchecker:seowebchecker-seoaudit-sdk` | [`java/`](./java) |
+| **Dart / Flutter** | [pub.dev](https://pub.dev) | **93** | `seowebchecker` | [`dart/`](./dart) |
 | **Ruby** | [rubygems.org](https://rubygems.org) | **92** | `seowebchecker-seoaudit-sdk` | [`ruby/`](./ruby) |
 | **.NET** | [nuget.org](https://nuget.org) | **92** | `SeoWebChecker.SeoAudit` | [`dotnet/`](./dotnet) |
 | **PHP** | [packagist.org](https://packagist.org) | **91** | `seowebchecker/seoaudit-sdk` | [`php/`](./php) |
 | **Perl** | [metacpan.org](https://metacpan.org) | **91** | `SeoWebChecker::SeoAudit` | [`perl/`](./perl) |
 | **Rust** | [crates.io](https://crates.io) | **90** | `seowebchecker-seoaudit-sdk` | [`rust/`](./rust) |
+| **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
+| **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
+| **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 
 ---
 
@@ -182,6 +187,26 @@ Go packages are decentralized and automatically indexed by Google's Go Proxy:
    ```
 4. Visit your live documentation page on pkg.go.dev:
    👉 **[https://pkg.go.dev/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk](https://pkg.go.dev/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)**
+
+---
+
+## 15. Dart & Flutter (`pub.dev` - DA 93)
+Package name: **`seowebchecker`** (verified available).
+1. Test and dry-run locally or via GitHub Actions:
+   ```bash
+   cd dart
+   dart pub get
+   dart test
+   dart pub publish --dry-run
+   ```
+2. Publish to `pub.dev`:
+   ```bash
+   dart pub publish
+   ```
+   *The Dart CLI will display a one-time Google authentication link. Open it in your browser and sign in with your Google Account (`jaiganesh6999@gmail.com`).*
+3. Once authenticated, your package will be immediately live at:
+   👉 **[https://pub.dev/packages/seowebchecker](https://pub.dev/packages/seowebchecker)**
+
 
 
 

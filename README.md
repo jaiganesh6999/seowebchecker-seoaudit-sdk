@@ -11,6 +11,7 @@
 [![Clojars Project](https://img.shields.io/clojars/v/net.clojars.seoaitools/seowebchecker-seoaudit-sdk.svg)](https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk)
 [![Crates.io](https://img.shields.io/crates/v/seowebchecker-seoaudit-sdk.svg)](https://crates.io/crates/seowebchecker-seoaudit-sdk)
 [![Julia](https://img.shields.io/badge/Julia-SeoWebCheckerAudit-purple.svg)](https://juliahub.com)
+[![pub package](https://img.shields.io/pub/v/seowebchecker.svg)](https://pub.dev/packages/seowebchecker)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seowebchecker/seoaudit-sdk.svg)](https://hub.docker.com/r/seowebchecker/seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
@@ -31,6 +32,7 @@ Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
 | **[PyPI](https://pypi.org)** | Python 3.8+ | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
 | **[Maven Central](https://central.sonatype.com)** | Java 11+ | `com.seowebchecker:seowebchecker-seoaudit-sdk` | [`java/`](./java) |
 | **[pkg.go.dev](https://pkg.go.dev/github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)** | Go (>= 1.20) | `github.com/jaiganesh6999/seowebchecker-seoaudit-sdk` | [Root (`./`)](./) |
+| **[pub.dev](https://pub.dev/packages/seowebchecker)** | Dart & Flutter (>= 3.0) | `seowebchecker` | [`dart/`](./dart) |
 | **[RubyGems](https://rubygems.org)** | Ruby 2.7+ | `seowebchecker-seoaudit-sdk` | [`ruby/`](./ruby) |
 | **[NuGet](https://nuget.org)** | .NET / C# | `SeoWebChecker.SeoAudit` | [`dotnet/`](./dotnet) |
 | **[Packagist](https://packagist.org)** | PHP 8.2+ | `seowebchecker/seoaudit-sdk` | [`php/`](./php) |
@@ -40,7 +42,7 @@ Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
 | **[JuliaHub](https://juliahub.com)** | Julia 1.6+ | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **[Clojars](https://clojars.org)** | Clojure / JVM | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 
-*Step-by-step instructions for building and publishing to all 14 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 15 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
