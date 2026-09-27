@@ -1,6 +1,6 @@
 # seowebchecker (Lua)
 
-[![LuaRocks](https://img.shields.io/luarocks/v/seoaitools/seowebchecker.svg)](https://luarocks.org/modules/seoaitools/seowebchecker)
+[![LuaRocks](https://img.shields.io/luarocks/v/seowebchecker/seowebchecker.svg)](https://luarocks.org/modules/seowebchecker/seowebchecker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
 

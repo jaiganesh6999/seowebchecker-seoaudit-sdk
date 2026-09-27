@@ -250,8 +250,8 @@ Package name: **`seowebchecker`** (verified available).
      luarocks upload seowebchecker-1.0.0-1.rockspec --api-key=<YOUR_LUAROCKS_API_KEY>
      ```
 5. Once uploaded, your module will be immediately live at:
-   👉 **[https://luarocks.org/modules/seoaitools/seowebchecker](https://luarocks.org/modules/seoaitools/seowebchecker)**
-   (or under your LuaRocks username).
+   👉 **[https://luarocks.org/modules/seowebchecker/seowebchecker](https://luarocks.org/modules/seowebchecker/seowebchecker)**
+
 
 
 
