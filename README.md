@@ -6,6 +6,7 @@
 [![Packagist](https://img.shields.io/packagist/v/seowebchecker/seoaudit-sdk.svg?color=orange)](https://packagist.org/packages/seowebchecker/seoaudit-sdk)
 [![RubyGems](https://badge.fury.io/rb/seowebchecker-seoaudit-sdk.svg)](https://rubygems.org/gems/seowebchecker-seoaudit-sdk)
 [![CRAN](https://img.shields.io/badge/CRAN-seowebchecker-276DC3.svg)](https://cran.r-project.org)
+[![Hackage](https://img.shields.io/hackage/v/seowebchecker.svg?color=purple)](https://hackage.haskell.org/package/seowebchecker)
 [![Clojars Project](https://img.shields.io/clojars/v/net.clojars.seoaitools/seowebchecker-seoaudit-sdk.svg)](https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk)
 [![Crates.io](https://img.shields.io/crates/v/seowebchecker-seoaudit-sdk.svg)](https://crates.io/crates/seowebchecker-seoaudit-sdk)
 [![Julia](https://img.shields.io/badge/Julia-SeoWebCheckerAudit-purple.svg)](https://juliahub.com)
@@ -33,10 +34,11 @@ Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
 | **[Packagist](https://packagist.org)** | PHP 8.2+ | `seowebchecker/seoaudit-sdk` | **DA 91** | [`php/`](./php) |
 | **[CPAN](https://metacpan.org)** | Perl 5 | `SeoWebChecker::SeoAudit` | **DA 91** | [`perl/`](./perl) |
 | **[Crates.io](https://crates.io)** | Rust | `seowebchecker-seoaudit-sdk` | **DA 90** | [`rust/`](./rust) |
+| **[Hackage](https://hackage.haskell.org)** | Haskell | `seowebchecker` | **DA 87** | [`haskell/`](./haskell) |
 | **[JuliaHub](https://juliahub.com)** | Julia 1.6+ | `SeoWebCheckerAudit` | **DA 84** | [`julia/`](./julia) |
 | **[Clojars](https://clojars.org)** | Clojure / JVM | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | **DA 75** | [`clojure/`](./clojure) |
 
-*Step-by-step instructions for building and publishing to all 12 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 13 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 

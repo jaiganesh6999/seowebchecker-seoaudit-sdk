@@ -152,4 +152,18 @@ make dist
      lein deploy clojars
      ```
 
+---
+
+## 13. Hackage (`hackage.haskell.org` - DA 87)
+1. Create a free account at **[hackage.haskell.org/users/register](https://hackage.haskell.org/users/register)**.
+2. Locate the pre-built sdist tarball:
+   `haskell/dist/seowebchecker-1.0.0.tar.gz` (or download from GitHub Actions `Build and Check Haskell Package for Hackage`).
+3. Upload via the web portal:
+   👉 **[https://hackage.haskell.org/packages/upload](https://hackage.haskell.org/packages/upload)**
+4. Or upload via the `cabal` CLI:
+   ```bash
+   cabal upload haskell/dist/seowebchecker-1.0.0.tar.gz
+   ```
+
+
 
