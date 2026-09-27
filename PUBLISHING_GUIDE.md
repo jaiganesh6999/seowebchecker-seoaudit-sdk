@@ -136,19 +136,18 @@ make dist
 ---
 
 ## 12. Clojars (`clojars.org` - DA 75)
-1. Sign up or log in to **[clojars.org](https://clojars.org)** using your GitHub account (`jaiganesh6999`).
-   - By logging in with GitHub, the group `com.github.jaiganesh6999` is automatically verified!
-2. In your Clojars Account Profile, generate a **Deploy Token**.
+1. The package group is set to your pre-verified personal group: **`net.clojars.seoaitools`** (package identifier: `net.clojars.seoaitools/seowebchecker-seoaudit-sdk`).
+2. In your Clojars Account Profile on [clojars.org](https://clojars.org), generate a **Deploy Token**.
 3. Deploy directly via Leiningen or GitHub Actions:
    - **Method A (GitHub Actions)**:
      - In your GitHub repo settings, add repository secrets:
-       - `CLOJARS_USERNAME`: your Clojars username
+       - `CLOJARS_USERNAME`: `seoaitools`
        - `CLOJARS_PASSWORD`: your Clojars deploy token
      - Run the workflow `Test and Publish Clojure Package to Clojars`.
    - **Method B (CLI)**:
      ```bash
      cd clojure
-     export CLOJARS_USERNAME="your-username"
+     export CLOJARS_USERNAME="seoaitools"
      export CLOJARS_PASSWORD="your-deploy-token"
      lein deploy clojars
      ```

@@ -1,4 +1,4 @@
-(defproject com.github.jaiganesh6999/seowebchecker-seoaudit-sdk "1.0.0"
+(defproject net.clojars.seoaitools/seowebchecker-seoaudit-sdk "1.0.0"
   :description "Lightweight open-source client SDK and utility suite for website SEO audits, on-page analysis, and Core Web Vitals checks."
   :url "https://seowebchecker.com"
   :license {:name "MIT License"

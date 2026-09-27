@@ -1,8 +1,8 @@
-# com.github.jaiganesh6999/seowebchecker-seoaudit-sdk (Clojure)
+# net.clojars.seoaitools/seowebchecker-seoaudit-sdk (Clojure)
 
 [![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Clojars Project](https://img.shields.io/clojars/v/com.github.jaiganesh6999/seowebchecker-seoaudit-sdk.svg)](https://clojars.org/com.github.jaiganesh6999/seowebchecker-seoaudit-sdk)
+[![Clojars Project](https://img.shields.io/clojars/v/net.clojars.seoaitools/seowebchecker-seoaudit-sdk.svg)](https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk)
 
 Lightweight open-source client SDK and utility suite for automated on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals checks for the Clojure programming language. Engineered by the [SEOWebChecker](https://seowebchecker.com) team.
 
@@ -31,12 +31,12 @@ Add the dependency to your Clojure project:
 
 ### Leiningen (`project.clj`)
 ```clojure
-[com.github.jaiganesh6999/seowebchecker-seoaudit-sdk "1.0.0"]
+[net.clojars.seoaitools/seowebchecker-seoaudit-sdk "1.0.0"]
 ```
 
 ### Clojure CLI (`deps.edn`)
 ```clojure
-com.github.jaiganesh6999/seowebchecker-seoaudit-sdk {:mvn/version "1.0.0"}
+net.clojars.seoaitools/seowebchecker-seoaudit-sdk {:mvn/version "1.0.0"}
 ```
 
 ---
@@ -84,7 +84,7 @@ com.github.jaiganesh6999/seowebchecker-seoaudit-sdk {:mvn/version "1.0.0"}
 
 - **Official Web Portal**: [https://seowebchecker.com](https://seowebchecker.com)
 - **GitHub Repository**: [https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
-- **Clojars Registry**: [https://clojars.org/com.github.jaiganesh6999/seowebchecker-seoaudit-sdk](https://clojars.org/com.github.jaiganesh6999/seowebchecker-seoaudit-sdk)
+- **Clojars Registry**: [https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk](https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk)
 
 ---
 
