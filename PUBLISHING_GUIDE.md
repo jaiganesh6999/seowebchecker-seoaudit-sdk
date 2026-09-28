@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 23 Package Registries
+# Comprehensive Publishing Guide for 24 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 23 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 24 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -24,6 +24,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Rust** | [crates.io](https://crates.io) | **90** | `seowebchecker-seoaudit-sdk` | [`rust/`](./rust) |
 | **JavaScript (Yarn)** | [yarnpkg.com](https://yarnpkg.com) | **90** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Web Assets** | [bower.io](https://bower.io) | **88** | `seowebchecker` | [Root (`./bower.json`)](./bower.json) |
+| **Java / Android** | [jitpack.io](https://jitpack.io) | **88** | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk` | [`java/`](./java) |
 | **Frontend (Vite)** | [vite.dev](https://vite.dev) | **87** | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
@@ -429,3 +430,53 @@ As documented in the official [vite.dev Plugin Guide](https://vite.dev/guide/api
      ]
    });
    ```
+
+---
+
+## 24. JitPack (`jitpack.io` - DA 88)
+Package identifier: **`com.github.jaiganesh6999.seowebchecker-seoaudit-sdk`**  
+Package directory: [`java/`](./java) & Root [`pom.xml`](./pom.xml)
+
+### Architecture & On-Demand Building
+[JitPack](https://jitpack.io) is a JVM package repository that builds Git repositories on-demand directly from tags and commits. Root [`pom.xml`](./pom.xml) aggregates the [`java/`](./java) module, and [`jitpack.yml`](./jitpack.yml) specifies the OpenJDK 17 build environment.
+
+### Live Package & Coordinates
+👉 **[https://jitpack.io/#jaiganesh6999/seowebchecker-seoaudit-sdk](https://jitpack.io/#jaiganesh6999/seowebchecker-seoaudit-sdk)**
+
+### Developer Installation
+
+#### Maven
+1. Add JitPack repository to your `pom.xml`:
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+2. Add the dependency:
+```xml
+<dependency>
+    <groupId>com.github.jaiganesh6999.seowebchecker-seoaudit-sdk</groupId>
+    <artifactId>seowebchecker-seoaudit-sdk</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+#### Gradle (Groovy DSL)
+1. Add repository to `settings.gradle` or root `build.gradle`:
+```groovy
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+```
+
+2. Add dependency:
+```groovy
+dependencies {
+    implementation 'com.github.jaiganesh6999.seowebchecker-seoaudit-sdk:seowebchecker-seoaudit-sdk:1.0.0'
+}
+```
