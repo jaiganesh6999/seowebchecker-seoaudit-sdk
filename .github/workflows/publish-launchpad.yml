@@ -14,7 +14,7 @@ on:
 env:
   PACKAGE_NAME: seowebchecker
   PACKAGE_VERSION: 1.0.1
-  PPA: ppa:jaiganesh6999/seowebchecker
+  PPA: ppa:seoaitools/seowebchecker
 
 jobs:
   publish-ppa:
@@ -160,7 +160,7 @@ jobs:
           [launchpad]
           fqdn = upload.ubuntu.com
           method = ftp
-          incoming = ~jaiganesh6999/ubuntu/seowebchecker/
+          incoming = ~seoaitools/ubuntu/seowebchecker/
           login = anonymous
           allow_unsigned_uploads = 0
           EOF
@@ -171,5 +171,5 @@ jobs:
           echo "Uploading: $CHANGES"
           dput launchpad "$CHANGES"
           echo "Upload complete!"
-          echo "PPA: https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker"
-          echo "Builds: https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker/+builds"
+          echo "PPA: https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker"
+          echo "Builds: https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker/+builds"

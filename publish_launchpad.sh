@@ -9,7 +9,7 @@ set -euo pipefail
 PACKAGE="seowebchecker"
 VERSION="1.0.1"
 SERIES="${1:-noble}"  # noble, jammy, focal
-PPA="ppa:jaiganesh6999/seowebchecker"
+PPA="ppa:seoaitools/seowebchecker"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BUILD_DIR="/tmp/ppa-build/${SERIES}"
 PKG="${PACKAGE}_${VERSION}"

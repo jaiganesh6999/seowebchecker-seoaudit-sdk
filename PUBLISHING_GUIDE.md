@@ -46,7 +46,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Multi-Format / Cloud** | [cloudsmith.io](https://cloudsmith.io) | **78** | `seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Apple / Swift** | [swiftpackageindex.com](https://swiftpackageindex.com) | **76** | `SeoWebChecker` | [Root (`./Package.swift`)](./Package.swift) |
 | **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
-| **Ubuntu / Debian (Launchpad PPA)** | [launchpad.net](https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker) | **93** | `seowebchecker` | [`launchpad/`](./launchpad) |
+| **Ubuntu / Debian (Launchpad PPA)** | [launchpad.net](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker) | **93** | `seowebchecker` | [`launchpad/`](./launchpad) |
 
 ---
 
@@ -1073,14 +1073,14 @@ The derivation in [`nix/package.nix`](./nix/package.nix) is built with `stdenv.m
 
 [Launchpad](https://launchpad.net/) is Canonical's hosting platform and the official Personal Package Archive (PPA) service for Ubuntu and Debian packages. Publishing to a PPA allows Ubuntu and Debian users to install packages directly via `apt`.
 
-**PPA URL:** `https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker`  
-**Install command:** `sudo add-apt-repository ppa:jaiganesh6999/seowebchecker && sudo apt install seowebchecker`  
+**PPA URL:** `https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker`  
+**Install command:** `sudo add-apt-repository ppa:seoaitools/seowebchecker && sudo apt install seowebchecker`  
 **Package Directory:** [`launchpad/`](./launchpad)  
 **GitHub Actions Workflow:** [`.github/workflows/publish-launchpad.yml`](./.github/workflows/publish-launchpad.yml)
 
 ### Prerequisites
 
-1. **Launchpad account** — Register at [launchpad.net/+login](https://launchpad.net/+login) with the username `jaiganesh6999` and email `jaiganesh6999@gmail.com`.
+1. **Launchpad account** — Account registered at [launchpad.net](https://launchpad.net) under username `seoaitools`.
 2. **GPG key** — Generate and register a GPG key with Launchpad:
    ```bash
    # Generate a new key (if you don't have one)
@@ -1088,7 +1088,7 @@ The derivation in [`nix/package.nix`](./nix/package.nix) is built with `stdenv.m
    # Export the public key
    gpg --export --armor YOUR_KEY_ID | xclip
    ```
-   Then paste it at: **https://launchpad.net/~jaiganesh6999/+editpgpkeys**
+   Then paste it at: **https://launchpad.net/~seoaitools/+editpgpkeys**
 3. **Confirmed key** — Launchpad sends a confirmation email; you must decrypt it and confirm.
 
 ### Directory Structure
@@ -1119,7 +1119,7 @@ The workflow `.github/workflows/publish-launchpad.yml` builds the Debian source 
 1. Set the two GitHub Secrets above.
 2. Trigger the workflow manually via GitHub Actions → **"Publish to Launchpad PPA"** → **Run workflow**.
 3. The workflow builds for `noble` (24.04), `jammy` (22.04), and `focal` (20.04) in parallel.
-4. Each build uploads to `ppa:jaiganesh6999/seowebchecker` via `dput`.
+4. Each build uploads to `ppa:seoaitools/seowebchecker` via `dput`.
 5. Launchpad compiles the packages on its build farm and sends a confirmation email.
 
 ### Method 2: Linux / WSL (Local)
