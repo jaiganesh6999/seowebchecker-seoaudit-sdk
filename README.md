@@ -16,6 +16,7 @@
 [![LuaRocks](https://img.shields.io/luarocks/v/seowebchecker/seowebchecker.svg)](https://luarocks.org/modules/seowebchecker/seowebchecker)
 [![Conda](https://img.shields.io/badge/Conda-seowebchecker--seoaudit--sdk-3EB049.svg)](https://anaconda.org)
 [![CocoaPods](https://img.shields.io/cocoapods/v/SeoWebChecker.svg)](https://cocoapods.org/pods/SeoWebChecker)
+[![Bower](https://img.shields.io/badge/Bower-seowebchecker-FFCC29.svg)](https://bower.io)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seowebchecker/seoaudit-sdk.svg)](https://hub.docker.com/r/seowebchecker/seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
@@ -49,8 +50,9 @@ Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
 | **[Hackage](https://hackage.haskell.org)** | Haskell | `seowebchecker` | [`haskell/`](./haskell) |
 | **[JuliaHub](https://juliahub.com)** | Julia 1.6+ | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **[Clojars](https://clojars.org)** | Clojure / JVM | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
+| **[Bower](https://bower.io)** | Front-End & Web Assets | `seowebchecker` (`jaiganesh6999/seowebchecker-seoaudit-sdk`) | [Root (`./bower.json`)](./bower.json) |
 
-*Step-by-step instructions for building and publishing to all 19 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 20 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
