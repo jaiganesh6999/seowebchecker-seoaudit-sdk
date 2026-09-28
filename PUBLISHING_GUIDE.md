@@ -1308,6 +1308,16 @@ In `~/.codeium/windsurf/mcp_config.json`:
    npx -y @smithery/cli install seowebchecker --client claude
    ```
 
+### Publishing to npm & MCP Registries
+
+* **npm (Live Package):** [seowebchecker-mcp-server](https://www.npmjs.com/package/seowebchecker-mcp-server)
+  ```bash
+  npm publish --access public
+  ```
+* **Official MCP Registry:** Configured via [`mcp/server.json`](./mcp/server.json) conforming to the official `server.schema.json` specification.
+* **Awesome MCP Servers:** Pull Request submitted to upstream [punkpeye/awesome-mcp-servers#15290](https://github.com/punkpeye/awesome-mcp-servers/pull/15290).
+* **Glama.ai & PulseMCP:** Indexed via npm package `seowebchecker-mcp-server` and repository manifest.
+
 
 
 
