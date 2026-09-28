@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 25 Package Registries
+# Comprehensive Publishing Guide for 26 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 25 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 26 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -9,6 +9,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | Ecosystem | Registry | Domain Authority (DA) | Package Name | Directory |
 | :--- | :--- | :---: | :--- | :--- |
 | **R** | [cran.r-project.org](https://cran.r-project.org) | **99** | `seowebchecker` | [`r/`](./r) |
+| **Enterprise / Cloud** | [dev.azure.com](https://dev.azure.com) | **96** | `seowebchecker` (Feed) | Root (`./`) |
 | **Node.js** | [npmjs.com](https://npmjs.com) | **95** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Containers** | [hub.docker.com](https://hub.docker.com) | **94** | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
 | **Python (PyPI)** | [pypi.org](https://pypi.org) | **94** | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
@@ -527,3 +528,53 @@ By enabling **Public Broadcasts** on the repository, Cloudsmith generates a publ
 
 4. **Live Repository Showcase**:
    👉 **[https://cloudsmith.io/~seowebchecker/repos/seowebchecker-seoaudit-sdk/packages/](https://cloudsmith.io/~seowebchecker/repos/seowebchecker-seoaudit-sdk/packages/)**
+
+---
+
+## 26. Azure Artifacts (`dev.azure.com` - DA 96)
+Feed identifier: **`seowebchecker`**  
+Package directory: Root & All Ecosystem Modules
+
+### Architecture & Enterprise Cloud Feeds
+[Azure Artifacts](https://learn.microsoft.com/azure/devops/artifacts/) is Microsoft's enterprise-grade cloud package registry hosted on Azure DevOps (`dev.azure.com` - DA 96). It integrates NuGet, npm, Python (PyPI), Maven, and Universal Packages into unified project-scoped feeds.
+
+When hosted in a public Azure DevOps project, the feed is publicly browsable and consumable by any developer without requiring credentials.
+
+### Setup & Public Feed Creation
+1. **Create an Azure DevOps Organization & Project**:
+   - Go to [https://dev.azure.com](https://dev.azure.com) and create an organization (e.g. `seowebchecker`).
+   - Create a project named `seowebchecker-seoaudit-sdk` (set Visibility to **Public**).
+2. **Create the Artifacts Feed**:
+   - Navigate to **Artifacts** -> **Create Feed**.
+   - **Name**: `seowebchecker`.
+   - **Scope**: Project (`seowebchecker-seoaudit-sdk`).
+   - Click **Create**.
+3. **Generate a Personal Access Token (PAT)**:
+   - Click User Settings (gear icon in upper right) -> **Personal Access Tokens**.
+   - Create a token with **Packaging (Read, write, & manage)** scope.
+
+### Automated One-Click Publishing
+Run the included PowerShell or batch helper script:
+```powershell
+.\publish_azure_artifacts.bat -Pat "<YOUR_AZURE_DEVOPS_PAT>" -Org "seowebchecker" -Project "seowebchecker-seoaudit-sdk" -Feed "seowebchecker"
+```
+
+### Manual CLI Publishing
+
+#### NuGet (.NET)
+```bash
+dotnet nuget push dotnet/nupkg/SeoWebChecker.SeoAudit.1.0.0.nupkg `
+  --source "https://pkgs.dev.azure.com/<ORG>/<PROJECT>/_packaging/<FEED>/nuget/v3/index.json" `
+  --api-key <YOUR_PAT>
+```
+
+#### Python (PyPI)
+```bash
+python -m twine upload `
+  --repository-url "https://pkgs.dev.azure.com/<ORG>/<PROJECT>/_packaging/<FEED>/pypi/upload/" `
+  -u <ORG> -p <YOUR_PAT> `
+  python/dist/seowebchecker_seoaudit_sdk-1.0.0-py3-none-any.whl
+```
+
+### Live Public Feed URL
+👉 **`https://dev.azure.com/seowebchecker/seowebchecker-seoaudit-sdk/_artifacts/feed/seowebchecker`**
