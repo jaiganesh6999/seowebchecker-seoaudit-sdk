@@ -1,0 +1,12 @@
+# Smithery configuration file for SEOWebChecker MCP Server
+# https://smithery.ai/
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    (config) => ({
+      command: 'node',
+      args: ['mcp/index.js']
+    })

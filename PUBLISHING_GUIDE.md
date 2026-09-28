@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 39 Package Registries
+# Comprehensive Publishing Guide for 40 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 39 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 40 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -48,6 +48,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 | **Ubuntu / Debian (Launchpad PPA)** | [launchpad.net](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker) | **93** | `seowebchecker` | [`launchpad/`](./launchpad) |
 | **FreeBSD / BSD Unix** | [freebsd.org](https://www.freebsd.org/ports/) | **93** | `seowebchecker` | [`freebsd/`](./freebsd) |
+| **AI Assistants (MCP Server)** | [smithery.ai](https://smithery.ai) / [modelcontextprotocol.io](https://modelcontextprotocol.io) | **96** | `seowebchecker` | [`mcp/`](./mcp) |
 
 ---
 
@@ -1228,6 +1229,85 @@ make check-plist
 make stage-qa
 make package
 ```
+
+---
+
+## 40. Model Context Protocol (MCP Server) (`smithery.ai` - DA 78+ / GitHub DA 96)
+
+The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is the open standard created by Anthropic that connects AI assistants directly to external development tools, APIs, and audit suites. Supported by **Claude Desktop**, **Cursor IDE**, **Windsurf**, **GitHub Copilot**, and **Cline**.
+
+* **Server Name:** `seowebchecker`
+* **Package Name:** `seowebchecker-mcp-server`
+* **Maintainer:** `support@seowebchecker.com`
+* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **License:** MIT
+* **Directory:** [`mcp/`](./mcp)
+* **Smithery Config:** [`smithery.yaml`](./smithery.yaml)
+
+### Exposed MCP Tools
+
+| Tool Name | Description |
+|---|---|
+| `seowebchecker_audit` | Full technical on-page SEO audit (title, meta description, canonical, headings H1-H6, images, links) |
+| `seowebchecker_check_meta` | Inspect and validate Title, Meta Description, Robots, Canonical, OpenGraph, and Twitter tags |
+| `seowebchecker_core_web_vitals` | Evaluate Core Web Vitals (LCP, FID, CLS, INP, TTFB) with performance optimization advice |
+| `seowebchecker_quick_score` | Fast 0-100 technical SEO score calculation with passed/failed checks breakdown |
+
+### Connecting to Claude Desktop
+
+Add this block to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "seowebchecker": {
+      "command": "node",
+      "args": ["<PATH_TO_REPO>/mcp/index.js"]
+    }
+  }
+}
+```
+
+### Connecting to Cursor IDE
+
+In `~/.cursor/mcp.json` or Cursor Settings → MCP:
+
+```json
+{
+  "mcpServers": {
+    "seowebchecker": {
+      "command": "node",
+      "args": ["<PATH_TO_REPO>/mcp/index.js"]
+    }
+  }
+}
+```
+
+### Connecting to Windsurf
+
+In `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "seowebchecker": {
+      "command": "node",
+      "args": ["<PATH_TO_REPO>/mcp/index.js"]
+    }
+  }
+}
+```
+
+### Publishing to Smithery.ai
+
+1. Ensure [`smithery.yaml`](./smithery.yaml) is in the root of the repository.
+2. Visit **[https://smithery.ai/](https://smithery.ai/)** and sign in with GitHub.
+3. Click **"Import MCP Server"** and select `jaiganesh6999/seowebchecker-seoaudit-sdk`.
+4. Smithery will automatically index the server, allowing any AI user to install it via:
+   ```bash
+   npx -y @smithery/cli install seowebchecker --client claude
+   ```
+
 
 
 
