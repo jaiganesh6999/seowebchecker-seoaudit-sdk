@@ -1,6 +1,6 @@
 {
   "name": "seowebchecker-seoaudit-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight open-source client SDK and CLI tool for website SEO audits, on-page analysis, and Core Web Vitals checks by SEOWebChecker.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -27,10 +27,10 @@
   "homepage": "https://seowebchecker.com/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seowebchecker/seowebchecker-seoaudit-sdk.git"
+    "url": "git+https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/seowebchecker/seowebchecker-seoaudit-sdk/issues"
+    "url": "https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/issues"
   },
   "engines": {
     "node": ">=16.0.0"

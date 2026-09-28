@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 21 Package Registries
+# Comprehensive Publishing Guide for 22 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 21 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 22 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -22,6 +22,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Perl** | [metacpan.org](https://metacpan.org) | **91** | `SeoWebChecker::SeoAudit` | [`perl/`](./perl) |
 | **iOS / macOS** | [cocoapods.org](https://cocoapods.org) | **90** | `SeoWebChecker` | [`swift/`](./swift) |
 | **Rust** | [crates.io](https://crates.io) | **90** | `seowebchecker-seoaudit-sdk` | [`rust/`](./rust) |
+| **JavaScript (Yarn)** | [yarnpkg.com](https://yarnpkg.com) | **90** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Web Assets** | [bower.io](https://bower.io) | **88** | `seowebchecker` | [Root (`./bower.json`)](./bower.json) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
@@ -363,3 +364,26 @@ Package manifest: Root `Package.swift`
 
 Once indexed, the package is live at:  
 👉 **`https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk`**
+
+---
+
+## 22. Yarn (`yarnpkg.com` - DA 90)
+Package identifier: **`seowebchecker-seoaudit-sdk`**  
+Package directory: [`npm/`](./npm)
+
+### Architecture & Synchronization
+Yarn seamlessly indexes and distributes all packages published to the NPM registry. Publishing via npm instantly makes the package available across `yarnpkg.com` and all Yarn package clients worldwide.
+
+### Publishing & Installation
+1. Publish from `npm/` directory:
+   ```bash
+   cd npm
+   npm publish --access public
+   ```
+2. Once published, the package is immediately live on Yarn:  
+   👉 **[https://yarnpkg.com/package/seowebchecker-seoaudit-sdk](https://yarnpkg.com/package/seowebchecker-seoaudit-sdk)**
+
+3. Developers install via Yarn CLI:
+   ```bash
+   yarn add seowebchecker-seoaudit-sdk
+   ```

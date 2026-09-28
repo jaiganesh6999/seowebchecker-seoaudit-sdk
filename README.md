@@ -18,6 +18,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/SeoWebChecker.svg)](https://cocoapods.org/pods/SeoWebChecker)
 [![Swift Package Index](https://img.shields.io/badge/Swift%20Package%20Index-SeoWebChecker-FA7343.svg)](https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
 [![Bower](https://img.shields.io/badge/Bower-seowebchecker-FFCC29.svg)](https://bower.io)
+[![Yarn](https://img.shields.io/badge/Yarn-seowebchecker--seoaudit--sdk-2C8EBB.svg)](https://yarnpkg.com/package/seowebchecker-seoaudit-sdk)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seowebchecker/seoaudit-sdk.svg)](https://hub.docker.com/r/seowebchecker/seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
@@ -34,6 +35,7 @@ Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 | :--- | :--- | :--- | :--- |
 | **[CRAN](https://cran.r-project.org)** | R (>= 3.5) | `seowebchecker` | [`r/`](./r) |
 | **[NPM](https://npmjs.com)** | Node.js & TypeScript | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
+| **[Yarn](https://yarnpkg.com/package/seowebchecker-seoaudit-sdk)** | JavaScript & TypeScript (Yarn) | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **[Docker Hub](https://hub.docker.com)** | Containers & CLI | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
 | **[PyPI](https://pypi.org)** | Python 3.8+ | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
 | **[Anaconda.org](https://anaconda.org)** | Conda / Python / Data Science | `seowebchecker-seoaudit-sdk` | [`conda/`](./conda) |
@@ -54,7 +56,7 @@ Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 | **[Bower](https://bower.io)** | Front-End & Web Assets | `seowebchecker` (`jaiganesh6999/seowebchecker-seoaudit-sdk`) | [Root (`./bower.json`)](./bower.json) |
 | **[Swift Package Index](https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk)** | Swift & Apple Platforms (SPM) | `SeoWebChecker` | [Root (`./Package.swift`)](./Package.swift) |
 
-*Step-by-step instructions for building and publishing to all 21 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 22 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
