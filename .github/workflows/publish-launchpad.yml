@@ -136,35 +136,16 @@ jobs:
         env:
           GPG_PASSPHRASE: ${{ secrets.LAUNCHPAD_GPG_PASSPHRASE }}
         run: |
-          DSC=$(ls    "$BUILD_DIR"/*.dsc     | head -1)
           CHANGES=$(ls "$BUILD_DIR"/*.changes | head -1)
-          BUILDINFO=$(ls "$BUILD_DIR"/*.buildinfo 2>/dev/null | head -1 || true)
 
-          sign_file() {
-            local FILE="$1"
-            echo "Signing: $FILE"
-            gpg --batch --yes \
-              --passphrase "$GPG_PASSPHRASE" \
-              --pinentry-mode loopback \
-              -u "$GPG_FINGERPRINT" \
-              --clearsign \
-              -o "${FILE}.signed" \
-              "$FILE"
-            mv "${FILE}.signed" "$FILE"
-          }
+          cat << 'EOF' > /tmp/gpg-sign-wrapper.sh
+#!/bin/bash
+exec /usr/bin/gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"
+EOF
+          chmod +x /tmp/gpg-sign-wrapper.sh
 
-          sign_file "$DSC"
-          [ -n "$BUILDINFO" ] && sign_file "$BUILDINFO" || true
-
-          # Sign the .changes file (must be last, references other files)
-          gpg --batch --yes \
-            --passphrase "$GPG_PASSPHRASE" \
-            --pinentry-mode loopback \
-            -u "$GPG_FINGERPRINT" \
-            --clearsign \
-            -o "${CHANGES}.signed" \
-            "$CHANGES"
-          mv "${CHANGES}.signed" "$CHANGES"
+          echo "Signing package via debsign: $CHANGES"
+          debsign -p/tmp/gpg-sign-wrapper.sh -k"$GPG_FINGERPRINT" "$CHANGES"
 
           echo "--- Signed files ---"
           ls -lh "$BUILD_DIR"/*.dsc "$BUILD_DIR"/*.changes
