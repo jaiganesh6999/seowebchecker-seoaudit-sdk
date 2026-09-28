@@ -143,10 +143,8 @@ jobs:
         run: |
           CHANGES=$(ls "$BUILD_DIR"/*.changes | head -1)
 
-          cat << 'EOF' > /tmp/gpg-sign-wrapper.sh
-#!/bin/bash
-exec /usr/bin/gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"
-EOF
+          echo '#!/bin/bash' > /tmp/gpg-sign-wrapper.sh
+          echo 'exec /usr/bin/gpg --batch --yes --pinentry-mode loopback --passphrase "$GPG_PASSPHRASE" "$@"' >> /tmp/gpg-sign-wrapper.sh
           chmod +x /tmp/gpg-sign-wrapper.sh
 
           echo "Signing package via debsign: $CHANGES"
