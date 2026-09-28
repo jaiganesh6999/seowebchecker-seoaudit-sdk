@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: SEOWebChecker Team <support@seowebchecker.com>
 Build-Depends:
  debhelper-compat (= 13),
- dh-python,
  python3-all,
+ python3-pip,
  python3-setuptools,
  python3-requests,
  python3-bs4,
