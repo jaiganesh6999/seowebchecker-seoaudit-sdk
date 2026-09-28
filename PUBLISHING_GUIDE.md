@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 27 Package Registries
+# Comprehensive Publishing Guide for 28 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 27 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 28 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -27,6 +27,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **JavaScript (Yarn)** | [yarnpkg.com](https://yarnpkg.com) | **90** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Web Assets** | [bower.io](https://bower.io) | **88** | `seowebchecker` | [Root (`./bower.json`)](./bower.json) |
 | **Java / Android** | [jitpack.io](https://jitpack.io) | **88** | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk` | [`java/`](./java) |
+| **Windows (Chocolatey)** | [chocolatey.org](https://community.chocolatey.org) | **88** | `seowebchecker` | [`chocolatey/`](./chocolatey) |
 | **Frontend (Vite)** | [vite.dev](https://vite.dev) | **87** | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
@@ -605,3 +606,39 @@ Run the included PowerShell or batch helper script:
 ### Live Public Package Showcase
 👉 **[https://github.com/jaiganesh6999?tab=packages](https://github.com/jaiganesh6999?tab=packages)**  
 👉 **[https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/pkgs/container/seowebchecker-seoaudit-sdk](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/pkgs/container/seowebchecker-seoaudit-sdk)**
+
+---
+
+## 28. Chocolatey (`community.chocolatey.org` - DA 88)
+Package identifier: **`seowebchecker`**  
+Package directory: [`chocolatey/`](./chocolatey)
+
+### Architecture & Windows Package Ecosystem
+[Chocolatey](https://community.chocolatey.org) is the primary Windows package manager ecosystem. Publishing `seowebchecker` to the Chocolatey Community Repository allows millions of developers and system administrators to install the CLI with a single command (`choco install seowebchecker`) and generates an authoritative public package page with backlinks to [https://seowebchecker.com/](https://seowebchecker.com/).
+
+### Package Contents
+The package is pre-configured in [`chocolatey/`](./chocolatey):
+- [`seowebchecker.nuspec`](./chocolatey/seowebchecker.nuspec): Metadata, license, tags, and project URL.
+- [`tools/seowebchecker.bat`](./chocolatey/tools/seowebchecker.bat): Automatic cross-environment CLI runner.
+- [`tools/chocolateyinstall.ps1`](./chocolatey/tools/chocolateyinstall.ps1): Automated install script.
+
+### Publishing to Chocolatey
+
+1. **Obtain API Key**:
+   - Register or log in to [https://community.chocolatey.org/account](https://community.chocolatey.org/account).
+   - Copy your personal API key.
+
+2. **One-Click Publishing**:
+   Run the included PowerShell or batch helper script:
+   ```cmd
+   .\publish_chocolatey.bat -ApiKey "<YOUR_CHOCOLATEY_API_KEY>"
+   ```
+
+3. **Manual CLI Command**:
+   ```bash
+   choco pack chocolatey/seowebchecker.nuspec --outputdirectory chocolatey
+   choco push chocolatey/seowebchecker.1.0.0.nupkg --source "'https://push.chocolatey.org/'" -k="'<YOUR_API_KEY>'"
+   ```
+
+### Live Public Package Page
+👉 **`https://community.chocolatey.org/packages/seowebchecker`**

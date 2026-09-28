@@ -36,3 +36,4 @@ Official Website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 | **[Vite](https://vite.dev)** | Frontend Build Tool (Plugin) | `vite-plugin-seowebchecker` | `vite/` |
 | **[JitPack](https://jitpack.io/#jaiganesh6999/seowebchecker-seoaudit-sdk)** | Java / Android / JVM | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk:seowebchecker-seoaudit-sdk` | `java/` |
 | **[Cloudsmith](https://cloudsmith.io)** | Multi-Format Cloud Packages | `seowebchecker-seoaudit-sdk` | Root |
+| **[Chocolatey](https://community.chocolatey.org/packages/seowebchecker)** | Windows Package Manager | `seowebchecker` | `chocolatey/` |
