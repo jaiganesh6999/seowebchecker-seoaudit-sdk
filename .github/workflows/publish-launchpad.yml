@@ -2,11 +2,6 @@ name: Publish to Launchpad PPA
 
 on:
   workflow_dispatch:
-    inputs:
-      ubuntu_series:
-        description: 'Ubuntu series to target (space-separated)'
-        required: false
-        default: 'noble jammy focal'
   push:
     tags:
       - 'v*'
@@ -32,173 +27,150 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      # ── GPG Setup ─────────────────────────────────────────────────────────
-      - name: Import GPG key and configure agent
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.LAUNCHPAD_GPG_PRIVATE_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.LAUNCHPAD_GPG_PASSPHRASE }}
-        run: |
-          # Configure GPG for non-interactive (no TTY) use
-          mkdir -p ~/.gnupg
-          chmod 700 ~/.gnupg
-
-          cat > ~/.gnupg/gpg.conf << 'EOF'
-          no-tty
-          batch
-          pinentry-mode loopback
-          EOF
-
-          cat > ~/.gnupg/gpg-agent.conf << 'EOF'
-          allow-loopback-pinentry
-          default-cache-ttl 3600
-          max-cache-ttl 7200
-          EOF
-
-          # Import the private key using passphrase
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --passphrase-fd 3 \
-            --pinentry-mode loopback --import 3<<< "$GPG_PASSPHRASE" || \
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-
-          # Restart agent to pick up new config
-          gpgconf --kill gpg-agent
-          gpg-agent --daemon --allow-loopback-pinentry || true
-
-          # Get key fingerprint
-          KEY_FP=$(gpg --list-secret-keys --with-colons | grep '^fpr' | head -1 | cut -d: -f10)
-          echo "GPG_FINGERPRINT=$KEY_FP" >> $GITHUB_ENV
-          echo "Key fingerprint: $KEY_FP"
-
-          # Test signing works
-          echo "test" | gpg --batch --yes --passphrase "$GPG_PASSPHRASE" \
-            --pinentry-mode loopback -u "$KEY_FP" --clearsign > /dev/null && \
-            echo "GPG signing test: OK" || echo "GPG signing test: WARN (may still work)"
 
       # ── Install build tools ───────────────────────────────────────────────
       - name: Install packaging tools
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y \
-            devscripts \
-            debhelper \
-            python3-all \
-            python3-pip \
-            python3-setuptools \
-            python3-requests \
-            python3-bs4 \
-            build-essential \
-            dput \
-            fakeroot \
-            gnupg2
+            devscripts debhelper python3-all python3-pip \
+            python3-setuptools python3-requests python3-bs4 \
+            dput gnupg2
 
-      # ── Prepare source tarball ────────────────────────────────────────────
-      - name: Create upstream source tarball
+      # ── GPG Setup ─────────────────────────────────────────────────────────
+      - name: Import GPG key
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.LAUNCHPAD_GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.LAUNCHPAD_GPG_PASSPHRASE }}
         run: |
-          PKG="${{ env.PACKAGE_NAME }}-${{ env.PACKAGE_VERSION }}"
+          # Use runner home for GNUPGHOME (not /root which is permission-denied)
+          export GNUPGHOME="$HOME/.gnupg"
+          mkdir -p "$GNUPGHOME"
+          chmod 700 "$GNUPGHOME"
+
+          # Configure for non-interactive / loopback use
+          echo "no-tty" >> "$GNUPGHOME/gpg.conf"
+          echo "batch" >> "$GNUPGHOME/gpg.conf"
+          echo "pinentry-mode loopback" >> "$GNUPGHOME/gpg.conf"
+          echo "allow-loopback-pinentry" >> "$GNUPGHOME/gpg-agent.conf"
+
+          # Kill any existing agent and start fresh
+          gpgconf --kill gpg-agent 2>/dev/null || true
+
+          # Import the key
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+
+          # Get fingerprint
+          KEY_FP=$(gpg --list-secret-keys --with-colons 2>/dev/null \
+            | grep '^fpr' | head -1 | cut -d: -f10)
+          echo "GPG_FINGERPRINT=$KEY_FP" >> $GITHUB_ENV
+          echo "GNUPGHOME=$GNUPGHOME"   >> $GITHUB_ENV
+          echo "Key: $KEY_FP"
+
+          # Verify signing works with explicit passphrase
+          echo "test" | gpg --batch --yes \
+            --passphrase "$GPG_PASSPHRASE" \
+            --pinentry-mode loopback \
+            -u "$KEY_FP" --clearsign > /dev/null \
+            && echo "GPG sign test: OK" || echo "GPG sign test: FAILED"
+
+      # ── Prepare orig tarball ──────────────────────────────────────────────
+      - name: Create orig tarball
+        run: |
           mkdir -p /tmp/ppa-build
+          ORIG="/tmp/ppa-build/${PACKAGE_NAME}_${PACKAGE_VERSION}.orig.tar.gz"
+          tar -czf "$ORIG" \
+            --exclude='./.git' \
+            --exclude='./dist' \
+            --exclude='./launchpad' \
+            --exclude='./.github' \
+            --transform "s|^\.|${PACKAGE_NAME}-${PACKAGE_VERSION}|" \
+            .
+          ls -lh "$ORIG"
 
-          # Create orig tarball with correct naming: package-version.orig.tar.gz
-          tar --exclude='./.git' \
-              --exclude='./dist' \
-              --exclude='./launchpad' \
-              --exclude='./.github' \
-              --exclude='./__pycache__' \
-              --exclude='./python/__pycache__' \
-              --exclude='./python/**/__pycache__' \
-              -czf "/tmp/ppa-build/${{ env.PACKAGE_NAME }}_${{ env.PACKAGE_VERSION }}.orig.tar.gz" \
-              --transform "s|^\.|${PKG}|" \
-              .
-
-          echo "Created: $(ls -lh /tmp/ppa-build/*.orig.tar.gz)"
-
-      # ── Build per Ubuntu series ───────────────────────────────────────────
-      - name: Set up build directory for ${{ matrix.ubuntu_series }}
+      # ── Set up per-series build dir ───────────────────────────────────────
+      - name: Set up build directory (${{ matrix.ubuntu_series }})
         run: |
           SERIES="${{ matrix.ubuntu_series }}"
-          PKG="${{ env.PACKAGE_NAME }}-${{ env.PACKAGE_VERSION }}"
-          BUILD_DIR="/tmp/ppa-build/${SERIES}"
-          SRC_DIR="${BUILD_DIR}/${PKG}"
-
+          SRC="${PACKAGE_NAME}-${PACKAGE_VERSION}"
+          BUILD_DIR="/tmp/ppa-build/$SERIES"
+          SRC_DIR="$BUILD_DIR/$SRC"
           mkdir -p "$SRC_DIR"
 
-          # Copy source
           rsync -a \
-            --exclude='.git' \
-            --exclude='dist/' \
-            --exclude='launchpad/' \
-            --exclude='.github/' \
-            --exclude='__pycache__' \
+            --exclude='.git' --exclude='dist/' \
+            --exclude='launchpad/' --exclude='.github/' \
             . "$SRC_DIR/"
 
-          # Copy orig tarball
-          cp /tmp/ppa-build/${{ env.PACKAGE_NAME }}_${{ env.PACKAGE_VERSION }}.orig.tar.gz "$BUILD_DIR/"
+          # Copy orig tarball into build dir
+          cp "/tmp/ppa-build/${PACKAGE_NAME}_${PACKAGE_VERSION}.orig.tar.gz" "$BUILD_DIR/"
 
-          # Copy debian/ directory
+          # Copy debian/ packaging files
           cp -r launchpad/debian "$SRC_DIR/"
 
-          # Add debian/source/format to avoid warning
+          # Add source format
           mkdir -p "$SRC_DIR/debian/source"
           echo "3.0 (quilt)" > "$SRC_DIR/debian/source/format"
 
-          # Update changelog for this Ubuntu series
-          sed -i "s/) noble; urgency/) ${SERIES}; urgency/" \
+          # Update changelog for this series
+          sed -i "s/) noble; urgency/) $SERIES; urgency/" \
             "$SRC_DIR/debian/changelog"
 
           echo "BUILD_DIR=$BUILD_DIR" >> $GITHUB_ENV
-          echo "SRC_DIR=$SRC_DIR" >> $GITHUB_ENV
+          echo "SRC_DIR=$SRC_DIR"     >> $GITHUB_ENV
 
-      - name: Build Debian source package for ${{ matrix.ubuntu_series }}
+      # ── Build source package (unsigned) ──────────────────────────────────
+      - name: Build unsigned Debian source package (${{ matrix.ubuntu_series }})
         env:
-          GPG_PASSPHRASE: ${{ secrets.LAUNCHPAD_GPG_PASSPHRASE }}
           DEBFULLNAME: SEOWebChecker Team
           DEBEMAIL: support@seowebchecker.com
-          GNUPGHOME: /root/.gnupg
         run: |
-          cd "${{ env.SRC_DIR }}"
+          cd "$SRC_DIR"
+          # Build source-only, skip signing — we sign manually next
+          dpkg-buildpackage -S -sa --no-check-builddeps -d --no-sign
+          echo "--- Built files ---"
+          ls -lh "$BUILD_DIR"/*.dsc "$BUILD_DIR"/*.changes 2>/dev/null
 
-          # Ensure GPG agent is running with loopback support
-          gpgconf --kill gpg-agent || true
-          eval $(gpg-agent --daemon --allow-loopback-pinentry 2>/dev/null) || true
+      # ── Sign with GPG ─────────────────────────────────────────────────────
+      - name: Sign source package (${{ matrix.ubuntu_series }})
+        env:
+          GPG_PASSPHRASE: ${{ secrets.LAUNCHPAD_GPG_PASSPHRASE }}
+        run: |
+          DSC=$(ls    "$BUILD_DIR"/*.dsc     | head -1)
+          CHANGES=$(ls "$BUILD_DIR"/*.changes | head -1)
+          BUILDINFO=$(ls "$BUILD_DIR"/*.buildinfo 2>/dev/null | head -1 || true)
 
-          # Pre-cache passphrase in gpg-agent via loopback
-          echo "$GPG_PASSPHRASE" | gpg --batch --yes \
-            --pinentry-mode loopback \
-            --passphrase-fd 0 \
-            -u "${{ env.GPG_FINGERPRINT }}" \
-            --clearsign /dev/null 2>/dev/null || true
-
-          # Build source-only package
-          dpkg-buildpackage \
-            -S \
-            -sa \
-            --sign-key="${{ env.GPG_FINGERPRINT }}" \
-            --no-check-builddeps \
-            -d \
-            --no-sign
-
-          # Sign manually with passphrase piped in
-          DSC_FILE=$(ls "${{ env.BUILD_DIR }}"/*.dsc 2>/dev/null | head -1)
-          CHANGES_FILE=$(ls "${{ env.BUILD_DIR }}"/*.changes 2>/dev/null | head -1)
-
-          if [ -n "$DSC_FILE" ]; then
-            echo "Signing $DSC_FILE"
-            debsign --no-re-sign -k "${{ env.GPG_FINGERPRINT }}" \
-              --gpg-options "--batch --yes --pinentry-mode loopback --passphrase '$GPG_PASSPHRASE'" \
-              "$CHANGES_FILE" || \
-            gpg --batch --yes --pinentry-mode loopback \
+          sign_file() {
+            local FILE="$1"
+            echo "Signing: $FILE"
+            gpg --batch --yes \
               --passphrase "$GPG_PASSPHRASE" \
-              -u "${{ env.GPG_FINGERPRINT }}" \
-              --clearsign -o "${DSC_FILE}.signed" "$DSC_FILE" && \
-              mv "${DSC_FILE}.signed" "$DSC_FILE" || true
-          fi
+              --pinentry-mode loopback \
+              -u "$GPG_FINGERPRINT" \
+              --clearsign \
+              -o "${FILE}.signed" \
+              "$FILE"
+            mv "${FILE}.signed" "$FILE"
+          }
 
-          echo "Built packages:"
-          ls -lh "${{ env.BUILD_DIR }}"/*.dsc "${{ env.BUILD_DIR }}"/*.changes 2>/dev/null || true
+          sign_file "$DSC"
+          [ -n "$BUILDINFO" ] && sign_file "$BUILDINFO" || true
 
-      # ── Configure dput ────────────────────────────────────────────────────
-      - name: Configure dput for Launchpad
+          # Sign the .changes file (must be last, references other files)
+          gpg --batch --yes \
+            --passphrase "$GPG_PASSPHRASE" \
+            --pinentry-mode loopback \
+            -u "$GPG_FINGERPRINT" \
+            --clearsign \
+            -o "${CHANGES}.signed" \
+            "$CHANGES"
+          mv "${CHANGES}.signed" "$CHANGES"
+
+          echo "--- Signed files ---"
+          ls -lh "$BUILD_DIR"/*.dsc "$BUILD_DIR"/*.changes
+
+      # ── Upload to Launchpad PPA ───────────────────────────────────────────
+      - name: Configure dput
         run: |
           cat > ~/.dput.cf << 'EOF'
           [launchpad]
@@ -209,25 +181,11 @@ jobs:
           allow_unsigned_uploads = 0
           EOF
 
-      # ── Upload to Launchpad PPA ───────────────────────────────────────────
       - name: Upload to Launchpad PPA (${{ matrix.ubuntu_series }})
         run: |
-          CHANGES=$(ls "${{ env.BUILD_DIR }}"/*.changes 2>/dev/null | head -1)
-          if [ -z "$CHANGES" ]; then
-            echo "ERROR: No .changes file found!"
-            ls -la "${{ env.BUILD_DIR }}" || true
-            exit 1
-          fi
+          CHANGES=$(ls "$BUILD_DIR"/*.changes | head -1)
           echo "Uploading: $CHANGES"
           dput launchpad "$CHANGES"
-          echo "Uploaded to ppa:jaiganesh6999/seowebchecker (${{ matrix.ubuntu_series }})"
-
-      - name: Verify PPA upload accepted
-        run: |
-          echo "Package upload submitted to Launchpad PPA."
-          echo "PPA URL: https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker"
-          echo "Build status: https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker/+builds"
-          echo ""
-          echo "Install once approved:"
-          echo "  sudo add-apt-repository ppa:jaiganesh6999/seowebchecker"
-          echo "  sudo apt-get update && sudo apt-get install seowebchecker"
+          echo "Upload complete!"
+          echo "PPA: https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker"
+          echo "Builds: https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker/+builds"
