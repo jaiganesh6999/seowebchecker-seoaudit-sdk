@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 34 Package Registries
+# Comprehensive Publishing Guide for 35 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 34 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 35 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -9,6 +9,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | Ecosystem | Registry | Domain Authority (DA) | Package Name | Directory |
 | :--- | :--- | :---: | :--- | :--- |
 | **R** | [cran.r-project.org](https://cran.r-project.org) | **99** | `seowebchecker` | [`r/`](./r) |
+| **Windows (WinGet)** | [microsoft.com](https://github.com/microsoft/winget-pkgs) | **98** | `SEOWebChecker.SEOWebChecker` | [`winget/`](./winget) |
 | **GitHub Packages** | [github.com](https://github.com/jaiganesh6999?tab=packages) | **96** | `SeoWebChecker.SeoAudit` / `ghcr.io` | Root (`./`) |
 | **Enterprise / Cloud** | [dev.azure.com](https://dev.azure.com) | **96** | `seowebchecker` (Feed) | Root (`./`) |
 | **Node.js** | [npmjs.com](https://npmjs.com) | **95** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
@@ -939,6 +940,45 @@ The script automatically:
 - Copies `aur/PKGBUILD` and `aur/.SRCINFO`
 - Commits and pushes to `aur@aur.archlinux.org:seowebchecker.git` master branch
 - Makes the package immediately LIVE at `https://aur.archlinux.org/packages/seowebchecker`!
+
+---
+
+## 35. Microsoft WinGet (Windows Package Manager - DA 98)
+
+The [Windows Package Manager (WinGet)](https://learn.microsoft.com/en-us/windows/package-manager/) is Microsoft's official, native CLI package manager pre-installed on hundreds of millions of Windows 10 and Windows 11 machines worldwide. The central package catalog lives at [microsoft/winget-pkgs](https://github.com/microsoft/winget-pkgs) on GitHub, backed by Microsoft's colossal **Domain Authority of 98**.
+
+WinGet entries provide massive developer reach, native command-line installation across the entire Windows OS userbase, and authoritative indexing pointing back to **`https://seowebchecker.com/`**.
+
+Package Identifier: **`SEOWebChecker.SEOWebChecker`**  
+Package Directory: [`winget/`](./winget)  
+Manifest Catalog: `manifests/s/SEOWebChecker/SEOWebChecker/1.0.1/`  
+Active Pull Request: **[microsoft/winget-pkgs#442680](https://github.com/microsoft/winget-pkgs/pull/442680)**  
+Installer Asset: `https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/releases/download/v1.0.1/seowebchecker-windows-x64.zip`
+
+### Installation Command for Users
+Once merged into the official catalog, any Windows user worldwide can install `seowebchecker` immediately with:
+```powershell
+winget install SEOWebChecker.SEOWebChecker
+```
+
+### Manifest Files
+The package files in [`winget/manifests/s/SEOWebChecker/SEOWebChecker/1.0.1/`](./winget/manifests/s/SEOWebChecker/SEOWebChecker/1.0.1/) include:
+- `SEOWebChecker.SEOWebChecker.yaml`: WinGet version manifest specifying package schema v1.6.0 and default locale `en-US`.
+- `SEOWebChecker.SEOWebChecker.installer.yaml`: WinGet installer manifest specifying `InstallerType: zip` with nested portable command alias `seowebchecker`, x64 architecture, verified SHA256 checksum (`4F7BFF1CA7AA52A74530F7C470DC5F3EF1488B54DE718D3CF80A48BECC0E590F`), and direct download from official GitHub Releases.
+- `SEOWebChecker.SEOWebChecker.locale.en-US.yaml`: WinGet default locale metadata specifying publisher URL (`https://seowebchecker.com/`), package URL (`https://seowebchecker.com/`), license, copyright, description, and keywords.
+
+### Validation & Submission
+
+The package is pre-validated with Microsoft's official `winget validate`:
+```powershell
+winget validate --manifest winget\manifests\s\SEOWebChecker\SEOWebChecker\1.0.1
+```
+
+Submissions to Microsoft are handled directly via Microsoft's `wingetcreate`:
+```powershell
+wingetcreate submit -p "New package: SEOWebChecker.SEOWebChecker version 1.0.1" winget\manifests\s\SEOWebChecker\SEOWebChecker\1.0.1
+```
+
 
 
 
