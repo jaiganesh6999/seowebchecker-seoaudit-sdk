@@ -71,8 +71,9 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[GitHub Packages](https://github.com/jaiganesh6999?tab=packages)** | NuGet, Containers & Ecosystem Feeds | `SeoWebChecker.SeoAudit` / `ghcr.io` | Root (`./`) |
 | **[Chocolatey](https://community.chocolatey.org/packages/seowebchecker)** | Windows Package Manager | `seowebchecker` | [`chocolatey/`](./chocolatey) |
 | **[JFrog Artifactory](https://seowebchecker.jfrog.io)** | Enterprise Artifacts (PyPI, npm, NuGet) | `seowebchecker-seoaudit-sdk` | Root (`./`) |
+| **[Homebrew](https://brew.sh)** | macOS & Linux Package Manager | `seowebchecker` | [`Formula/`](./Formula) |
 
-*Step-by-step instructions for building and publishing to all 29 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 30 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 

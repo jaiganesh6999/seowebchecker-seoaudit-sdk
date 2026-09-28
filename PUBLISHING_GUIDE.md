@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 29 Package Registries
+# Comprehensive Publishing Guide for 30 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 29 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 30 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -12,6 +12,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **GitHub Packages** | [github.com](https://github.com/jaiganesh6999?tab=packages) | **96** | `SeoWebChecker.SeoAudit` / `ghcr.io` | Root (`./`) |
 | **Enterprise / Cloud** | [dev.azure.com](https://dev.azure.com) | **96** | `seowebchecker` (Feed) | Root (`./`) |
 | **Node.js** | [npmjs.com](https://npmjs.com) | **95** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
+| **macOS / Linux (Homebrew)** | [brew.sh](https://brew.sh) | **94** | `seowebchecker` | [`Formula/`](./Formula) |
 | **Containers** | [hub.docker.com](https://hub.docker.com) | **94** | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
 | **Python (PyPI)** | [pypi.org](https://pypi.org) | **94** | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
 | **Go** | [pkg.go.dev](https://pkg.go.dev) | **93** | `github.com/jaiganesh6999/seowebchecker-seoaudit-sdk` | Root (`./`) |
@@ -693,3 +694,50 @@ npm publish npm/seowebchecker-seoaudit-sdk-1.0.1.tgz `
 
 ### Live Artifactory Dashboard
 👉 **`https://seowebchecker.jfrog.io/ui/repos/tree/General`**
+
+---
+
+## 30. Homebrew (`brew.sh` - DA 94)
+
+Homebrew is the premier package manager for macOS and Linux. Having official formulae in Homebrew provides direct developer mindshare, automated binary installation, and authoritative backlink equity to [seowebchecker.com](https://seowebchecker.com/).
+
+Package identifier: **`seowebchecker`**  
+Formula directory: [`Formula/`](./Formula)
+
+### Distribution Architecture
+
+Homebrew supports two deployment models:
+
+#### Model A: Instant GitHub Tap (Zero Waiting Period)
+Because official formulae [`Formula/seowebchecker.rb`](./Formula/seowebchecker.rb) and [`Formula/seowebchecker-audit.rb`](./Formula/seowebchecker-audit.rb) are committed directly to this repository, users worldwide can install immediately:
+
+```bash
+# Direct one-line installation from this repository:
+brew install jaiganesh6999/seowebchecker-seoaudit-sdk/seowebchecker
+```
+
+#### Model B: Dedicated Tap Repository (`jaiganesh6999/homebrew-tap`)
+To provide the standard idiomatic `brew tap jaiganesh6999/tap` installation experience:
+1. Create an empty public repository named **`homebrew-tap`** under your GitHub account (`https://github.com/jaiganesh6999/homebrew-tap`).
+2. Run the automated synchronization script:
+   ```cmd
+   .\setup_homebrew_tap.bat
+   ```
+3. Users can then install via:
+   ```bash
+   brew tap jaiganesh6999/tap
+   brew install seowebchecker
+   ```
+
+#### Model C: Submitting to `Homebrew/homebrew-core`
+To publish to the central Homebrew index (`https://formulae.brew.sh/`):
+1. Fork [Homebrew/homebrew-core](https://github.com/Homebrew/homebrew-core).
+2. Create a new branch: `git checkout -b new-formula-seowebchecker`.
+3. Copy [`Formula/seowebchecker.rb`](./Formula/seowebchecker.rb) to `Formula/s/seowebchecker.rb`.
+4. Run tests and style audits:
+   ```bash
+   brew audit --new-formula Formula/s/seowebchecker.rb
+   brew test Formula/s/seowebchecker.rb
+   ```
+5. Commit and open a Pull Request against `Homebrew/homebrew-core`.
+
