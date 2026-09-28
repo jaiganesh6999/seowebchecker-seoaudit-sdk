@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 32 Package Registries
+# Comprehensive Publishing Guide for 33 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 32 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 33 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -34,6 +34,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Frontend (Vite)** | [vite.dev](https://vite.dev) | **87** | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **macOS (MacPorts)** | [macports.org](https://www.macports.org) | **85** | `seowebchecker` | [`macports/`](./macports) |
+| **Linux (Flathub)** | [flathub.org](https://flathub.org) | **84** | `com.seowebchecker.seowebchecker` | [`flatpak/`](./flatpak) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **Elixir / Erlang** | [hex.pm](https://hex.pm) | **83** | `seowebchecker` | [`elixir/`](./elixir) |
 | **Lua** | [luarocks.org](https://luarocks.org) | **82** | `seowebchecker` | [`lua/`](./lua) |
@@ -832,6 +833,58 @@ The Portfile is located at [`macports/www/seowebchecker/Portfile`](./macports/ww
 5. **Open Pull Request**:
    - Go to [https://github.com/macports/macports-ports/pulls](https://github.com/macports/macports-ports/pulls) and submit your Pull Request.
    - Once merged by MacPorts maintainers, your port will be live on `ports.macports.org`!
+
+---
+
+## 33. Flathub / Flatpak (`flathub.org` - DA 84)
+
+[Flathub](https://flathub.org/) is the centralized, universal app store for the Linux desktop, supported natively on Fedora, Debian, Ubuntu, Red Hat Enterprise Linux, Arch Linux, Linux Mint, SteamOS, and Endless OS.
+
+Published apps on Flathub receive a high-visibility, indexed public store page on `flathub.org` featuring official backlinks to [seowebchecker.com](https://seowebchecker.com/), app metadata, and global one-click install commands.
+
+Application ID: **`com.seowebchecker.seowebchecker`**  
+Manifest directory: [`flatpak/`](./flatpak)  
+Public App Page: **`https://flathub.org/apps/com.seowebchecker.seowebchecker`**
+
+### Installation Command for Users
+```bash
+flatpak install flathub com.seowebchecker.seowebchecker
+```
+
+### Manifest Files
+The package files in [`flatpak/`](./flatpak) include:
+- [`com.seowebchecker.seowebchecker.yml`](./flatpak/com.seowebchecker.seowebchecker.yml): Flatpak manifest with bundled Node.js 20 runtime and strict sandboxed permissions.
+- [`com.seowebchecker.seowebchecker.metainfo.xml`](./flatpak/com.seowebchecker.seowebchecker.metainfo.xml): AppStream metadata file pointing to **`https://seowebchecker.com/`**.
+- [`com.seowebchecker.seowebchecker.desktop`](./flatpak/com.seowebchecker.seowebchecker.desktop): FreeDesktop application entry.
+- [`com.seowebchecker.seowebchecker.png`](./flatpak/com.seowebchecker.seowebchecker.png): Official 128x128 application icon.
+
+### Submission Steps (GitHub Pull Request)
+
+1. **Fork the Official Flathub Repository**:
+   - Fork [flathub/flathub](https://github.com/flathub/flathub) on GitHub.
+2. **Clone and Branch**:
+   ```bash
+   git clone https://github.com/<YOUR_GITHUB_USER>/flathub.git
+   cd flathub
+   git checkout -b add-com.seowebchecker.seowebchecker
+   ```
+3. **Copy Manifest Files**:
+   Copy all files from `flatpak/` into the root of the cloned `flathub` repository:
+   - `com.seowebchecker.seowebchecker.yml`
+   - `com.seowebchecker.seowebchecker.metainfo.xml`
+   - `com.seowebchecker.seowebchecker.desktop`
+   - `com.seowebchecker.seowebchecker.png`
+4. **Commit & Push**:
+   ```bash
+   git add .
+   git commit -m "Add com.seowebchecker.seowebchecker"
+   git push -u origin add-com.seowebchecker.seowebchecker
+   ```
+5. **Open Pull Request**:
+   - Go to [https://github.com/flathub/flathub/pulls](https://github.com/flathub/flathub/pulls) and click **New Pull Request**.
+   - Flathub's automated build bot (`flathubbot`) will test and verify the build.
+   - Once merged by Flathub administrators, a dedicated repository `flathub/com.seowebchecker.seowebchecker` is created and your app is published live on `flathub.org`!
+
 
 
 

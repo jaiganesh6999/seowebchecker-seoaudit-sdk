@@ -74,8 +74,9 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Homebrew](https://brew.sh)** | macOS & Linux Package Manager | `seowebchecker` | [`Formula/`](./Formula) |
 | **[Snapcraft (Snap Store)](https://snapcraft.io/)** | Linux & Ubuntu Package Store | `seowebchecker` | [`snap/`](./snap) |
 | **[MacPorts](https://www.macports.org/)** | macOS Unix & Darwin Ports | `seowebchecker` | [`macports/`](./macports) |
+| **[Flathub (Flatpak)](https://flathub.org/)** | Universal Linux Application Store | `com.seowebchecker.seowebchecker` | [`flatpak/`](./flatpak) |
 
-*Step-by-step instructions for building and publishing to all 32 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 33 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
