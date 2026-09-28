@@ -4,7 +4,7 @@
   "description": "Official Model Context Protocol (MCP) server for technical SEO audits, Core Web Vitals, and on-page optimization by SEOWebChecker.",
   "main": "index.js",
   "bin": {
-    "seowebchecker-mcp-server": "./index.js"
+    "seowebchecker-mcp-server": "index.js"
   },
   "scripts": {
     "start": "node index.js"

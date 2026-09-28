@@ -11,7 +11,7 @@
 
 const readline = require('readline');
 const path = require('path');
-const { SEOAuditor } = require('../npm/lib/auditor');
+const { SEOAuditor } = require('./lib/auditor');
 
 const auditor = new SEOAuditor({
   userAgent: 'SEOWebChecker-MCPAgent/1.0 (+https://seowebchecker.com/)',

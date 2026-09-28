@@ -1261,8 +1261,8 @@ Add this block to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "seowebchecker": {
-      "command": "node",
-      "args": ["<PATH_TO_REPO>/mcp/index.js"]
+      "command": "npx",
+      "args": ["-y", "seowebchecker-mcp-server"]
     }
   }
 }
@@ -1276,8 +1276,8 @@ In `~/.cursor/mcp.json` or Cursor Settings → MCP:
 {
   "mcpServers": {
     "seowebchecker": {
-      "command": "node",
-      "args": ["<PATH_TO_REPO>/mcp/index.js"]
+      "command": "npx",
+      "args": ["-y", "seowebchecker-mcp-server"]
     }
   }
 }
@@ -1291,8 +1291,8 @@ In `~/.codeium/windsurf/mcp_config.json`:
 {
   "mcpServers": {
     "seowebchecker": {
-      "command": "node",
-      "args": ["<PATH_TO_REPO>/mcp/index.js"]
+      "command": "npx",
+      "args": ["-y", "seowebchecker-mcp-server"]
     }
   }
 }
