@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 33 Package Registries
+# Comprehensive Publishing Guide for 34 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 33 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 34 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -15,6 +15,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **macOS / Linux (Homebrew)** | [brew.sh](https://brew.sh) | **94** | `seowebchecker` | [`Formula/`](./Formula) |
 | **Containers** | [hub.docker.com](https://hub.docker.com) | **94** | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
 | **Python (PyPI)** | [pypi.org](https://pypi.org) | **94** | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
+| **Linux (Arch User Repository - AUR)** | [aur.archlinux.org](https://aur.archlinux.org) | **93** | `seowebchecker` | [`aur/`](./aur) |
 | **Go** | [pkg.go.dev](https://pkg.go.dev) | **93** | `github.com/jaiganesh6999/seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Java** | [central.sonatype.com](https://central.sonatype.com) | **93** | `com.seowebchecker:seowebchecker-seoaudit-sdk` | [`java/`](./java) |
 | **Dart / Flutter** | [pub.dev](https://pub.dev) | **93** | `seowebchecker` | [`dart/`](./dart) |
@@ -884,6 +885,60 @@ The package files in [`flatpak/`](./flatpak) include:
    - Go to [https://github.com/flathub/flathub/pulls](https://github.com/flathub/flathub/pulls) and click **New Pull Request**.
    - Flathub's automated build bot (`flathubbot`) will test and verify the build.
    - Once merged by Flathub administrators, a dedicated repository `flathub/com.seowebchecker.seowebchecker` is created and your app is published live on `flathub.org`!
+
+---
+
+## 34. Arch Linux User Repository (AUR - DA 93)
+
+The [Arch User Repository (AUR)](https://aur.archlinux.org/) is the official community-driven package repository for Arch Linux, Manjaro, EndeavourOS, and SteamOS users. It has a high **Domain Authority of 93**.
+
+AUR packages are automatically indexed on `aur.archlinux.org/packages/seowebchecker` and provide high-authority backlinks to **`https://seowebchecker.com/`**.
+
+Package Name: **`seowebchecker`**  
+Package Directory: [`aur/`](./aur)  
+Package URL: **`https://aur.archlinux.org/packages/seowebchecker`**
+
+### Installation Command for Users
+Arch Linux users can install `seowebchecker` instantly using any standard AUR helper (`yay` or `paru`) or standard `makepkg`:
+```bash
+yay -S seowebchecker
+# or
+paru -S seowebchecker
+```
+
+### Package Files
+The package files in [`aur/`](./aur) include:
+- [`PKGBUILD`](./aur/PKGBUILD): Official Arch Linux build script downloading `seowebchecker-seoaudit-sdk` from npm registry, installing via `npm install -g --prefix "$pkgdir/usr"`, and packaging documentation and license.
+- [`.SRCINFO`](./aur/.SRCINFO): Machine-readable metadata file containing package dependencies, description, verified sha256 checksums, and upstream URL pointing to **`https://seowebchecker.com/`**.
+
+### Publishing Steps (Git over SSH)
+
+AUR uses Git over SSH (`ssh://aur@aur.archlinux.org/seowebchecker.git`) with public SSH key authentication. There is no approval queue—new packages are created and updated instantly on push!
+
+#### 1. Add Your SSH Public Key to AUR
+1. Register or log in to your Arch Linux AUR account at [https://aur.archlinux.org/account/](https://aur.archlinux.org/account/).
+2. Go to **My Account** / **Edit Account**.
+3. Paste your public key:
+   ```
+   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPpZao2DVyRxZwLAXcLNDrZfQU3NTanlo5BrnicNzLp0 jaiganesh6999@gmail.com
+   ```
+4. Click **Save / Update**.
+
+#### 2. Run the Automated Publish Script
+Once your public key is added, simply run:
+```powershell
+.\publish_aur.bat
+```
+Or via PowerShell:
+```powershell
+.\publish_aur.ps1
+```
+
+The script automatically:
+- Clones or initializes the AUR repository (`ssh://aur@aur.archlinux.org/seowebchecker.git`)
+- Copies `aur/PKGBUILD` and `aur/.SRCINFO`
+- Commits and pushes to `aur@aur.archlinux.org:seowebchecker.git` master branch
+- Makes the package immediately LIVE at `https://aur.archlinux.org/packages/seowebchecker`!
 
 
 
