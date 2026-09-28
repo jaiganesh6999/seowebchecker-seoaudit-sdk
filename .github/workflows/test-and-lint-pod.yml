@@ -36,7 +36,7 @@ jobs:
 
       - name: Lint CocoaPods Specification
         run: |
-          pod lib lint SeoWebChecker.podspec --allow-warnings
+          pod lib lint SeoWebChecker.podspec --allow-warnings --verbose
 
       - name: Publish to CocoaPods Trunk (if COCOAPODS_TRUNK_TOKEN is configured)
         if: env.COCOAPODS_TRUNK_TOKEN != '' && github.ref == 'refs/heads/main'
