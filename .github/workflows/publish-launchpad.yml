@@ -1,7 +1,12 @@
 name: Publish to Launchpad PPA
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dummy:
+        description: 'Run dispatch'
+        required: false
+        default: 'true'
   push:
     tags:
       - 'v*'
