@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 31 Package Registries
+# Comprehensive Publishing Guide for 32 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 31 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 32 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -33,6 +33,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Enterprise Artifacts (JFrog)** | [jfrog.io](https://seowebchecker.jfrog.io) | **88** | `seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Frontend (Vite)** | [vite.dev](https://vite.dev) | **87** | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
+| **macOS (MacPorts)** | [macports.org](https://www.macports.org) | **85** | `seowebchecker` | [`macports/`](./macports) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **Elixir / Erlang** | [hex.pm](https://hex.pm) | **83** | `seowebchecker` | [`elixir/`](./elixir) |
 | **Lua** | [luarocks.org](https://luarocks.org) | **82** | `seowebchecker` | [`lua/`](./lua) |
@@ -784,5 +785,53 @@ This repository includes a pre-configured workflow [`.github/workflows/snapcraft
 2. In GitHub repository **Settings** -> **Secrets and variables** -> **Actions**:
    - Create a repository secret named `SNAPCRAFT_STORE_CREDENTIALS` and paste the contents of `export.txt`.
 3. Go to the **Actions** tab in GitHub -> **Build and Release Snap** -> **Run workflow** (or push a tag starting with `v*`).
+
+---
+
+## 32. MacPorts (`macports.org` - DA 85)
+
+[MacPorts](https://www.macports.org/) is the mature, authoritative package management system for macOS, active since 2002. Published ports receive an official indexed page on `ports.macports.org` with permanent backlink equity to [seowebchecker.com](https://seowebchecker.com/).
+
+Port identifier: **`seowebchecker`**  
+Portfile directory: [`macports/www/seowebchecker/Portfile`](./macports/www/seowebchecker/Portfile)  
+Public Port Page: **`https://ports.macports.org/port/seowebchecker/`**
+
+### Installation Command for Users
+```bash
+sudo port install seowebchecker
+```
+
+### Portfile Details
+The Portfile is located at [`macports/www/seowebchecker/Portfile`](./macports/www/seowebchecker/Portfile) and includes verified cryptographic hashes:
+- `size`: `234820`
+- `sha256`: `85de10b179b31f595417ddda79e7c1cb88b1e26a0006ee544cf777b00819f0c5`
+- `rmd160`: `74738f4a4db7e8e176a788aa9997635557a18048`
+- `homepage`: **`https://seowebchecker.com/`**
+
+### Submission Steps (GitHub Pull Request)
+
+1. **Fork the Official Repository**:
+   - Fork [macports/macports-ports](https://github.com/macports/macports-ports) on GitHub.
+2. **Clone and Branch**:
+   ```bash
+   git clone https://github.com/<YOUR_GITHUB_USER>/macports-ports.git
+   cd macports-ports
+   git checkout -b add-port-seowebchecker
+   ```
+3. **Add the Portfile**:
+   ```bash
+   mkdir -p www/seowebchecker
+   cp /path/to/seowebchecker-seoaudit-sdk/macports/www/seowebchecker/Portfile www/seowebchecker/Portfile
+   ```
+4. **Commit & Push**:
+   ```bash
+   git add www/seowebchecker/Portfile
+   git commit -m "seowebchecker: new port"
+   git push -u origin add-port-seowebchecker
+   ```
+5. **Open Pull Request**:
+   - Go to [https://github.com/macports/macports-ports/pulls](https://github.com/macports/macports-ports/pulls) and submit your Pull Request.
+   - Once merged by MacPorts maintainers, your port will be live on `ports.macports.org`!
+
 
 

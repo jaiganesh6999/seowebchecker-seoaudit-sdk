@@ -56,6 +56,5 @@ pubspec.lock
 # Elixir / Hex
 _build/
 deps/
-*.ez
-
-
+# Snapcraft packages
+*.snap
