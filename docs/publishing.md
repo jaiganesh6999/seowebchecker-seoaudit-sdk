@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 28 Package Registries
+# Comprehensive Publishing Guide for 29 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 28 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 29 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -28,6 +28,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Web Assets** | [bower.io](https://bower.io) | **88** | `seowebchecker` | [Root (`./bower.json`)](./bower.json) |
 | **Java / Android** | [jitpack.io](https://jitpack.io) | **88** | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk` | [`java/`](./java) |
 | **Windows (Chocolatey)** | [chocolatey.org](https://community.chocolatey.org) | **88** | `seowebchecker` | [`chocolatey/`](./chocolatey) |
+| **Enterprise Artifacts (JFrog)** | [jfrog.io](https://seowebchecker.jfrog.io) | **88** | `seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Frontend (Vite)** | [vite.dev](https://vite.dev) | **87** | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
@@ -642,3 +643,53 @@ The package is pre-configured in [`chocolatey/`](./chocolatey):
 
 ### Live Public Package Page
 👉 **`https://community.chocolatey.org/packages/seowebchecker`**
+
+---
+
+## 29. JFrog Artifactory (`seowebchecker.jfrog.io` - DA 88)
+Registry endpoint: **`https://seowebchecker.jfrog.io/artifactory`**  
+Package directory: Root & Ecosystem Modules
+
+### Architecture & Enterprise Artifact Hosting
+[JFrog Artifactory](https://jfrog.com/artifactory/) is the industry standard enterprise artifact repository. The dedicated instance at **`https://seowebchecker.jfrog.io/`** provides enterprise-grade package hosting for Python wheels, npm packages, NuGet binaries, Ruby gems, Chocolatey packages, and Conda distributions.
+
+### Setup & Authentication
+1. **Log in to Artifactory**:
+   - Navigate to [https://seowebchecker.jfrog.io/](https://seowebchecker.jfrog.io/).
+   - Click on your profile (top right) -> **Edit Profile** -> **Authentication Settings** -> **Generate an Access Token** (or API Key).
+
+2. **One-Click Automated Publishing Script**:
+   Run the included batch runner:
+   ```cmd
+   .\publish_jfrog.bat -Token "<YOUR_JFROG_ACCESS_TOKEN>" -Repo "generic-local"
+   ```
+   *(Or with username and password/API key)*:
+   ```cmd
+   .\publish_jfrog.bat -Username "<YOUR_USERNAME>" -Password "<YOUR_PASSWORD_OR_API_KEY>" -Repo "generic-local"
+   ```
+
+3. **Standard Package Manager CLI Uploads**:
+
+#### Python (PyPI)
+```bash
+python -m twine upload `
+  --repository-url https://seowebchecker.jfrog.io/artifactory/api/pypi/pypi-local `
+  -u <USERNAME> -p <ACCESS_TOKEN> `
+  python/dist/seowebchecker_seoaudit_sdk-1.0.0-py3-none-any.whl
+```
+
+#### NuGet (.NET)
+```bash
+dotnet nuget push dotnet/nupkg/SeoWebChecker.SeoAudit.1.0.0.nupkg `
+  --source https://seowebchecker.jfrog.io/artifactory/api/nuget/nuget-local `
+  --api-key <USERNAME>:<ACCESS_TOKEN>
+```
+
+#### npm
+```bash
+npm publish npm/seowebchecker-seoaudit-sdk-1.0.1.tgz `
+  --registry=https://seowebchecker.jfrog.io/artifactory/api/npm/npm-local/
+```
+
+### Live Artifactory Dashboard
+👉 **`https://seowebchecker.jfrog.io/ui/repos/tree/General`**

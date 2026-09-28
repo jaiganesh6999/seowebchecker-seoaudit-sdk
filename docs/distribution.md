@@ -37,3 +37,4 @@ Official Website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 | **[JitPack](https://jitpack.io/#jaiganesh6999/seowebchecker-seoaudit-sdk)** | Java / Android / JVM | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk:seowebchecker-seoaudit-sdk` | `java/` |
 | **[Cloudsmith](https://cloudsmith.io)** | Multi-Format Cloud Packages | `seowebchecker-seoaudit-sdk` | Root |
 | **[Chocolatey](https://community.chocolatey.org/packages/seowebchecker)** | Windows Package Manager | `seowebchecker` | `chocolatey/` |
+| **[JFrog Artifactory](https://seowebchecker.jfrog.io)** | Enterprise Artifacts (PyPI, npm, NuGet) | `seowebchecker-seoaudit-sdk` | Root |
