@@ -29,6 +29,7 @@
 [![Chocolatey](https://img.shields.io/chocolatey/v/seowebchecker.svg?color=blue)](https://community.chocolatey.org/packages/seowebchecker)
 [![JFrog Artifactory](https://img.shields.io/badge/JFrog%20Artifactory-seowebchecker-41BF47.svg?logo=jfrog)](https://seowebchecker.jfrog.io)
 [![Launchpad PPA](https://img.shields.io/badge/Launchpad%20PPA-seowebchecker-F8C300.svg?logo=ubuntu)](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker)
+[![FreeBSD Port](https://img.shields.io/badge/FreeBSD%20Port-seowebchecker-AB2B28.svg?logo=freebsd)](https://github.com/freebsd/freebsd-ports/pull/628)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
@@ -81,8 +82,9 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Scoop](https://scoop.sh/)** | Windows Developer Package Manager | `seowebchecker` | [`scoop/`](./scoop) |
 | **[Nix / Nixpkgs](https://github.com/NixOS/nixpkgs)** | Linux & macOS Reproducible Package Collection | `seowebchecker` | [`nix/`](./nix) |
 | **[Launchpad PPA](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker)** | Ubuntu & Debian (`apt`) | `seowebchecker` | [`launchpad/`](./launchpad) |
+| **[FreeBSD Ports](https://github.com/freebsd/freebsd-ports/pull/628)** | FreeBSD & BSD Unix | `seowebchecker` | [`freebsd/`](./freebsd) |
 
-*Step-by-step instructions for building and publishing to all 38 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 39 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 

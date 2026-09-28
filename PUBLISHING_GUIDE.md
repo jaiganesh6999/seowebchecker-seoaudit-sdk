@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 38 Package Registries
+# Comprehensive Publishing Guide for 39 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 38 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 39 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -47,6 +47,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Apple / Swift** | [swiftpackageindex.com](https://swiftpackageindex.com) | **76** | `SeoWebChecker` | [Root (`./Package.swift`)](./Package.swift) |
 | **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 | **Ubuntu / Debian (Launchpad PPA)** | [launchpad.net](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker) | **93** | `seowebchecker` | [`launchpad/`](./launchpad) |
+| **FreeBSD / BSD Unix** | [freebsd.org](https://www.freebsd.org/ports/) | **93** | `seowebchecker` | [`freebsd/`](./freebsd) |
 
 ---
 
@@ -1148,7 +1149,7 @@ bash publish_launchpad.sh focal
 
 ```bash
 # Add the PPA and install
-sudo add-apt-repository ppa:jaiganesh6999/seowebchecker
+sudo add-apt-repository ppa:seoaitools/seowebchecker
 sudo apt-get update
 sudo apt-get install seowebchecker
 
@@ -1159,7 +1160,7 @@ seowebchecker-audit --url https://seowebchecker.com/
 ### PPA Build Status
 
 Monitor builds at:  
-**https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker/+builds**
+**https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker/+builds**
 
 ### Updating the Package
 
@@ -1167,6 +1168,67 @@ To publish a new version:
 1. Update `launchpad/debian/changelog` — run `dch -v 1.0.2-1` on Linux or edit manually.
 2. Update version in `launchpad/debian/changelog` from `1.0.1-1` to `1.0.2-1`.
 3. Re-trigger the GitHub Actions workflow or run `bash publish_launchpad.sh` locally.
+
+---
+
+## 39. FreeBSD Ports Collection (`freebsd.org` - DA 93 / FreshPorts DA 75)
+
+[FreeBSD Ports](https://www.freebsd.org/ports/) is the official package management and ports collection for the FreeBSD operating system, serving millions of servers, appliances, and BSD workstations worldwide.
+
+* **Port Name:** `www/seowebchecker`
+* **Maintainer:** `support@seowebchecker.com`
+* **Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **License:** MIT
+* **Port Directory:** [`freebsd/`](./freebsd)
+* **Shar Archive:** [`freebsd/seowebchecker.shar`](./freebsd/seowebchecker.shar)
+* **Active Upstream Pull Request:** **[freebsd/freebsd-ports#628](https://github.com/freebsd/freebsd-ports/pull/628)**
+
+### Port Directory Structure
+
+```
+freebsd/
+├── Makefile            # BSD Make build definition (USES=nodejs:run)
+├── distinfo            # SHA256, Size, and Timestamp checksums
+├── pkg-descr           # Package description & homepage
+├── pkg-plist           # Package installation packing list
+└── seowebchecker.shar  # Self-extracting FreeBSD shell archive
+```
+
+### Installing on FreeBSD (via Ports Tree)
+
+Once the PR merges into the FreeBSD ports tree:
+
+```sh
+cd /usr/ports/www/seowebchecker
+make install clean
+```
+
+Or using pre-built binary packages via `pkg`:
+
+```sh
+pkg install seowebchecker
+```
+
+### Testing the Port Locally on FreeBSD
+
+To test or unpack the port on a FreeBSD machine:
+
+```sh
+# Unpack the self-extracting shar archive
+cd /usr/ports/www
+sh /path/to/seowebchecker.shar
+
+# Check port quality with portlint
+cd /usr/ports/www/seowebchecker
+portlint -A
+
+# Test build and staging
+make stage
+make check-plist
+make stage-qa
+make package
+```
+
 
 
 
