@@ -72,8 +72,9 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Chocolatey](https://community.chocolatey.org/packages/seowebchecker)** | Windows Package Manager | `seowebchecker` | [`chocolatey/`](./chocolatey) |
 | **[JFrog Artifactory](https://seowebchecker.jfrog.io)** | Enterprise Artifacts (PyPI, npm, NuGet) | `seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **[Homebrew](https://brew.sh)** | macOS & Linux Package Manager | `seowebchecker` | [`Formula/`](./Formula) |
+| **[Snapcraft (Snap Store)](https://snapcraft.io/)** | Linux & Ubuntu Package Store | `seowebchecker` | [`snap/`](./snap) |
 
-*Step-by-step instructions for building and publishing to all 30 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 31 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 

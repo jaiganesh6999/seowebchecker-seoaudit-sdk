@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 30 Package Registries
+# Comprehensive Publishing Guide for 31 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 30 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 31 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -21,6 +21,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Conda / Python** | [anaconda.org](https://anaconda.org) | **92** | `seowebchecker-seoaudit-sdk` | [`conda/`](./conda) |
 | **Ruby** | [rubygems.org](https://rubygems.org) | **92** | `seowebchecker-seoaudit-sdk` | [`ruby/`](./ruby) |
 | **.NET** | [nuget.org](https://nuget.org) | **92** | `SeoWebChecker.SeoAudit` | [`dotnet/`](./dotnet) |
+| **Linux / Ubuntu (Snapcraft)** | [snapcraft.io](https://snapcraft.io) | **91** | `seowebchecker` | [`snap/`](./snap) |
 | **PHP** | [packagist.org](https://packagist.org) | **91** | `seowebchecker/seoaudit-sdk` | [`php/`](./php) |
 | **Perl** | [metacpan.org](https://metacpan.org) | **91** | `SeoWebChecker::SeoAudit` | [`perl/`](./perl) |
 | **iOS / macOS** | [cocoapods.org](https://cocoapods.org) | **90** | `SeoWebChecker` | [`swift/`](./swift) |
@@ -740,4 +741,48 @@ To publish to the central Homebrew index (`https://formulae.brew.sh/`):
    brew test Formula/s/seowebchecker.rb
    ```
 5. Commit and open a Pull Request against `Homebrew/homebrew-core`.
+
+---
+
+## 31. Snapcraft / Snap Store (`snapcraft.io` - DA 91)
+
+[Snapcraft](https://snapcraft.io/) is Canonical's universal package manager and software store for Linux, pre-installed on millions of Ubuntu systems and supported across Debian, Fedora, Arch Linux, openSUSE, and Manjaro.
+
+Published snaps receive an authoritative, dedicated public product landing page on `snapcraft.io` featuring official documentation backlinks to [seowebchecker.com](https://seowebchecker.com/), download metrics, and universal installation commands.
+
+Package identifier: **`seowebchecker`**  
+Manifest directory: [`snap/snapcraft.yaml`](./snap/snapcraft.yaml)  
+Public Store Page: **`https://snapcraft.io/seowebchecker`**
+
+### Installation Command for Users
+```bash
+sudo snap install seowebchecker
+```
+
+### Manifest Architecture
+The snap package is declared in [`snap/snapcraft.yaml`](./snap/snapcraft.yaml) using `core22` and the `npm` plugin with bundled Node.js 20 runtime, ensuring zero external host dependencies and strict sandboxed security confinement.
+
+### Publishing Methods
+
+#### Method 1: Canonical Cloud Builds (Recommended - Zero Setup, Multi-Architecture)
+1. **Register Snap Name**:
+   - Go to [https://snapcraft.io/register-snap](https://snapcraft.io/register-snap) (log in with your Ubuntu One account).
+   - Register the snap name: `seowebchecker`.
+2. **Connect GitHub**:
+   - Navigate to [https://snapcraft.io/seowebchecker/builds](https://snapcraft.io/seowebchecker/builds).
+   - Click **Connect GitHub account** and authorize repository `jaiganesh6999/seowebchecker-seoaudit-sdk`.
+   - Snapcraft automatically discovers [`snap/snapcraft.yaml`](./snap/snapcraft.yaml).
+3. **Trigger Build**:
+   - Click **Trigger build**. Canonical's Launchpad build farm automatically builds the package for `amd64`, `arm64`, and `armhf` architectures and releases it directly to the Snap Store.
+
+#### Method 2: GitHub Actions Automated Build & Release
+This repository includes a pre-configured workflow [`.github/workflows/snapcraft.yml`](./.github/workflows/snapcraft.yml):
+1. Generate an export login token on a Linux/WSL shell:
+   ```bash
+   snapcraft export-login --snaps=seowebchecker export.txt
+   ```
+2. In GitHub repository **Settings** -> **Secrets and variables** -> **Actions**:
+   - Create a repository secret named `SNAPCRAFT_STORE_CREDENTIALS` and paste the contents of `export.txt`.
+3. Go to the **Actions** tab in GitHub -> **Build and Release Snap** -> **Run workflow** (or push a tag starting with `v*`).
+
 
