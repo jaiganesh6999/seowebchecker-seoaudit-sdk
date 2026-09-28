@@ -40,31 +40,65 @@ try {
     exit 1
 }
 
-# Query and display available repositories
+# Query available repositories
 Write-Host "Checking repositories on Artifactory..." -ForegroundColor Cyan
-try {
-    $repoListJson = & curl.exe -s -H $authHeader "$ServerUrl/api/repositories"
-    if ($repoListJson) {
-        $repoList = $repoListJson | ConvertFrom-Json
+$repoExists = $false
+$tempRepoOut = [System.IO.Path]::GetTempFileName()
+$repoHttpCode = & curl.exe -s -o $tempRepoOut -w "%{http_code}" -X GET "$ServerUrl/api/repositories" -H $authHeader
+$repoResp = Get-Content $tempRepoOut -Raw -ErrorAction SilentlyContinue
+Remove-Item $tempRepoOut -Force -ErrorAction SilentlyContinue
+
+if ($repoHttpCode -eq "200") {
+    try {
+        $repoList = $repoResp | ConvertFrom-Json
         $repoKeys = @($repoList | ForEach-Object { $_.key })
         if ($repoKeys.Count -gt 0) {
-            Write-Host "Available repositories: $($repoKeys -join ', ')" -ForegroundColor Gray
-            if (-not ($repoKeys -contains $Repo)) {
-                Write-Host "Notice: Specified repository '$Repo' not found in available repositories." -ForegroundColor Yellow
+            Write-Host "Found existing repositories: $($repoKeys -join ', ')" -ForegroundColor Gray
+            if ($repoKeys -contains $Repo) {
+                $repoExists = $true
+            } else {
+                # Check for other generic/local repos
                 $matchingRepo = $repoKeys | Where-Object { $_ -match "generic" -or $_ -match "local" } | Select-Object -First 1
                 if ($matchingRepo) {
-                    Write-Host "Using auto-detected repository: '$matchingRepo'" -ForegroundColor Cyan
+                    Write-Host "Notice: '$Repo' not found, switching to available local repo: '$matchingRepo'" -ForegroundColor Cyan
                     $Repo = $matchingRepo
-                } else {
-                    $firstRepo = $repoKeys[0]
-                    Write-Host "Defaulting to first repository: '$firstRepo'" -ForegroundColor Cyan
-                    $Repo = $firstRepo
+                    $repoExists = $true
                 }
             }
+        } else {
+            Write-Host "No repositories currently exist in this Artifactory tenant." -ForegroundColor Yellow
         }
+    } catch {
+        Write-Host "Could not parse repository list response." -ForegroundColor Gray
     }
-} catch {
-    Write-Host "Could not query repository list: $_" -ForegroundColor Gray
+} else {
+    Write-Host "Repository query returned HTTP ${repoHttpCode}: $repoResp" -ForegroundColor Yellow
+}
+
+# If repo still doesn't exist, attempt to auto-create it via REST API
+if (-not $repoExists) {
+    Write-Host "Attempting to create generic repository '$Repo' via REST API..." -ForegroundColor Cyan
+    $createPayload = "{""key"":""$Repo"",""rclass"":""local"",""packageType"":""generic"",""description"":""SEO Web Checker SDK Artifacts""}"
+    $tempCreateOut = [System.IO.Path]::GetTempFileName()
+    $createCode = & curl.exe -s -o $tempCreateOut -w "%{http_code}" -X PUT "$ServerUrl/api/repositories/$Repo" -H $authHeader -H "Content-Type: application/json" -d $createPayload
+    $createResp = Get-Content $tempCreateOut -Raw -ErrorAction SilentlyContinue
+    Remove-Item $tempCreateOut -Force -ErrorAction SilentlyContinue
+
+    if ($createCode -in @("200", "201")) {
+        Write-Host "Successfully created generic repository '$Repo'!" -ForegroundColor Green
+        $repoExists = $true
+    } else {
+        Write-Host "Auto-creation returned HTTP ${createCode}: $createResp" -ForegroundColor Yellow
+        Write-Host "`n[ACTION REQUIRED] Repository '$Repo' does not exist yet." -ForegroundColor Red
+        Write-Host "Please create a Generic Local Repository in your JFrog Web UI:" -ForegroundColor Yellow
+        Write-Host "  1. Log into: https://seowebchecker.jfrog.io/ui/admin/artifactory/repositories" -ForegroundColor White
+        Write-Host "  2. Click 'Create a Repository' -> 'Local Repository'" -ForegroundColor White
+        Write-Host "  3. Select 'Generic' as the Package Type" -ForegroundColor White
+        Write-Host "  4. Set 'Repository Key' to: generic-local (or your preferred name)" -ForegroundColor White
+        Write-Host "  5. Click 'Create Local Repository'" -ForegroundColor White
+        Write-Host "  6. Re-run this script: .\publish_jfrog.bat -Token <TOKEN> -Repo generic-local`n" -ForegroundColor Cyan
+        exit 1
+    }
 }
 
 # List of all package files to deploy
