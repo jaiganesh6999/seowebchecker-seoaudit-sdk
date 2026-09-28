@@ -25,14 +25,14 @@
 [![Cloudsmith](https://img.shields.io/badge/Cloudsmith-seowebchecker-003559.svg)](https://cloudsmith.io)
 [![Azure Artifacts](https://img.shields.io/badge/Azure%20Artifacts-seowebchecker-0078D7.svg)](https://dev.azure.com)
 [![GitHub Packages](https://img.shields.io/badge/GitHub%20Packages-SeoWebChecker-181717.svg?logo=github)](https://github.com/jaiganesh6999?tab=packages)
-[![Documentation Status](https://readthedocs.org/projects/seowebchecker-seoaudit-sdk/badge/?version=latest)](https://seowebchecker-seoaudit-sdk.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/seo-ai-tools/badge/?version=latest)](https://seo-ai-tools.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight, multi-language open-source client SDK and CLI suite for full website SEO audits, on-page optimization, and Core Web Vitals checks.
 
 Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**  
-Official documentation: **[https://seowebchecker-seoaudit-sdk.readthedocs.io/](https://seowebchecker-seoaudit-sdk.readthedocs.io/)**
+Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https://seo-ai-tools.readthedocs.io/en/latest/)**
 
 ---
 
