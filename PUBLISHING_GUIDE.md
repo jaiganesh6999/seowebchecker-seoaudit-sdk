@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 36 Package Registries
+# Comprehensive Publishing Guide for 37 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 36 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 37 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -33,6 +33,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Web Assets** | [bower.io](https://bower.io) | **88** | `seowebchecker` | [Root (`./bower.json`)](./bower.json) |
 | **Java / Android** | [jitpack.io](https://jitpack.io) | **88** | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk` | [`java/`](./java) |
 | **Windows (Chocolatey)** | [chocolatey.org](https://community.chocolatey.org) | **88** | `seowebchecker` | [`chocolatey/`](./chocolatey) |
+| **Linux / macOS (Nixpkgs)** | [nixos.org](https://nixos.org) | **88** | `seowebchecker` | [`nix/`](./nix) |
 | **Enterprise Artifacts (JFrog)** | [jfrog.io](https://seowebchecker.jfrog.io) | **88** | `seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Frontend (Vite)** | [vite.dev](https://vite.dev) | **87** | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
@@ -1021,6 +1022,49 @@ The manifest in [`scoop/bucket/seowebchecker.json`](./scoop/bucket/seowebchecker
 - Configured with `bin` shims for both `seowebchecker` and `seowebchecker-audit`
 - Automated version checking with `"checkver": { "github": "jaiganesh6999/seowebchecker-seoaudit-sdk" }`
 - Automated binary URL updates via `"autoupdate"`
+
+---
+
+## 37. Nix / Nixpkgs (`nixos.org` - DA 88 / GitHub DA 96)
+
+[Nixpkgs](https://github.com/NixOS/nixpkgs) is the central package repository for the Nix package manager and NixOS, powering reproducible builds across Linux and macOS. It is one of the largest and most active open-source software repositories in the world, with **Domain Authority of 88** (`nixos.org`) and **DA 96** via GitHub.
+
+In addition to upstream Nixpkgs inclusion, the repository provides a native **Nix Flake** (`flake.nix`), allowing anyone running Nix 2.4+ to run or install `seowebchecker` instantly with zero setup.
+
+Package Name: **`seowebchecker`**  
+Package Directory: [`nix/`](./nix)  
+Flake Entrypoint: [`flake.nix`](./flake.nix)  
+Nixpkgs Derivation: [`nix/package.nix`](./nix/package.nix) (`pkgs/by-name/se/seowebchecker/package.nix`)  
+Active Upstream Pull Request: **[NixOS/nixpkgs#567907](https://github.com/NixOS/nixpkgs/pull/567907)**  
+
+### Instant Run with Nix Flakes (Live Now)
+Any Linux or macOS user with Nix installed can execute the SEO audit tool instantly without cloning or pre-installing:
+```bash
+# Run one-off audit directly from GitHub
+nix run github:jaiganesh6999/seowebchecker-seoaudit-sdk -- https://example.com
+
+# Enter an interactive development environment
+nix shell github:jaiganesh6999/seowebchecker-seoaudit-sdk
+
+# Permanently install into user environment
+nix profile install github:jaiganesh6999/seowebchecker-seoaudit-sdk
+```
+
+### Installation Once Nixpkgs PR Merges
+```bash
+nix-env -iA nixpkgs.seowebchecker
+# or on NixOS configuration.nix:
+environment.systemPackages = [ pkgs.seowebchecker ];
+```
+
+### Nix Derivation Details
+The derivation in [`nix/package.nix`](./nix/package.nix) is built with `stdenv.mkDerivation`:
+- Sources from official npm registry tarball (`sha256-H3hEyGxih/yqehSVCPNT3updPN8kuHeHBPp4Th0fLFE=`)
+- Zero external runtime npm dependencies
+- Wraps execution using `makeWrapper` with `nodejs`
+- Provides symlinks for both `seowebchecker` and `seowebchecker-audit`
+- Canonical homepage set to **`https://seowebchecker.com/`** (with trailing slash)
+
 
 
 
