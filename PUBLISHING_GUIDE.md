@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 18 Package Registries
+# Comprehensive Publishing Guide for 19 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 18 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 19 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com).
 
 ---
 
@@ -20,6 +20,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **.NET** | [nuget.org](https://nuget.org) | **92** | `SeoWebChecker.SeoAudit` | [`dotnet/`](./dotnet) |
 | **PHP** | [packagist.org](https://packagist.org) | **91** | `seowebchecker/seoaudit-sdk` | [`php/`](./php) |
 | **Perl** | [metacpan.org](https://metacpan.org) | **91** | `SeoWebChecker::SeoAudit` | [`perl/`](./perl) |
+| **iOS / macOS** | [cocoapods.org](https://cocoapods.org) | **90** | `SeoWebChecker` | [`swift/`](./swift) |
 | **Rust** | [crates.io](https://crates.io) | **90** | `seowebchecker-seoaudit-sdk` | [`rust/`](./rust) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
@@ -284,11 +285,41 @@ And installable via:
 conda install -c <YOUR_USERNAME> seowebchecker-seoaudit-sdk
 ```
 
+---
 
+## 19. CocoaPods (`cocoapods.org` - DA 90)
+Pod identifier: **`SeoWebChecker`**  
+Podspec file: `SeoWebChecker.podspec` (and `swift/SeoWebChecker.podspec`)
 
+### Method A: Direct via CocoaPods Trunk CLI (Recommended)
+1. **Register your CocoaPods Trunk session** (run on macOS or any machine with Ruby & CocoaPods installed):
+   ```bash
+   pod trunk register jaiganesh6999@gmail.com 'Rahul Gupta' --description='MacBook Pro'
+   ```
+2. **Confirm your registration**:
+   Open the email sent to `jaiganesh6999@gmail.com` with the subject *"Confirm your CocoaPods Trunk registration"* and click the confirmation link.
+3. **Verify registration**:
+   ```bash
+   pod trunk me
+   ```
+4. **Publish the Pod**:
+   From the repository root:
+   ```bash
+   pod trunk push SeoWebChecker.podspec --allow-warnings
+   ```
 
+### Method B: Automated via GitHub Actions
+1. After registering with CocoaPods trunk on your local machine, retrieve your trunk token:
+   - On macOS/Linux: `cat ~/.netrc` or find the `trunk.cocoapods.org` password token.
+2. In GitHub repository settings $\rightarrow$ Secrets and variables $\rightarrow$ Actions, add a new repository secret:
+   - Name: `COCOAPODS_TRUNK_TOKEN`
+   - Value: `<YOUR_TRUNK_TOKEN>`
+3. The `.github/workflows/test-and-lint-pod.yml` workflow will automatically test and publish the pod to CocoaPods Trunk on push to `main`!
 
+Once published, your pod will be indexed and live at:  
+👉 **[https://cocoapods.org/pods/SeoWebChecker](https://cocoapods.org/pods/SeoWebChecker)**
 
-
-
-
+And developers can integrate it into their iOS / macOS apps via their `Podfile`:
+```ruby
+pod 'SeoWebChecker', '~> 1.0.0'
+```
