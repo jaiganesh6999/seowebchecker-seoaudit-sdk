@@ -1,6 +1,7 @@
-# Comprehensive Publishing Guide for 37 Package Registries
+# Comprehensive Publishing Guide for 38 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 37 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 38 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+
 
 ---
 
@@ -45,6 +46,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Multi-Format / Cloud** | [cloudsmith.io](https://cloudsmith.io) | **78** | `seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **Apple / Swift** | [swiftpackageindex.com](https://swiftpackageindex.com) | **76** | `SeoWebChecker` | [Root (`./Package.swift`)](./Package.swift) |
 | **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
+| **Ubuntu / Debian (Launchpad PPA)** | [launchpad.net](https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker) | **93** | `seowebchecker` | [`launchpad/`](./launchpad) |
 
 ---
 
@@ -1064,6 +1066,108 @@ The derivation in [`nix/package.nix`](./nix/package.nix) is built with `stdenv.m
 - Wraps execution using `makeWrapper` with `nodejs`
 - Provides symlinks for both `seowebchecker` and `seowebchecker-audit`
 - Canonical homepage set to **`https://seowebchecker.com/`** (with trailing slash)
+
+---
+
+## 38. Launchpad PPA (`launchpad.net` - DA 93)
+
+[Launchpad](https://launchpad.net/) is Canonical's hosting platform and the official Personal Package Archive (PPA) service for Ubuntu and Debian packages. Publishing to a PPA allows Ubuntu and Debian users to install packages directly via `apt`.
+
+**PPA URL:** `https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker`  
+**Install command:** `sudo add-apt-repository ppa:jaiganesh6999/seowebchecker && sudo apt install seowebchecker`  
+**Package Directory:** [`launchpad/`](./launchpad)  
+**GitHub Actions Workflow:** [`.github/workflows/publish-launchpad.yml`](./.github/workflows/publish-launchpad.yml)
+
+### Prerequisites
+
+1. **Launchpad account** — Register at [launchpad.net/+login](https://launchpad.net/+login) with the username `jaiganesh6999` and email `jaiganesh6999@gmail.com`.
+2. **GPG key** — Generate and register a GPG key with Launchpad:
+   ```bash
+   # Generate a new key (if you don't have one)
+   gpg --gen-key
+   # Export the public key
+   gpg --export --armor YOUR_KEY_ID | xclip
+   ```
+   Then paste it at: **https://launchpad.net/~jaiganesh6999/+editpgpkeys**
+3. **Confirmed key** — Launchpad sends a confirmation email; you must decrypt it and confirm.
+
+### Directory Structure
+
+```
+launchpad/
+└── debian/
+    ├── changelog            # Debian release history (versioned per Ubuntu series)
+    ├── compat               # debhelper compatibility level (13)
+    ├── control              # Package metadata, dependencies, descriptions
+    ├── copyright            # DEP-5 machine-readable copyright file
+    ├── rules                # Build instructions (uses pybuild)
+    └── python3-seowebchecker.install  # File installation mapping
+```
+
+### Method 1: GitHub Actions (Recommended — works from Windows)
+
+The workflow `.github/workflows/publish-launchpad.yml` builds the Debian source package and uploads via `dput` on an `ubuntu-latest` runner.
+
+**Required GitHub Secrets** (set at https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/settings/secrets/actions):
+
+| Secret | Value |
+|---|---|
+| `LAUNCHPAD_GPG_PRIVATE_KEY` | Output of `gpg --export-secret-keys --armor YOUR_KEY_ID` |
+| `LAUNCHPAD_GPG_PASSPHRASE` | Your GPG passphrase |
+
+**Steps:**
+1. Set the two GitHub Secrets above.
+2. Trigger the workflow manually via GitHub Actions → **"Publish to Launchpad PPA"** → **Run workflow**.
+3. The workflow builds for `noble` (24.04), `jammy` (22.04), and `focal` (20.04) in parallel.
+4. Each build uploads to `ppa:jaiganesh6999/seowebchecker` via `dput`.
+5. Launchpad compiles the packages on its build farm and sends a confirmation email.
+
+### Method 2: Linux / WSL (Local)
+
+On a Linux machine or Windows Subsystem for Linux (WSL):
+
+```bash
+# Install tools
+sudo apt-get install devscripts debhelper dh-python dput gpg
+
+# Clone the repo
+git clone https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk.git
+cd seowebchecker-seoaudit-sdk
+
+# Publish for Ubuntu Noble (24.04)
+bash publish_launchpad.sh noble
+
+# Publish for Jammy (22.04)
+bash publish_launchpad.sh jammy
+
+# Publish for Focal (20.04)
+bash publish_launchpad.sh focal
+```
+
+### Installation Once PPA is Active
+
+```bash
+# Add the PPA and install
+sudo add-apt-repository ppa:jaiganesh6999/seowebchecker
+sudo apt-get update
+sudo apt-get install seowebchecker
+
+# Run the CLI
+seowebchecker-audit --url https://seowebchecker.com/
+```
+
+### PPA Build Status
+
+Monitor builds at:  
+**https://launchpad.net/~jaiganesh6999/+archive/ubuntu/seowebchecker/+builds**
+
+### Updating the Package
+
+To publish a new version:
+1. Update `launchpad/debian/changelog` — run `dch -v 1.0.2-1` on Linux or edit manually.
+2. Update version in `launchpad/debian/changelog` from `1.0.1-1` to `1.0.2-1`.
+3. Re-trigger the GitHub Actions workflow or run `bash publish_launchpad.sh` locally.
+
 
 
 
