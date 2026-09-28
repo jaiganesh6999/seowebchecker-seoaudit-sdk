@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 20 Package Registries
+# Comprehensive Publishing Guide for 21 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 20 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 21 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -27,6 +27,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **Elixir / Erlang** | [hex.pm](https://hex.pm) | **83** | `seowebchecker` | [`elixir/`](./elixir) |
 | **Lua** | [luarocks.org](https://luarocks.org) | **82** | `seowebchecker` | [`lua/`](./lua) |
+| **Apple / Swift** | [swiftpackageindex.com](https://swiftpackageindex.com) | **76** | `SeoWebChecker` | [Root (`./Package.swift`)](./Package.swift) |
 | **Clojure** | [clojars.org](https://clojars.org) | **75** | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 
 ---
@@ -346,3 +347,19 @@ Or declare it directly in their application's `bower.json`:
   }
 }
 ```
+
+---
+
+## 21. Swift Package Index (`swiftpackageindex.com` - DA 76)
+Package identifier: **`SeoWebChecker`**  
+Package manifest: Root `Package.swift`
+
+### Submission & Indexing
+1. Go to 👉 **[https://swiftpackageindex.com/add-a-package](https://swiftpackageindex.com/add-a-package)**.
+2. Enter the repository URL:
+   `https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk`
+3. Click **Submit**.
+4. The Swift Package Index build system will automatically fetch releases/tags and index compatibility across iOS, macOS, watchOS, tvOS, and Linux.
+
+Once indexed, the package is live at:  
+👉 **`https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk`**
