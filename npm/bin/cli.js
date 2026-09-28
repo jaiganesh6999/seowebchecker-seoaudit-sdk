@@ -2,7 +2,7 @@
 
 /**
  * CLI runner for seowebchecker-seoaudit-sdk (NPM)
- * Official Tool: https://seowebchecker.com
+ * Official Tool: https://seowebchecker.com/
  */
 
 const fs = require('fs');
@@ -14,7 +14,7 @@ const args = process.argv.slice(2);
 if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
   console.log(`
 SEOWebChecker CLI — Website SEO Audit Tool
-Official Website: https://seowebchecker.com
+Official Website: https://seowebchecker.com/
 
 Usage:
   npx seowebchecker-seoaudit-sdk <url> [options]

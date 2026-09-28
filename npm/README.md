@@ -3,11 +3,11 @@
 [![npm version](https://img.shields.io/npm/v/seowebchecker-seoaudit-sdk.svg?color=red)](https://www.npmjs.com/package/seowebchecker-seoaudit-sdk)
 [![npm downloads](https://img.shields.io/npm/dt/seowebchecker-seoaudit-sdk.svg)](https://www.npmjs.com/package/seowebchecker-seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight, zero-dependency Node.js client SDK and CLI tool for instant website SEO audits, on-page analysis, and technical diagnostics.
 
-Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com) — the premier free online SEO audit suite.
+Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com/) — the premier free online SEO audit suite.
 
 ---
 
@@ -16,7 +16,7 @@ Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com) — t
 - **Zero External Dependencies**: Fast, lightweight, pure Node.js implementation.
 - **50+ SEO Checks**: Meta tags, Title, Description, Canonical, Headings hierarchy (H1-H6), Image alt tags, OpenGraph, Twitter Cards, Schema JSON-LD, HTTPS, and response latency.
 - **CI/CD Quality Gate**: Enforce `--min-score 85` in GitHub Actions or GitLab CI to fail builds on SEO regressions.
-- **Dual Mode**: Standalone local audits or connect to [SEOWebChecker Cloud API](https://seowebchecker.com).
+- **Dual Mode**: Standalone local audits or connect to [SEOWebChecker Cloud API](https://seowebchecker.com/).
 - **TypeScript Support**: Ships with full `.d.ts` definitions.
 
 ---
@@ -63,7 +63,7 @@ runAudit();
 const { SEOAuditor } = require('seowebchecker-seoaudit-sdk');
 
 const auditor = new SEOAuditor();
-const result = auditor.auditHtml(renderedHtmlString, 'https://seowebchecker.com');
+const result = auditor.auditHtml(renderedHtmlString, 'https://seowebchecker.com/');
 console.log('Score:', result.score.overall);
 ```
 
@@ -91,13 +91,13 @@ npx seowebchecker-seoaudit-sdk https://example.com --min-score 85
 
 ## 🌐 Official Platform
 
-Explore the full web audit suite at [SEOWebChecker.com](https://seowebchecker.com):
-- [Website SEO Audit Tool](https://seowebchecker.com)
-- [Broken Link Checker](https://seowebchecker.com)
-- [Schema Markup Validator](https://seowebchecker.com)
+Explore the full web audit suite at [SEOWebChecker.com](https://seowebchecker.com/):
+- [Website SEO Audit Tool](https://seowebchecker.com/)
+- [Broken Link Checker](https://seowebchecker.com/)
+- [Schema Markup Validator](https://seowebchecker.com/)
 
 ---
 
 ## 📄 License
 
-MIT License © 2026 [SEOWebChecker](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker](https://seowebchecker.com/).

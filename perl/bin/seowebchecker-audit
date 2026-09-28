@@ -10,7 +10,7 @@ my $url = $ARGV[0];
 
 if (!defined $url || $url eq '--help' || $url eq '-h') {
     print "SEOWebChecker CLI — Website SEO Audit Tool (Perl)\n";
-    print "Official Website: https://seowebchecker.com\n\n";
+    print "Official Website: https://seowebchecker.com/\n\n";
     print "Usage: seowebchecker-audit <url> [--format json]\n\n";
     exit(0);
 }
@@ -25,7 +25,7 @@ if (grep { $_ eq '--format' } @ARGV) {
 } else {
     print "=================================================================\n";
     print " SEOWebChecker SEO Audit Report: $result->{url}\n";
-    print " Official: https://seowebchecker.com\n";
+    print " Official: https://seowebchecker.com/\n";
     print "=================================================================\n\n";
     print " Overall Score: $result->{score}{overall}/100 | Grade: $result->{score}{grade}\n";
     print " Checks: $result->{stats}{passed} Passed, $result->{stats}{warnings} Warnings, $result->{stats}{errors} Errors\n";

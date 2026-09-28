@@ -29,12 +29,12 @@ sample_html <- paste0(
   "<title>SEOWebChecker: Free SEO Audit & Analysis Tools</title>",
   "<meta name='description' content='Audit your website for comprehensive SEO scoring.'>",
   "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
-  "<link rel='canonical' href='https://seowebchecker.com'>",
+  "<link rel='canonical' href='https://seowebchecker.com/'>",
   "</head><body>",
   "<h1>Comprehensive SEO Audit Tools</h1>",
   "<img src='banner.jpg' alt='Dashboard preview'>",
   "</body></html>"
 )
-result <- audit_html(sample_html, url = "https://seowebchecker.com")
+result <- audit_html(sample_html, url = "https://seowebchecker.com/")
 print(result)
 }

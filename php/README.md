@@ -4,11 +4,11 @@
 [![Total Downloads](https://poser.pugx.org/seowebchecker/seoaudit-sdk/downloads)](https://packagist.org/packages/seowebchecker/seoaudit-sdk)
 [![License](https://poser.pugx.org/seowebchecker/seoaudit-sdk/license)](https://packagist.org/packages/seowebchecker/seoaudit-sdk)
 [![PHP Version](https://img.shields.io/badge/php-%3E%3D8.2-8892BF.svg)](https://php.net)
-[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight, zero-dependency PHP 8.2+ client SDK and CLI tool for full website SEO audits, technical checks, and on-page optimization.
 
-Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com) — the premier free online SEO audit suite.
+Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com/) — the premier free online SEO audit suite.
 
 ---
 
@@ -18,7 +18,7 @@ Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com) — t
 - **Zero Heavy Dependencies**: Pure PHP standard library without external dependencies.
 - **50+ SEO Checks**: Meta tags, Title, Description, Canonical URL, Headings (H1-H6), Image alt attributes, OpenGraph, Twitter Cards, Schema JSON-LD, HTTPS security, and latency diagnostics.
 - **CI/CD Quality Gate**: Set `--min-score 85` in deployment pipelines to prevent SEO regressions.
-- **Dual Engine**: Run local audits instantly or connect to [SEOWebChecker Cloud API](https://seowebchecker.com).
+- **Dual Engine**: Run local audits instantly or connect to [SEOWebChecker Cloud API](https://seowebchecker.com/).
 
 ---
 
@@ -63,7 +63,7 @@ $markdown = $result->toMarkdown();
 use SeoWebChecker\SeoAudit\Auditor;
 
 $auditor = new Auditor();
-$result = $auditor->auditHtml($renderedHtml, 'https://seowebchecker.com');
+$result = $auditor->auditHtml($renderedHtml, 'https://seowebchecker.com/');
 ```
 
 ---
@@ -88,10 +88,10 @@ php vendor/bin/seowebchecker https://example.com --min-score 85
 
 ## 🌐 Official Platform
 
-Visit [SEOWebChecker.com](https://seowebchecker.com) for in-depth web audits, backlink checkers, and SEO monitoring tools.
+Visit [SEOWebChecker.com](https://seowebchecker.com/) for in-depth web audits, backlink checkers, and SEO monitoring tools.
 
 ---
 
 ## 📄 License
 
-MIT License © 2026 [SEOWebChecker](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker](https://seowebchecker.com/).

@@ -14,7 +14,7 @@ $args = array_slice($argv, 1);
 if (empty($args) || in_array('--help', $args, true) || in_array('-h', $args, true)) {
     echo <<<HELP
 SEOWebChecker CLI — Website SEO Audit Tool
-Official Website: https://seowebchecker.com
+Official Website: https://seowebchecker.com/
 
 Usage:
   php bin/seowebchecker <url> [options]
@@ -60,7 +60,7 @@ if ($format === 'json') {
 } else {
     $out = "====================================================================\n";
     $out .= " SEOWebChecker SEO Audit Report: {$result->url}\n";
-    $out .= " Official: https://seowebchecker.com | Timestamp: {$result->timestamp}\n";
+    $out .= " Official: https://seowebchecker.com/ | Timestamp: {$result->timestamp}\n";
     $out .= "====================================================================\n\n";
     $out .= " Overall Score: {$result->score}/100 | Grade: {$result->grade}\n";
     $out .= " Checks: {$result->stats['passed']} Passed, {$result->stats['warnings']} Warnings, {$result->stats['errors']} Errors\n\n";

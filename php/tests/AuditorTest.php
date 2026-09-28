@@ -15,7 +15,7 @@ $sampleHtml = <<<HTML
   <title>SEOWebChecker: Free Website SEO Audit and Analysis Tool</title>
   <meta name="description" content="Audit your website with 50+ real-time SEO checks. Discover technical errors and optimize on-page SEO.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://seowebchecker.com">
+  <link rel="canonical" href="https://seowebchecker.com/">
   <meta property="og:title" content="SEOWebChecker">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SEOWebChecker"}</script>
 </head>
@@ -31,7 +31,7 @@ HTML;
 echo "Running PHP 8.2 SEO Auditor Tests...\n";
 
 $auditor = new Auditor();
-$result = $auditor->auditHtml($sampleHtml, 'https://seowebchecker.com');
+$result = $auditor->auditHtml($sampleHtml, 'https://seowebchecker.com/');
 
 assert($result->score >= 80, "Expected score >= 80, got {$result->score}");
 assert($result->meta['title'] === 'SEOWebChecker: Free Website SEO Audit and Analysis Tool', 'Title mismatch');

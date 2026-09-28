@@ -1,6 +1,6 @@
 /**
  * SEOWebChecker SEO Audit SDK
- * Official site: https://seowebchecker.com
+ * Official site: https://seowebchecker.com/
  */
 
 const { SEOAuditor } = require('./lib/auditor');

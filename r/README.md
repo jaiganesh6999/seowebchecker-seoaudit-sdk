@@ -1,12 +1,12 @@
 # seowebchecker (R Package)
 
-[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com)
+[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CRAN Status](https://www.r-pkg.org/badges/version/seowebchecker)](https://cran.r-project.org/package=seowebchecker)
 
-Lightweight, pure R client SDK and utility suite for automated on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals checks. Developed by the [SEOWebChecker](https://seowebchecker.com) engineering team.
+Lightweight, pure R client SDK and utility suite for automated on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals checks. Developed by the [SEOWebChecker](https://seowebchecker.com/) engineering team.
 
-Online audits, live visual scoring, and comprehensive downloadable reports are available at **[https://seowebchecker.com](https://seowebchecker.com)**.
+Online audits, live visual scoring, and comprehensive downloadable reports are available at **[https://seowebchecker.com/](https://seowebchecker.com/)**.
 
 ---
 
@@ -48,14 +48,14 @@ sample_html <- paste0(
   "<title>SEOWebChecker: Free SEO Audit & Analysis Tools</title>",
   "<meta name='description' content='Audit your website for comprehensive SEO scoring.'>",
   "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
-  "<link rel='canonical' href='https://seowebchecker.com'>",
+  "<link rel='canonical' href='https://seowebchecker.com/'>",
   "</head><body>",
   "<h1>Comprehensive SEO Audit Tools</h1>",
   "<img src='banner.jpg' alt='Dashboard preview'>",
   "</body></html>"
 )
 
-result <- audit_html(sample_html, url = "https://seowebchecker.com")
+result <- audit_html(sample_html, url = "https://seowebchecker.com/")
 print(result)
 ```
 
@@ -65,7 +65,7 @@ print(result)
 library(seowebchecker)
 
 # Audit a live site
-result <- audit_url("https://seowebchecker.com")
+result <- audit_url("https://seowebchecker.com/")
 print(result)
 
 # Access individual metrics and scores
@@ -78,7 +78,7 @@ result$metadata$title
 
 ## 🔗 Related Resources
 
-- **Official Web Portal**: [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Web Portal**: [https://seowebchecker.com/](https://seowebchecker.com/)
 - **GitHub Repository**: [https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
 - **CRAN Submission Portal**: [https://xmpalantir.wu.ac.at/cransubmit/](https://xmpalantir.wu.ac.at/cransubmit/)
 
@@ -86,4 +86,4 @@ result$metadata$title
 
 ## 📄 License
 
-MIT License © 2026 [SEOWebChecker](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker](https://seowebchecker.com/).

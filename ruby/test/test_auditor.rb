@@ -10,7 +10,7 @@ sample_html = <<~HTML
     <title>SEOWebChecker: Free Website SEO Audit and Analysis Tool</title>
     <meta name="description" content="Audit your website with 50+ real-time SEO checks. Discover technical errors and optimize on-page SEO.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://seowebchecker.com">
+    <link rel="canonical" href="https://seowebchecker.com/">
   </head>
   <body>
     <h1>Free Online Website SEO Audit Tool</h1>
@@ -21,7 +21,7 @@ sample_html = <<~HTML
 HTML
 
 auditor = SeoWebChecker::SeoAudit::Auditor.new
-result = auditor.audit_html(sample_html, url: "https://seowebchecker.com")
+result = auditor.audit_html(sample_html, url: "https://seowebchecker.com/")
 
 abort("Score failed") unless result[:score][:overall] >= 80
 abort("Title mismatch") unless result[:meta][:title] == "SEOWebChecker: Free Website SEO Audit and Analysis Tool"

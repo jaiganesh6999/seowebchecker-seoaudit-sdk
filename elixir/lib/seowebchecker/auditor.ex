@@ -17,7 +17,7 @@ defmodule SeoWebChecker.Auditor do
   @og_title_regex ~r/<meta\s+[^>]*property=["']og:title["'][^>]*content=["'](.*?)["'][^>]*>/si
   @og_image_regex ~r/<meta\s+[^>]*property=["']og:image["'][^>]*content=["'](.*?)["'][^>]*>/si
 
-  @default_user_agent "SEOWebChecker-ElixirBot/1.0 (+https://seowebchecker.com)"
+  @default_user_agent "SEOWebChecker-ElixirBot/1.0 (+https://seowebchecker.com/)"
 
   @doc """
   Audits raw HTML markup against technical on-page SEO best practices.

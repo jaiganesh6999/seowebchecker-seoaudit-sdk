@@ -8,7 +8,7 @@ class Auditor {
   final bool _isCustomClient;
 
   Auditor({
-    this.userAgent = 'SEOWebChecker-DartBot/1.0 (+https://seowebchecker.com)',
+    this.userAgent = 'SEOWebChecker-DartBot/1.0 (+https://seowebchecker.com/)',
     http.Client? client,
   })  : _client = client ?? http.Client(),
         _isCustomClient = client != null;
@@ -345,7 +345,7 @@ AuditResult auditHtml(String htmlContent, {String url = 'https://example.com'}) 
 
 /// Convenience top-level function to fetch and audit a remote website URL.
 Future<AuditResult> auditUrl(String targetUrl, {String? userAgent}) async {
-  final auditor = Auditor(userAgent: userAgent ?? 'SEOWebChecker-DartBot/1.0 (+https://seowebchecker.com)');
+  final auditor = Auditor(userAgent: userAgent ?? 'SEOWebChecker-DartBot/1.0 (+https://seowebchecker.com/)');
   try {
     return await auditor.auditUrl(targetUrl);
   } finally {

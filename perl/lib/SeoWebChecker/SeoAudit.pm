@@ -10,7 +10,7 @@ our $VERSION = '1.0.0';
 sub new {
     my ($class, %args) = @_;
     my $self = {
-        user_agent => $args{user_agent} || 'SEOWebChecker-PerlBot/1.0 (+https://seowebchecker.com)',
+        user_agent => $args{user_agent} || 'SEOWebChecker-PerlBot/1.0 (+https://seowebchecker.com/)',
         timeout    => $args{timeout} || 15,
     };
     return bless $self, $class;
@@ -18,7 +18,7 @@ sub new {
 
 sub audit_html {
     my ($self, $html, $url) = @_;
-    $url //= 'https://seowebchecker.com';
+    $url //= 'https://seowebchecker.com/';
 
     my @issues;
 
@@ -107,6 +107,6 @@ SeoWebChecker::SeoAudit - Lightweight open-source client SDK for website SEO aud
 
 =head1 AUTHOR
 
-SEOWebChecker Team, L<https://seowebchecker.com>
+SEOWebChecker Team, L<https://seowebchecker.com/>
 
 =cut

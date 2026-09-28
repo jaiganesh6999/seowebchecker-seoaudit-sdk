@@ -5,9 +5,9 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
     Automated on-page technical SEO diagnostic engine and client SDK for meta tag validations,
     heading structure inspections, image accessibility checks, and Core Web Vitals diagnostics.
-    Powered by SEOWebChecker (https://seowebchecker.com).
+    Powered by SEOWebChecker (https://seowebchecker.com/).
   DESC
-  s.homepage         = 'https://seowebchecker.com'
+  s.homepage         = 'https://seowebchecker.com/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Rahul Gupta' => 'jaiganesh6999@gmail.com' }
   s.source           = { :git => 'https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk.git', :tag => s.version.to_s }

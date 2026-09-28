@@ -1,6 +1,6 @@
 /**
  * SEO Auditor for Node.js (Zero external dependencies)
- * Official Tool: https://seowebchecker.com
+ * Official Tool: https://seowebchecker.com/
  */
 
 const https = require('https');
@@ -9,7 +9,7 @@ const { URL } = require('url');
 
 class SEOAuditor {
   constructor(options = {}) {
-    this.userAgent = options.userAgent || 'SEOWebChecker-NodeBot/1.0 (+https://seowebchecker.com)';
+    this.userAgent = options.userAgent || 'SEOWebChecker-NodeBot/1.0 (+https://seowebchecker.com/)';
     this.timeout = options.timeout || 15000;
   }
 
@@ -57,7 +57,7 @@ class SEOAuditor {
     });
   }
 
-  auditHtml(html, url = 'https://seowebchecker.com', options = {}) {
+  auditHtml(html, url = 'https://seowebchecker.com/', options = {}) {
     const headers = options.headers || {};
     const statusCode = options.statusCode || 200;
     const responseTimeMs = options.responseTimeMs || 120;

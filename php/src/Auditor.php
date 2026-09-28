@@ -6,7 +6,7 @@ namespace SeoWebChecker\SeoAudit;
 
 /**
  * Lightweight, zero-dependency SEO Auditor in PHP 8.2.
- * Official site: https://seowebchecker.com
+ * Official site: https://seowebchecker.com/
  */
 class Auditor
 {
@@ -14,7 +14,7 @@ class Auditor
     private int $timeout;
 
     public function __construct(
-        string $userAgent = 'SEOWebChecker-PhpBot/1.0 (+https://seowebchecker.com)',
+        string $userAgent = 'SEOWebChecker-PhpBot/1.0 (+https://seowebchecker.com/)',
         int $timeout = 15
     ) {
         $this->userAgent = $userAgent;
@@ -70,7 +70,7 @@ class Auditor
         ]);
     }
 
-    public function auditHtml(string $html, string $url = 'https://seowebchecker.com', array $options = []): AuditResult
+    public function auditHtml(string $html, string $url = 'https://seowebchecker.com/', array $options = []): AuditResult
     {
         $headers = $options['headers'] ?? [];
         $responseTimeMs = (float)($options['response_time_ms'] ?? 120.0);

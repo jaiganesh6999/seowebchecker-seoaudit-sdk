@@ -13,19 +13,19 @@ SAMPLE_GOOD_HTML = """<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEOWebChecker: Free Website SEO Audit and Analysis Tool</title>
     <meta name="description" content="Audit your website with 50+ real-time SEO checks. Discover technical errors, optimize meta tags, and improve Google rankings instantly.">
-    <link rel="canonical" href="https://seowebchecker.com">
+    <link rel="canonical" href="https://seowebchecker.com/">
     <link rel="icon" href="/favicon.ico">
     <meta property="og:title" content="SEOWebChecker - Free SEO Audit Tool">
     <meta property="og:description" content="Discover technical errors and optimize on-page SEO.">
     <meta property="og:image" content="https://seowebchecker.com/og.png">
-    <meta property="og:url" content="https://seowebchecker.com">
+    <meta property="og:url" content="https://seowebchecker.com/">
     <meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "SEOWebChecker",
-      "url": "https://seowebchecker.com"
+      "url": "https://seowebchecker.com/"
     }
     </script>
 </head>
@@ -73,7 +73,7 @@ def test_audit_good_html():
     }
     result = auditor.audit_html(
         html=SAMPLE_GOOD_HTML,
-        url="https://seowebchecker.com",
+        url="https://seowebchecker.com/",
         headers=headers,
         status_code=200,
         response_time_ms=180.0,
@@ -86,7 +86,7 @@ def test_audit_good_html():
     assert result.score.grade in ["A+", "A", "B"]
     assert result.meta.title == "SEOWebChecker: Free Website SEO Audit and Analysis Tool"
     assert result.meta.title_length > 30
-    assert result.meta.canonical == "https://seowebchecker.com"
+    assert result.meta.canonical == "https://seowebchecker.com/"
     assert len(result.content.h1_tags) == 1
     assert len(result.content.h2_tags) == 2
     assert result.images.total_images == 1

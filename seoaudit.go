@@ -2,7 +2,7 @@
 // for automated on-page technical SEO audits, meta tag validations, heading structure
 // inspections, image accessibility analysis, and Core Web Vitals checks.
 //
-// Powered by SEOWebChecker (https://seowebchecker.com).
+// Powered by SEOWebChecker (https://seowebchecker.com/).
 package seowebchecker
 
 import (
@@ -64,7 +64,7 @@ type Auditor struct {
 // NewAuditor returns a new Auditor initialized with default timeout and user agent.
 func NewAuditor() *Auditor {
 	return &Auditor{
-		UserAgent: "SEOWebChecker-GoBot/1.0 (+https://seowebchecker.com)",
+		UserAgent: "SEOWebChecker-GoBot/1.0 (+https://seowebchecker.com/)",
 		Client: &http.Client{
 			Timeout: 15 * time.Second,
 		},

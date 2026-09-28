@@ -12,7 +12,7 @@ const sampleHtml = `<!DOCTYPE html>
   <title>SEOWebChecker: Free Website SEO Audit and Analysis Tool</title>
   <meta name="description" content="Audit your website with 50+ real-time SEO checks. Discover technical errors and optimize on-page SEO.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://seowebchecker.com">
+  <link rel="canonical" href="https://seowebchecker.com/">
   <meta property="og:title" content="SEOWebChecker">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SEOWebChecker"}</script>
 </head>
@@ -25,7 +25,7 @@ const sampleHtml = `<!DOCTYPE html>
 </html>`;
 
 const auditor = new SEOAuditor();
-const result = auditor.auditHtml(sampleHtml, 'https://seowebchecker.com');
+const result = auditor.auditHtml(sampleHtml, 'https://seowebchecker.com/');
 
 console.log('Testing SEOAuditor...');
 assert(result.score.overall >= 80, `Expected score >= 80, got ${result.score.overall}`);

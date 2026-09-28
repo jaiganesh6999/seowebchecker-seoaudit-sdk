@@ -4,7 +4,7 @@ defmodule SeoWebChecker do
   meta tag validations, heading structure inspections, image accessibility checks,
   and Core Web Vitals diagnostics.
 
-  Powered by [SEOWebChecker](https://seowebchecker.com).
+  Powered by [SEOWebChecker](https://seowebchecker.com/).
 
   ## Features
 
@@ -25,7 +25,7 @@ defmodule SeoWebChecker do
       result = SeoWebChecker.audit_html(html)
       IO.inspect(result.score)
 
-  For online tools, visual reports, and rank tracking, visit [https://seowebchecker.com](https://seowebchecker.com).
+  For online tools, visual reports, and rank tracking, visit [https://seowebchecker.com/](https://seowebchecker.com/).
   """
 
   alias SeoWebChecker.{Auditor, Result}
@@ -48,7 +48,7 @@ defmodule SeoWebChecker do
 
   ## Options
 
-    * `:user_agent` - custom User-Agent header (default: `SEOWebChecker-ElixirBot/1.0 (+https://seowebchecker.com)`)
+    * `:user_agent` - custom User-Agent header (default: `SEOWebChecker-ElixirBot/1.0 (+https://seowebchecker.com/)`)
     * `:timeout` - HTTP request timeout in milliseconds (default: 15_000)
   """
   @spec audit_url(String.t(), keyword()) :: {:ok, Result.t()} | {:error, term()}

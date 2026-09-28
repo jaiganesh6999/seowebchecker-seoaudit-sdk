@@ -6,13 +6,13 @@ description:        Provides a lightweight client SDK and utility suite for auto
                     website technical SEO audits, meta tag validations, heading structure
                     inspections, image accessibility analysis, and Core Web Vitals checks.
                     Official web audit portal and tools available at https://seowebchecker.com.
-homepage:           https://seowebchecker.com
+homepage:           https://seowebchecker.com/
 bug-reports:        https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/issues
 license:            MIT
 license-file:       LICENSE
 author:             Rahul Gupta <jaiganesh6999@gmail.com>
 maintainer:         Rahul Gupta <jaiganesh6999@gmail.com>
-copyright:          2026 SEOWebChecker (https://seowebchecker.com)
+copyright:          2026 SEOWebChecker (https://seowebchecker.com/)
 category:           Web, Network, Text
 build-type:         Simple
 extra-source-files:

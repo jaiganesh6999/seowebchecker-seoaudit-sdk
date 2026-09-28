@@ -72,10 +72,10 @@ def main():
 
     # 2. info/about.json
     about_json = {
-        "description": "Automated on-page technical SEO diagnostic engine and client SDK for meta tag validations, heading structure inspections, image accessibility checks, and Core Web Vitals diagnostics. Powered by SEOWebChecker (https://seowebchecker.com).",
+        "description": "Automated on-page technical SEO diagnostic engine and client SDK for meta tag validations, heading structure inspections, image accessibility checks, and Core Web Vitals diagnostics. Powered by SEOWebChecker (https://seowebchecker.com/).",
         "dev_url": "https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk",
-        "doc_url": "https://seowebchecker.com",
-        "home": "https://seowebchecker.com",
+        "doc_url": "https://seowebchecker.com/",
+        "home": "https://seowebchecker.com/",
         "license": "MIT",
         "license_family": "MIT",
         "summary": "Lightweight client SDK for automated on-page technical SEO audits and Core Web Vitals checks."

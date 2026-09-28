@@ -22,9 +22,9 @@
     "seowebchecker",
     "npm-seo"
   ],
-  "author": "SEOWebChecker <support@seowebchecker.com> (https://seowebchecker.com)",
+  "author": "SEOWebChecker <support@seowebchecker.com> (https://seowebchecker.com/)",
   "license": "MIT",
-  "homepage": "https://seowebchecker.com",
+  "homepage": "https://seowebchecker.com/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/seowebchecker/seowebchecker-seoaudit-sdk.git"

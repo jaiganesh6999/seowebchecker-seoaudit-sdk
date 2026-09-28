@@ -4,7 +4,7 @@ test_that("audit_html correctly parses valid HTML", {
     "<title>SEOWebChecker: Free SEO Audit & Analysis Tools</title>",
     "<meta name='description' content='Audit your website with SEOWebChecker for comprehensive SEO scoring.'>",
     "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
-    "<link rel='canonical' href='https://seowebchecker.com'>",
+    "<link rel='canonical' href='https://seowebchecker.com/'>",
     "<meta property='og:title' content='SEOWebChecker SEO Audit'>",
     "<meta property='og:image' content='https://seowebchecker.com/logo.png'>",
     "</head><body>",
@@ -13,10 +13,10 @@ test_that("audit_html correctly parses valid HTML", {
     "</body></html>"
   )
 
-  res <- audit_html(sample_html, url = "https://seowebchecker.com")
+  res <- audit_html(sample_html, url = "https://seowebchecker.com/")
 
   expect_s3_class(res, "seo_audit_result")
-  expect_equal(res$url, "https://seowebchecker.com")
+  expect_equal(res$url, "https://seowebchecker.com/")
   expect_gte(res$score$overall, 90)
   expect_equal(res$score$grade, "A")
   expect_equal(res$errors, 0)

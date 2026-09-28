@@ -1,5 +1,5 @@
 /**
- * Cloud API Client for SEOWebChecker (https://seowebchecker.com)
+ * Cloud API Client for SEOWebChecker (https://seowebchecker.com/)
  */
 
 const https = require('https');
@@ -23,7 +23,7 @@ class SeoWebCheckerClient {
       const headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'User-Agent': 'SEOWebChecker-Node-SDK/1.0.0 (+https://seowebchecker.com)',
+        'User-Agent': 'SEOWebChecker-Node-SDK/1.0.0 (+https://seowebchecker.com/)',
       };
       if (this.apiKey) {
         headers['Authorization'] = `Bearer ${this.apiKey}`;

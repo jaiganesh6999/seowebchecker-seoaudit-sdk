@@ -3,11 +3,11 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/SeoWebChecker.svg)](https://cocoapods.org/pods/SeoWebChecker)
 [![Platform](https://img.shields.io/cocoapods/p/SeoWebChecker.svg)](https://cocoapods.org/pods/SeoWebChecker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight Swift client SDK and on-page technical SEO diagnostic engine for iOS, macOS, watchOS, and tvOS.
 
-Powered by **[SEOWebChecker.com](https://seowebchecker.com)**.
+Powered by **[SEOWebChecker.com](https://seowebchecker.com/)**.
 
 ---
 
@@ -85,10 +85,10 @@ Task {
 
 ## Online Tools
 
-- **Official Website & Free Online Tools**: [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Website & Free Online Tools**: [https://seowebchecker.com/](https://seowebchecker.com/)
 
 ---
 
 ## License
 
-MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com).
+MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com/).

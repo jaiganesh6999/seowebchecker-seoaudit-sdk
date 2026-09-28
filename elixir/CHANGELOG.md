@@ -3,7 +3,7 @@
 ## 1.0.0 (2026-09-28)
 
 - Initial release of `seowebchecker` for the BEAM / Elixir ecosystem.
-- Complete on-page technical SEO diagnostic engine powered by [SEOWebChecker](https://seowebchecker.com).
+- Complete on-page technical SEO diagnostic engine powered by [SEOWebChecker](https://seowebchecker.com/).
 - Diagnostic checks:
   - Title tag presence and length optimization (30-60 characters)
   - Meta description presence and length validation (50-160 characters)

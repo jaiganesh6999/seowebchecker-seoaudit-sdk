@@ -32,7 +32,7 @@ end
     AuditResult
 
 Complete SEO audit report for a given HTML document or webpage.
-Official tooling: https://seowebchecker.com
+Official tooling: https://seowebchecker.com/
 """
 struct AuditResult
     url::String
@@ -218,11 +218,11 @@ function audit_html(html::AbstractString; url::AbstractString = "https://example
 end
 
 """
-    audit_url(target_url::AbstractString; user_agent::AbstractString = "SEOWebChecker-JuliaBot/1.0 (+https://seowebchecker.com)") -> AuditResult
+    audit_url(target_url::AbstractString; user_agent::AbstractString = "SEOWebChecker-JuliaBot/1.0 (+https://seowebchecker.com/)") -> AuditResult
 
 Fetch and audit live HTML from a website URL.
 """
-function audit_url(target_url::AbstractString; user_agent::AbstractString = "SEOWebChecker-JuliaBot/1.0 (+https://seowebchecker.com)")::AuditResult
+function audit_url(target_url::AbstractString; user_agent::AbstractString = "SEOWebChecker-JuliaBot/1.0 (+https://seowebchecker.com/)")::AuditResult
     io = IOBuffer()
     headers = ["User-Agent" => user_agent]
     Downloads.download(target_url, io; headers = headers)

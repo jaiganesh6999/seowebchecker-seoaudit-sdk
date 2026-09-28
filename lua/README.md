@@ -2,11 +2,11 @@
 
 [![LuaRocks](https://img.shields.io/luarocks/v/seowebchecker/seowebchecker.svg)](https://luarocks.org/modules/seowebchecker/seowebchecker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight Lua client SDK and automated on-page technical SEO diagnostic engine for meta tag validations, heading structure inspections, image accessibility checks, and Core Web Vitals diagnostics.
 
-Powered by **[SEOWebChecker.com](https://seowebchecker.com)**.
+Powered by **[SEOWebChecker.com](https://seowebchecker.com/)**.
 
 ---
 
@@ -76,11 +76,11 @@ end
 
 ## Online Tools
 
-- **Official Website**: [https://seowebchecker.com](https://seowebchecker.com)
-- **Live Interactive SEO Auditing**: Test live web pages at [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Website**: [https://seowebchecker.com/](https://seowebchecker.com/)
+- **Live Interactive SEO Auditing**: Test live web pages at [https://seowebchecker.com/](https://seowebchecker.com/)
 
 ---
 
 ## License
 
-MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com).
+MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com/).

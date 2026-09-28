@@ -1,12 +1,12 @@
 # net.clojars.seoaitools/seowebchecker-seoaudit-sdk (Clojure)
 
-[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com)
+[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Clojars Project](https://img.shields.io/clojars/v/net.clojars.seoaitools/seowebchecker-seoaudit-sdk.svg)](https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk)
 
-Lightweight open-source client SDK and utility suite for automated on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals checks for the Clojure programming language. Engineered by the [SEOWebChecker](https://seowebchecker.com) team.
+Lightweight open-source client SDK and utility suite for automated on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals checks for the Clojure programming language. Engineered by the [SEOWebChecker](https://seowebchecker.com/) team.
 
-Full web-based audits, interactive reports, and live SEO benchmarks are available at **[https://seowebchecker.com](https://seowebchecker.com)**.
+Full web-based audits, interactive reports, and live SEO benchmarks are available at **[https://seowebchecker.com/](https://seowebchecker.com/)**.
 
 ---
 
@@ -54,13 +54,13 @@ net.clojars.seoaitools/seowebchecker-seoaudit-sdk {:mvn/version "1.0.0"}
      <title>SEOWebChecker: Free SEO Audit & Analysis Tools</title>
      <meta name='description' content='Audit your website for comprehensive SEO scoring.'>
      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-     <link rel='canonical' href='https://seowebchecker.com'>
+     <link rel='canonical' href='https://seowebchecker.com/'>
    </head><body>
      <h1>Comprehensive SEO Audit Tools</h1>
      <img src='banner.jpg' alt='Dashboard preview'>
    </body></html>")
 
-(let [result (audit/audit-html sample-html :url "https://seowebchecker.com")]
+(let [result (audit/audit-html sample-html :url "https://seowebchecker.com/")]
   (println "Score:" (get-in result [:score :overall]) "/ 100")
   (println "Grade:" (get-in result [:score :grade]))
   (println "Passed:" (:passed-checks result) "/" (:total-checks result))
@@ -71,7 +71,7 @@ net.clojars.seoaitools/seowebchecker-seoaudit-sdk {:mvn/version "1.0.0"}
 ### Audit a Live Website URL
 
 ```clojure
-(let [result (audit/audit-url "https://seowebchecker.com")]
+(let [result (audit/audit-url "https://seowebchecker.com/")]
   (println "URL:" (:url result))
   (println "Overall Score:" (get-in result [:score :overall]) "%")
   (println "Warnings:" (:warnings result))
@@ -82,7 +82,7 @@ net.clojars.seoaitools/seowebchecker-seoaudit-sdk {:mvn/version "1.0.0"}
 
 ## 🔗 Related Resources
 
-- **Official Web Portal**: [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Web Portal**: [https://seowebchecker.com/](https://seowebchecker.com/)
 - **GitHub Repository**: [https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
 - **Clojars Registry**: [https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk](https://clojars.org/net.clojars.seoaitools/seowebchecker-seoaudit-sdk)
 
@@ -90,4 +90,4 @@ net.clojars.seoaitools/seowebchecker-seoaudit-sdk {:mvn/version "1.0.0"}
 
 ## 📄 License
 
-MIT License © 2026 [SEOWebChecker](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker](https://seowebchecker.com/).

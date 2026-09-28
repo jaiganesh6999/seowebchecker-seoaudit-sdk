@@ -9,9 +9,9 @@ description = {
    detailed = [[
       Automated on-page technical SEO diagnostic engine and client SDK for meta tag validations,
       heading structure inspections, image accessibility checks, and Core Web Vitals diagnostics.
-      Powered by SEOWebChecker (https://seowebchecker.com).
+      Powered by SEOWebChecker (https://seowebchecker.com/).
    ]],
-   homepage = "https://seowebchecker.com",
+   homepage = "https://seowebchecker.com/",
    license = "MIT",
    maintainer = "Rahul Gupta <jaiganesh6999@gmail.com>"
 }

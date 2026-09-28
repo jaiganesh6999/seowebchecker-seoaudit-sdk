@@ -19,11 +19,11 @@
 [![Bower](https://img.shields.io/badge/Bower-seowebchecker-FFCC29.svg)](https://bower.io)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seowebchecker/seoaudit-sdk.svg)](https://hub.docker.com/r/seowebchecker/seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight, multi-language open-source client SDK and CLI suite for full website SEO audits, on-page optimization, and Core Web Vitals checks.
 
-Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
+Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 
 ---
 
@@ -71,4 +71,4 @@ Then open **[http://localhost:5000](http://localhost:5000)** in your browser.
 
 ## 📄 License
 
-MIT License © 2026 [SEOWebChecker.com](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker.com](https://seowebchecker.com/).

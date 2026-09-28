@@ -1,5 +1,5 @@
 #' SEOWebChecker SEO Audit SDK for R
-#' Official Website: https://seowebchecker.com
+#' Official Website: https://seowebchecker.com/
 
 #' Audit HTML Content for On-Page SEO
 #'
@@ -27,13 +27,13 @@
 #'   "<title>SEOWebChecker: Free SEO Audit & Analysis Tools</title>",
 #'   "<meta name='description' content='Audit your website for comprehensive SEO scoring.'>",
 #'   "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
-#'   "<link rel='canonical' href='https://seowebchecker.com'>",
+#'   "<link rel='canonical' href='https://seowebchecker.com/'>",
 #'   "</head><body>",
 #'   "<h1>Comprehensive SEO Audit Tools</h1>",
 #'   "<img src='banner.jpg' alt='Dashboard preview'>",
 #'   "</body></html>"
 #' )
-#' result <- audit_html(sample_html, url = "https://seowebchecker.com")
+#' result <- audit_html(sample_html, url = "https://seowebchecker.com/")
 #' print(result)
 #'
 #' @export
@@ -223,18 +223,18 @@ audit_html <- function(html, url = "https://example.com") {
 #'
 #' @param url A character string representing the URL to fetch and audit.
 #' @param user_agent A character string specifying the HTTP User-Agent header.
-#'   Defaults to \code{"SEOWebChecker-RBot/1.0 (+https://seowebchecker.com)"}.
+#'   Defaults to \code{"SEOWebChecker-RBot/1.0 (+https://seowebchecker.com/)"}.
 #'
 #' @return An object of class \code{"seo_audit_result"}.
 #'
 #' @examples
 #' \dontrun{
-#' res <- audit_url("https://seowebchecker.com")
+#' res <- audit_url("https://seowebchecker.com/")
 #' print(res)
 #' }
 #'
 #' @export
-audit_url <- function(url, user_agent = "SEOWebChecker-RBot/1.0 (+https://seowebchecker.com)") {
+audit_url <- function(url, user_agent = "SEOWebChecker-RBot/1.0 (+https://seowebchecker.com/)") {
   if (!is.character(url) || length(url) == 0) {
     stop("Input 'url' must be a valid character string.")
   }
@@ -266,7 +266,7 @@ audit_url <- function(url, user_agent = "SEOWebChecker-RBot/1.0 (+https://seoweb
 print.seo_audit_result <- function(x, ...) {
   cat("========================================================\n")
   cat(" SEOWebChecker SEO Audit Report\n")
-  cat(" Official Tooling: https://seowebchecker.com\n")
+  cat(" Official Tooling: https://seowebchecker.com/\n")
   cat("========================================================\n")
   cat(sprintf("Target URL:      %s\n", x$url))
   cat(sprintf("Overall Score:   %d / 100 (Grade: %s)\n", x$score$overall, x$score$grade))

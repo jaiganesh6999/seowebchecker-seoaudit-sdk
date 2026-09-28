@@ -11,7 +11,7 @@ from seowebchecker_seoaudit.formatters import format_console, format_markdown, f
 def main() -> int:
     parser = argparse.ArgumentParser(
         prog="seowebchecker-audit",
-        description="Lightweight open-source SEO audit tool by SEOWebChecker (https://seowebchecker.com)",
+        description="Lightweight open-source SEO audit tool by SEOWebChecker (https://seowebchecker.com/)",
     )
     parser.add_argument("url", nargs="?", help="Target URL to audit (e.g. https://example.com)")
     parser.add_argument(

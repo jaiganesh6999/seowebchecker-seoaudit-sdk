@@ -1,6 +1,6 @@
 (defproject net.clojars.seoaitools/seowebchecker-seoaudit-sdk "1.0.0"
   :description "Lightweight open-source client SDK and utility suite for website SEO audits, on-page analysis, and Core Web Vitals checks."
-  :url "https://seowebchecker.com"
+  :url "https://seowebchecker.com/"
   :license {:name "MIT License"
             :url "https://opensource.org/licenses/MIT"}
   :scm {:name "git"

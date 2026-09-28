@@ -51,7 +51,7 @@ HTML_PAGE = """<!DOCTYPE html>
         </div>
       </div>
       <div class="flex items-center space-x-3">
-        <a href="https://seowebchecker.com" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-indigo-600 transition flex items-center gap-1">
+        <a href="https://seowebchecker.com/" target="_blank" class="text-xs font-semibold text-slate-600 hover:text-indigo-600 transition flex items-center gap-1">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> Official Site
         </a>
         <a href="https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk" target="_blank" class="text-xs bg-slate-900 text-white font-semibold px-3 py-1.5 rounded-lg hover:bg-slate-800 transition flex items-center gap-1.5">
@@ -105,7 +105,7 @@ HTML_PAGE = """<!DOCTYPE html>
           <span class="font-medium text-slate-400">Try Quick Presets:</span>
           <button onclick="setAndRun('https://example.com')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-md transition">example.com</button>
           <button onclick="setAndRun('https://github.com')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-md transition">github.com</button>
-          <button onclick="setAndRun('https://seowebchecker.com')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-md transition">seowebchecker.com</button>
+          <button onclick="setAndRun('https://seowebchecker.com/')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-md transition">seowebchecker.com</button>
           <button onclick="setAndRun('https://news.ycombinator.com')" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 rounded-md transition">news.ycombinator.com</button>
         </div>
       </div>
@@ -256,7 +256,7 @@ HTML_PAGE = """<!DOCTYPE html>
   </main>
 
   <footer class="border-t border-slate-200 bg-white py-6 mt-12 text-center text-xs text-slate-500">
-    Running locally with <span class="font-semibold text-slate-700">seowebchecker-seoaudit-sdk</span> • Official tool: <a href="https://seowebchecker.com" target="_blank" class="text-indigo-600 font-bold hover:underline">SEOWebChecker.com</a>
+    Running locally with <span class="font-semibold text-slate-700">seowebchecker-seoaudit-sdk</span> • Official tool: <a href="https://seowebchecker.com/" target="_blank" class="text-indigo-600 font-bold hover:underline">SEOWebChecker.com</a>
   </footer>
 
   <script>

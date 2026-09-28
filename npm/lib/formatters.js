@@ -34,7 +34,7 @@ function formatConsole(result, useColor = true) {
   const lines = [];
   lines.push(`${c.cyan}${'='.repeat(68)}${c.reset}`);
   lines.push(`${c.bold} SEOWebChecker SEO Audit Report: ${result.url}${c.reset}`);
-  lines.push(` ${c.dim}Official: https://seowebchecker.com | Generated: ${result.timestamp}${c.reset}`);
+  lines.push(` ${c.dim}Official: https://seowebchecker.com/ | Generated: ${result.timestamp}${c.reset}`);
   lines.push(`${c.cyan}${'='.repeat(68)}${c.reset}\n`);
 
   lines.push(` Overall Score: ${scoreColor}${c.bold}${score}/100${c.reset}  |  Grade: ${badge}`);
@@ -75,7 +75,7 @@ function formatConsole(result, useColor = true) {
   }
 
   lines.push(`\n${c.cyan}${'-'.repeat(68)}${c.reset}`);
-  lines.push(` Run full online audit at: https://seowebchecker.com`);
+  lines.push(` Run full online audit at: https://seowebchecker.com/`);
   lines.push(`${c.cyan}${'-'.repeat(68)}${c.reset}`);
 
   return lines.join('\n');
@@ -84,7 +84,7 @@ function formatConsole(result, useColor = true) {
 function formatMarkdown(result) {
   const lines = [];
   lines.push(`# SEO Audit Report: ${result.url}\n`);
-  lines.push(`> Audited with [SEOWebChecker](https://seowebchecker.com) on \`${result.timestamp}\`\n`);
+  lines.push(`> Audited with [SEOWebChecker](https://seowebchecker.com/) on \`${result.timestamp}\`\n`);
   lines.push(`## Executive Summary\n`);
   lines.push(`- **Overall Score:** **\`${result.score.overall}/100\`** (Grade: **${result.score.grade}**)`);
   lines.push(`- **Passed Checks:** \`${result.stats.passed}\``);
@@ -109,7 +109,7 @@ function formatMarkdown(result) {
     }
   }
 
-  lines.push(`---\n*Automate SEO audits with [seowebchecker-seoaudit-sdk](https://seowebchecker.com).*`);
+  lines.push(`---\n*Automate SEO audits with [seowebchecker-seoaudit-sdk](https://seowebchecker.com/).*`);
   return lines.join('\n');
 }
 

@@ -3,11 +3,11 @@
 [![Hex.pm](https://img.shields.io/hexpm/v/seowebchecker.svg)](https://hex.pm/packages/seowebchecker)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-purple.svg)](https://hexdocs.pm/seowebchecker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight Elixir client SDK and technical SEO audit engine for on-page meta tag validations, heading structure inspections, image accessibility checks, and Core Web Vitals diagnostics.
 
-Powered by **[SEOWebChecker.com](https://seowebchecker.com)**.
+Powered by **[SEOWebChecker.com](https://seowebchecker.com/)**.
 
 ---
 
@@ -93,11 +93,11 @@ IO.puts("Score: #{result.score.overall}/100 (#{result.score.grade})")
 
 ## Online Tools
 
-- **Official Website**: [https://seowebchecker.com](https://seowebchecker.com)
-- **Live Interactive SEO Auditing**: Test live web pages at [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Website**: [https://seowebchecker.com/](https://seowebchecker.com/)
+- **Live Interactive SEO Auditing**: Test live web pages at [https://seowebchecker.com/](https://seowebchecker.com/)
 
 ---
 
 ## License
 
-MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com).
+MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com/).

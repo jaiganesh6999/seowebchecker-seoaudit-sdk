@@ -1,11 +1,11 @@
 # SEOWebChecker SEO Audit SDK Container
-# Official Website: https://seowebchecker.com
+# Official Website: https://seowebchecker.com/
 
 FROM python:3.11-alpine
 
 LABEL org.opencontainers.image.title="seowebchecker-seoaudit-sdk" \
       org.opencontainers.image.description="Lightweight website SEO audit tool and CLI by SEOWebChecker" \
-      org.opencontainers.image.url="https://seowebchecker.com" \
+      org.opencontainers.image.url="https://seowebchecker.com/" \
       org.opencontainers.image.source="https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk" \
       org.opencontainers.image.licenses="MIT"
 

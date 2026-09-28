@@ -7,7 +7,7 @@ namespace SeoWebChecker\SeoAudit;
 use RuntimeException;
 
 /**
- * Cloud API Client for SEOWebChecker (https://seowebchecker.com)
+ * Cloud API Client for SEOWebChecker (https://seowebchecker.com/)
  */
 class Client
 {
@@ -31,7 +31,7 @@ class Client
         $headers = [
             'Content-Type: application/json',
             'Accept: application/json',
-            'User-Agent: SEOWebChecker-Php-SDK/1.0.0 (+https://seowebchecker.com)',
+            'User-Agent: SEOWebChecker-Php-SDK/1.0.0 (+https://seowebchecker.com/)',
         ];
 
         if ($this->apiKey) {

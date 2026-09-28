@@ -10,7 +10,7 @@ using SeoWebCheckerAudit
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SEOWebChecker: Free SEO Audit & Analysis Tools</title>
         <meta name="description" content="Audit your website with SEOWebChecker for comprehensive SEO scoring, Core Web Vitals, and technical recommendations.">
-        <link rel="canonical" href="https://seowebchecker.com">
+        <link rel="canonical" href="https://seowebchecker.com/">
         <meta property="og:title" content="SEOWebChecker SEO Audit">
         <meta property="og:image" content="https://seowebchecker.com/logo.png">
     </head>
@@ -22,9 +22,9 @@ using SeoWebCheckerAudit
     </html>
     """
 
-    result = audit_html(sample_html; url = "https://seowebchecker.com")
+    result = audit_html(sample_html; url = "https://seowebchecker.com/")
     
-    @test result.url == "https://seowebchecker.com"
+    @test result.url == "https://seowebchecker.com/"
     @test result.score.overall >= 90
     @test result.score.grade == "A"
     @test result.errors == 0

@@ -7,7 +7,7 @@ fn main() {
 
     if args.len() < 2 || args.contains(&"--help".to_string()) || args.contains(&"-h".to_string()) {
         println!("SEOWebChecker CLI — Website SEO Audit Tool (Rust)");
-        println!("Official Website: https://seowebchecker.com\n");
+        println!("Official Website: https://seowebchecker.com/\n");
         println!("Usage:\n  seowebchecker-audit <url> [--format json]\n");
         process::exit(0);
     }
@@ -24,7 +24,7 @@ fn main() {
     } else {
         println!("=================================================================");
         println!(" SEOWebChecker SEO Audit Report: {}", result.url);
-        println!(" Official: https://seowebchecker.com");
+        println!(" Official: https://seowebchecker.com/");
         println!("=================================================================\n");
         println!(" Overall Score: {}/100 | Grade: {}", result.score.overall, result.score.grade);
         println!(" Checks: {} Passed, {} Warnings, {} Errors", result.passed_checks, result.warnings, result.errors);

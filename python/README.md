@@ -3,11 +3,11 @@
 [![PyPI version](https://img.shields.io/pypi/v/seowebchecker-seoaudit-sdk.svg?color=blue)](https://pypi.org/project/seowebchecker-seoaudit-sdk/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/seowebchecker-seoaudit-sdk.svg)](https://pypi.org/project/seowebchecker-seoaudit-sdk/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight, high-performance, open-source Python client SDK and CLI tool for instant website SEO audits, on-page analysis, Core Web Vitals checks, and technical SEO diagnostics.
 
-Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com) — the free website audit and SEO diagnostic suite.
+Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com/) — the free website audit and SEO diagnostic suite.
 
 ---
 
@@ -25,7 +25,7 @@ Developed and maintained by [SEOWebChecker.com](https://seowebchecker.com) — t
   - **Structured Data**: JSON-LD schema parsing and Microdata type detection.
 - **CI/CD Quality Gate**: Set `--min-score 85` to fail deployment builds if regressions occur.
 - **Multiple Output Formats**: Terminal ANSI colors, clean Markdown tables, JSON output, or standalone HTML dashboard report.
-- **Optional Cloud API Mode**: Connect seamlessly with the [SEOWebChecker Cloud API](https://seowebchecker.com).
+- **Optional Cloud API Mode**: Connect seamlessly with the [SEOWebChecker Cloud API](https://seowebchecker.com/).
 
 ---
 
@@ -82,7 +82,7 @@ html_content = """
   <title>Best Free SEO Audit Tool - SEOWebChecker</title>
   <meta name="description" content="Audit your website SEO with 50+ real-time checks covering technical SEO, performance, mobile responsiveness, and meta tags.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://seowebchecker.com">
+  <link rel="canonical" href="https://seowebchecker.com/">
 </head>
 <body>
   <h1>Free SEO Audit & Analyzer</h1>
@@ -91,7 +91,7 @@ html_content = """
 </html>
 """
 
-result = auditor.audit_html(html_content, url="https://seowebchecker.com")
+result = auditor.audit_html(html_content, url="https://seowebchecker.com/")
 print(f"Score: {result.score.overall}/100")
 ```
 
@@ -149,7 +149,7 @@ jobs:
 
       - name: Run SEO Audit Gate
         run: |
-          seowebchecker-audit https://seowebchecker.com --min-score 85 --format markdown --output seo-report.md
+          seowebchecker-audit https://seowebchecker.com/ --min-score 85 --format markdown --output seo-report.md
 
       - name: Archive SEO Report
         if: always()
@@ -163,11 +163,11 @@ jobs:
 
 ## 🌐 Official Web Platform
 
-Need an in-depth web-based audit or visual reports? Visit [SEOWebChecker.com](https://seowebchecker.com):
-- [Website SEO Audit Tool](https://seowebchecker.com)
-- [Broken Link Checker](https://seowebchecker.com)
-- [Schema Markup Validator](https://seowebchecker.com)
-- [Meta Tag Generator & Analyzer](https://seowebchecker.com)
+Need an in-depth web-based audit or visual reports? Visit [SEOWebChecker.com](https://seowebchecker.com/):
+- [Website SEO Audit Tool](https://seowebchecker.com/)
+- [Broken Link Checker](https://seowebchecker.com/)
+- [Schema Markup Validator](https://seowebchecker.com/)
+- [Meta Tag Generator & Analyzer](https://seowebchecker.com/)
 
 ---
 

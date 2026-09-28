@@ -10,7 +10,7 @@ module SeoWebChecker
     class Auditor
       attr_accessor :user_agent, :timeout
 
-      DEFAULT_UA = "SEOWebChecker-RubyBot/1.0 (+https://seowebchecker.com)"
+      DEFAULT_UA = "SEOWebChecker-RubyBot/1.0 (+https://seowebchecker.com/)"
 
       def initialize(user_agent: DEFAULT_UA, timeout: 15)
         @user_agent = user_agent
@@ -38,7 +38,7 @@ module SeoWebChecker
         audit_html(res.body || "", url: url, response_time_ms: elapsed_ms, status_code: res.code.to_i)
       end
 
-      def audit_html(html, url: "https://seowebchecker.com", response_time_ms: 120.0, status_code: 200)
+      def audit_html(html, url: "https://seowebchecker.com/", response_time_ms: 120.0, status_code: 200)
         issues = []
 
         # 1. Title

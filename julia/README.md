@@ -1,12 +1,12 @@
 # SeoWebCheckerAudit.jl
 
-[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com)
+[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Julia: 1.6+](https://img.shields.io/badge/Julia-1.6+-purple.svg)](https://julialang.org)
 
-Lightweight, fast, and dependency-free open-source SEO audit SDK for the Julia programming language. Engineered by the [SEOWebChecker](https://seowebchecker.com) team to empower developers, data scientists, and webmasters to automate on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals readiness checks directly in Julia.
+Lightweight, fast, and dependency-free open-source SEO audit SDK for the Julia programming language. Engineered by the [SEOWebChecker](https://seowebchecker.com/) team to empower developers, data scientists, and webmasters to automate on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals readiness checks directly in Julia.
 
-Online web-based audits, full scoring, and report exports are available at **[https://seowebchecker.com](https://seowebchecker.com)**.
+Online web-based audits, full scoring, and report exports are available at **[https://seowebchecker.com/](https://seowebchecker.com/)**.
 
 ---
 
@@ -52,7 +52,7 @@ html_content = """
     <title>SEOWebChecker: Fast On-Page SEO Analyzer</title>
     <meta name="description" content="Free open-source website audit tools for SEO metrics, meta tag inspection, and Core Web Vitals.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://seowebchecker.com">
+    <link rel="canonical" href="https://seowebchecker.com/">
 </head>
 <body>
     <h1>Elevate Your Search Engine Rankings</h1>
@@ -62,7 +62,7 @@ html_content = """
 </html>
 """
 
-result = audit_html(html_content; url = "https://seowebchecker.com")
+result = audit_html(html_content; url = "https://seowebchecker.com/")
 
 println("Score: ", result.score.overall, "/100 (Grade: ", result.score.grade, ")")
 println("Passed Checks: ", result.passed_checks, " / ", result.total_checks)
@@ -77,7 +77,7 @@ end
 ```julia
 using SeoWebCheckerAudit
 
-result = audit_url("https://seowebchecker.com")
+result = audit_url("https://seowebchecker.com/")
 
 println("URL: ", result.url)
 println("Overall SEO Score: ", result.score.overall, "% (Grade: ", result.score.grade, ")")
@@ -89,7 +89,7 @@ println("Identified Errors: ", result.errors)
 
 ## 🔗 Related Resources & Tools
 
-- **Official Web Portal**: [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Web Portal**: [https://seowebchecker.com/](https://seowebchecker.com/)
 - **GitHub Repository**: [https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
 - **Rust Crate**: [crates.io/crates/seowebchecker-seoaudit-sdk](https://crates.io/crates/seowebchecker-seoaudit-sdk)
 - **Docker Image**: [hub.docker.com/r/seoaitools/seoaudit-sdk](https://hub.docker.com/r/seoaitools/seoaudit-sdk)

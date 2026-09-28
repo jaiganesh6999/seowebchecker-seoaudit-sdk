@@ -8,7 +8,7 @@
     <Company>SEOWebChecker</Company>
     <Description>Lightweight open-source client SDK for website SEO audits, on-page analysis, and Core Web Vitals checks by SEOWebChecker.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://seowebchecker.com</PackageProjectUrl>
+    <PackageProjectUrl>https://seowebchecker.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>seo;seo-audit;website-audit;seowebchecker;meta-tags;technical-seo;core-web-vitals</PackageTags>

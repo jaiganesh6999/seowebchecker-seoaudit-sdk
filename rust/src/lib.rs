@@ -1,5 +1,5 @@
 //! SEOWebChecker SEO Audit SDK for Rust
-//! Official Website: https://seowebchecker.com
+//! Official Website: https://seowebchecker.com/
 
 use regex::Regex;
 use serde::{Deserialize, Serialize};
@@ -40,7 +40,7 @@ pub struct SEOAuditor {
 impl Default for SEOAuditor {
     fn default() -> Self {
         Self {
-            user_agent: "SEOWebChecker-RustBot/1.0 (+https://seowebchecker.com)".to_string(),
+            user_agent: "SEOWebChecker-RustBot/1.0 (+https://seowebchecker.com/)".to_string(),
         }
     }
 }

@@ -3,7 +3,7 @@ defmodule SeoWebChecker.MixProject do
 
   @version "1.0.0"
   @source_url "https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/tree/main/elixir"
-  @homepage_url "https://seowebchecker.com"
+  @homepage_url "https://seowebchecker.com/"
 
   def project do
     [
@@ -31,7 +31,7 @@ defmodule SeoWebChecker.MixProject do
   end
 
   defp description do
-    "Automated on-page technical SEO diagnostic engine and client SDK for meta tag validations, heading structure inspections, and Core Web Vitals checks. Powered by SEOWebChecker (https://seowebchecker.com)."
+    "Automated on-page technical SEO diagnostic engine and client SDK for meta tag validations, heading structure inspections, and Core Web Vitals checks. Powered by SEOWebChecker (https://seowebchecker.com/)."
   end
 
   defp package do

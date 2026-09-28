@@ -41,7 +41,7 @@ def format_console(result: AuditResult, use_color: bool = True) -> str:
     lines = []
     lines.append(f"{c.CYAN}{'=' * 68}{c.RESET}")
     lines.append(f"{c.BOLD} SEOWebChecker SEO Audit Report: {result.url}{c.RESET}")
-    lines.append(f" {c.DIM}Official Tool: https://seowebchecker.com | Timestamp: {result.timestamp}{c.RESET}")
+    lines.append(f" {c.DIM}Official Tool: https://seowebchecker.com/ | Timestamp: {result.timestamp}{c.RESET}")
     lines.append(f"{c.CYAN}{'=' * 68}{c.RESET}\n")
 
     lines.append(f" Overall Score: {score_color}{c.BOLD}{score}/100{c.RESET}  |  Grade: {badge}")
@@ -85,7 +85,7 @@ def format_console(result: AuditResult, use_color: bool = True) -> str:
             lines.append(f"    Action:  {c.DIM}{warn.recommendation}{c.RESET}")
 
     lines.append(f"\n{c.CYAN}{'-' * 68}{c.RESET}")
-    lines.append(f" Run in-depth web audit at: https://seowebchecker.com")
+    lines.append(f" Run in-depth web audit at: https://seowebchecker.com/")
     lines.append(f"{c.CYAN}{'-' * 68}{c.RESET}")
 
     return "\n".join(lines)
@@ -95,7 +95,7 @@ def format_markdown(result: AuditResult) -> str:
     """Format an AuditResult into clean GitHub-flavored Markdown."""
     lines = []
     lines.append(f"# SEO Audit Report: {result.url}\n")
-    lines.append(f"> Audited with [SEOWebChecker](https://seowebchecker.com) on `{result.timestamp}`\n")
+    lines.append(f"> Audited with [SEOWebChecker](https://seowebchecker.com/) on `{result.timestamp}`\n")
 
     lines.append(f"## Executive Summary\n")
     lines.append(f"- **Overall Score:** **`{result.score.overall}/100`** (Grade: **{result.score.grade}**)")
@@ -143,7 +143,7 @@ def format_markdown(result: AuditResult) -> str:
         lines.append(f"- ✅ **{ok.title}**: {ok.message}")
     lines.append("")
 
-    lines.append("---\n*Automate continuous SEO audits in your CI/CD pipeline using [seowebchecker-seoaudit-sdk](https://seowebchecker.com).*")
+    lines.append("---\n*Automate continuous SEO audits in your CI/CD pipeline using [seowebchecker-seoaudit-sdk](https://seowebchecker.com/).*")
 
     return "\n".join(lines)
 
@@ -212,7 +212,7 @@ body {{ font-family: 'Inter', sans-serif; }}
         <!-- Header -->
         <header class="bg-white rounded-xl shadow-sm p-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
-                <a href="https://seowebchecker.com" target="_blank" class="text-xs font-semibold uppercase tracking-wider text-indigo-600 hover:underline">SEOWebChecker Audit Tool</a>
+                <a href="https://seowebchecker.com/" target="_blank" class="text-xs font-semibold uppercase tracking-wider text-indigo-600 hover:underline">SEOWebChecker Audit Tool</a>
                 <h1 class="text-2xl font-extrabold text-gray-900 mt-1 break-all">{html.escape(result.url)}</h1>
                 <p class="text-xs text-gray-400 mt-1">Generated: {html.escape(result.timestamp)}</p>
             </div>
@@ -261,7 +261,7 @@ body {{ font-family: 'Inter', sans-serif; }}
 
         <!-- Footer -->
         <footer class="text-center text-xs text-gray-500 py-4">
-            Audited by <a href="https://seowebchecker.com" target="_blank" class="text-indigo-600 font-semibold hover:underline">SEOWebChecker.com</a> — Free Online SEO Tools & Developer SDKs.
+            Audited by <a href="https://seowebchecker.com/" target="_blank" class="text-indigo-600 font-semibold hover:underline">SEOWebChecker.com</a> — Free Online SEO Tools & Developer SDKs.
         </footer>
     </div>
 </body>

@@ -2,11 +2,11 @@
 
 [![pub package](https://img.shields.io/pub/v/seowebchecker.svg)](https://pub.dev/packages/seowebchecker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![SEOWebChecker Official](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![SEOWebChecker Official](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight Dart and Flutter client SDK for automated on-page technical SEO audits, meta tag validations, heading structure inspections, and Core Web Vitals diagnostics.
 
-Powered by **[SEOWebChecker.com](https://seowebchecker.com)**.
+Powered by **[SEOWebChecker.com](https://seowebchecker.com/)**.
 
 ---
 
@@ -88,7 +88,7 @@ import 'package:seowebchecker/seowebchecker.dart';
 
 Future<void> main() async {
   final auditor = Auditor(
-    userAgent: 'MyCustomCrawler/1.0 (+https://seowebchecker.com)',
+    userAgent: 'MyCustomCrawler/1.0 (+https://seowebchecker.com/)',
   );
 
   final result = await auditor.auditUrl('https://example.com');
@@ -101,11 +101,11 @@ Future<void> main() async {
 
 ## Additional Resources
 
-- **Official Website & Free Online Tools**: [https://seowebchecker.com](https://seowebchecker.com)
-- **Live Interactive SEO Auditing**: Test your live website at [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Website & Free Online Tools**: [https://seowebchecker.com/](https://seowebchecker.com/)
+- **Live Interactive SEO Auditing**: Test your live website at [https://seowebchecker.com/](https://seowebchecker.com/)
 
 ---
 
 ## License
 
-MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com).
+MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com/).

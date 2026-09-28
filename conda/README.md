@@ -3,11 +3,11 @@
 [![Anaconda-Server Badge](https://anaconda.org/seoaitools/seowebchecker-seoaudit-sdk/badges/version.svg)](https://anaconda.org/seoaitools/seowebchecker-seoaudit-sdk)
 [![Anaconda-Server Badge](https://anaconda.org/seoaitools/seowebchecker-seoaudit-sdk/badges/platforms.svg)](https://anaconda.org/seoaitools/seowebchecker-seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 A lightweight Conda package and automated on-page technical SEO diagnostic engine for meta tag validations, heading structure inspections, image accessibility checks, and Core Web Vitals diagnostics.
 
-Powered by **[SEOWebChecker.com](https://seowebchecker.com)**.
+Powered by **[SEOWebChecker.com](https://seowebchecker.com/)**.
 
 ---
 
@@ -87,10 +87,10 @@ Add secret `ANACONDA_API_TOKEN` in GitHub Repository Settings. The workflow `Con
 
 ## Official Website & Free Online Auditing
 
-- **Live SEO Checkers & Audits**: [https://seowebchecker.com](https://seowebchecker.com)
+- **Live SEO Checkers & Audits**: [https://seowebchecker.com/](https://seowebchecker.com/)
 
 ---
 
 ## License
 
-MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com).
+MIT © 2026 [SEOWebChecker.com](https://seowebchecker.com/).

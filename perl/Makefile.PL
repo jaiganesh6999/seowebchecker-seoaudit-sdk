@@ -17,7 +17,7 @@ WriteMakefile(
     META_MERGE => {
         'meta-spec' => { version => 2 },
         resources   => {
-            homepage   => 'https://seowebchecker.com',
+            homepage   => 'https://seowebchecker.com/',
             repository => {
                 type => 'git',
                 url  => 'https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk.git',

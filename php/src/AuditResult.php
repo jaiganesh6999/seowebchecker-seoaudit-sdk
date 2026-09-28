@@ -56,7 +56,7 @@ class AuditResult
     public function toMarkdown(): string
     {
         $md = "# SEO Audit Report: {$this->url}\n\n";
-        $md .= "> Audited with [SEOWebChecker](https://seowebchecker.com) on `{$this->timestamp}`\n\n";
+        $md .= "> Audited with [SEOWebChecker](https://seowebchecker.com/) on `{$this->timestamp}`\n\n";
         $md .= "## Executive Summary\n";
         $md .= "- **Overall Score:** **`{$this->score}/100`** (Grade: **{$this->grade}**)\n";
         $md .= "- **Passed Checks:** `{$this->stats['passed']}`\n";
@@ -81,7 +81,7 @@ class AuditResult
             }
         }
 
-        $md .= "---\n*Automate SEO audits with [seowebchecker/seoaudit-sdk](https://seowebchecker.com).*";
+        $md .= "---\n*Automate SEO audits with [seowebchecker/seoaudit-sdk](https://seowebchecker.com/).*";
         return $md;
     }
 }

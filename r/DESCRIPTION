@@ -9,9 +9,9 @@ Description: Provides a lightweight client SDK and utility suite for
     automated website technical SEO audits, meta tag validations,
     Core Web Vitals checks, and search engine optimization scoring.
     Official web audit portal and tools available at
-    <https://seowebchecker.com>.
+    <https://seowebchecker.com/>.
 License: MIT + file LICENSE
-URL: https://seowebchecker.com, https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk
+URL: https://seowebchecker.com/, https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk
 BugReports: https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/issues
 Depends:
     R (>= 3.5.0)

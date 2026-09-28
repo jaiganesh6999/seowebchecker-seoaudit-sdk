@@ -12,7 +12,7 @@
 
     <name>SEOWebChecker SEO Audit SDK</name>
     <description>Lightweight open-source client SDK for website SEO audits, on-page analysis, and Core Web Vitals checks by SEOWebChecker.</description>
-    <url>https://seowebchecker.com</url>
+    <url>https://seowebchecker.com/</url>
 
     <licenses>
         <license>
@@ -28,7 +28,7 @@
             <name>SEOWebChecker Team</name>
             <email>support@seowebchecker.com</email>
             <organization>SEOWebChecker</organization>
-            <organizationUrl>https://seowebchecker.com</organizationUrl>
+            <organizationUrl>https://seowebchecker.com/</organizationUrl>
         </developer>
     </developers>
 

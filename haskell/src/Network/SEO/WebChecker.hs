@@ -1,7 +1,7 @@
 {-|
 Module      : Network.SEO.WebChecker
 Description : Lightweight SEO audit client library
-Copyright   : (c) 2026 SEOWebChecker (https://seowebchecker.com)
+Copyright   : (c) 2026 SEOWebChecker (https://seowebchecker.com/)
 License     : MIT
 Maintainer  : Rahul Gupta <jaiganesh6999@gmail.com>
 Stability   : experimental
@@ -12,7 +12,7 @@ automated website technical SEO audits, meta tag validations, heading structure
 inspections, image accessibility analysis, and Core Web Vitals checks.
 
 Live audits, full scoring, and report exports are available at
-<https://seowebchecker.com>.
+<https://seowebchecker.com/>.
 -}
 module Network.SEO.WebChecker
     ( Severity(..)
@@ -59,7 +59,7 @@ data AuditResult = AuditResult
 
 -- | Default user agent used for automated audits.
 defaultAuditUrl :: String
-defaultAuditUrl = "https://seowebchecker.com"
+defaultAuditUrl = "https://seowebchecker.com/"
 
 -- | Strip leading and trailing whitespace.
 trim :: String -> String

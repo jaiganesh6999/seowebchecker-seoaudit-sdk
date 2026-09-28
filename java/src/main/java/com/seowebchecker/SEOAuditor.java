@@ -10,14 +10,14 @@ import java.util.regex.Pattern;
 
 /**
  * Lightweight SEO Auditor in pure Java.
- * Official Website: https://seowebchecker.com
+ * Official Website: https://seowebchecker.com/
  */
 public class SEOAuditor {
     private final String userAgent;
     private final int timeoutMs;
 
     public SEOAuditor() {
-        this("SEOWebChecker-JavaBot/1.0 (+https://seowebchecker.com)", 15000);
+        this("SEOWebChecker-JavaBot/1.0 (+https://seowebchecker.com/)", 15000);
     }
 
     public SEOAuditor(String userAgent, int timeoutMs) {

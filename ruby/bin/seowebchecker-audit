@@ -9,7 +9,7 @@ target_url = ARGV[0]
 if target_url.nil? || ARGV.include?("--help") || ARGV.include?("-h")
   puts <<~HELP
     SEOWebChecker CLI — Website SEO Audit Tool (Ruby)
-    Official Website: https://seowebchecker.com
+    Official Website: https://seowebchecker.com/
 
     Usage:
       seowebchecker-audit <url> [options]
@@ -39,7 +39,7 @@ else
 
   puts "=" * 65
   puts " SEOWebChecker SEO Audit Report: #{result[:url]}"
-  puts " Official: https://seowebchecker.com | Generated: #{result[:timestamp]}"
+  puts " Official: https://seowebchecker.com/ | Generated: #{result[:timestamp]}"
   puts "=" * 65
   puts "\n Overall Score: #{score}/100 | Grade: #{grade}"
   puts " Checks: #{result[:stats][:passed]} Passed, #{result[:stats][:warnings]} Warnings, #{result[:stats][:errors]} Errors\n\n"

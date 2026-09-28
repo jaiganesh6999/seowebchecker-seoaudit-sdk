@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Lightweight open-source client SDK and CLI tool for full website SEO audits by SEOWebChecker."
   spec.description   = "Instant website SEO auditing, on-page optimization diagnostics, meta tag validation, and Core Web Vitals checks."
-  spec.homepage      = "https://seowebchecker.com"
+  spec.homepage      = "https://seowebchecker.com/"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
 

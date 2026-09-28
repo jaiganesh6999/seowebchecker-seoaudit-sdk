@@ -1,13 +1,13 @@
 --[[
   seowebchecker - Technical SEO Audit Client SDK for Lua
-  Powered by SEOWebChecker (https://seowebchecker.com)
+  Powered by SEOWebChecker (https://seowebchecker.com/)
   License: MIT
 ]]
 
 local seowebchecker = {
   _VERSION = "1.0.0",
   _DESCRIPTION = "Automated on-page technical SEO diagnostic engine and client SDK.",
-  _URL = "https://seowebchecker.com"
+  _URL = "https://seowebchecker.com/"
 }
 
 local function trim(s)

@@ -6,7 +6,7 @@ public class Auditor {
     private let urlSession: URLSession
 
     public init(
-        userAgent: String = "SEOWebChecker-SwiftBot/1.0 (+https://seowebchecker.com)",
+        userAgent: String = "SEOWebChecker-SwiftBot/1.0 (+https://seowebchecker.com/)",
         urlSession: URLSession = .shared
     ) {
         self.userAgent = userAgent

@@ -1,6 +1,6 @@
 (ns seowebchecker.seoaudit
   "SEOWebChecker SEO Audit SDK for Clojure.
-   Official Website: https://seowebchecker.com"
+   Official Website: https://seowebchecker.com/"
   (:require [clojure.string :as str])
   (:import [java.net URI]
            [java.net.http HttpClient HttpRequest HttpResponse HttpResponse$BodyHandlers]
@@ -176,7 +176,7 @@
 
 (defn audit-url
   "Fetch live HTML from a website URL and run the SEO audit."
-  [target-url & {:keys [user-agent] :or {user-agent "SEOWebChecker-ClojureBot/1.0 (+https://seowebchecker.com)"}}]
+  [target-url & {:keys [user-agent] :or {user-agent "SEOWebChecker-ClojureBot/1.0 (+https://seowebchecker.com/)"}}]
   (let [client (-> (HttpClient/newBuilder)
                    (.connectTimeout (Duration/ofSeconds 10))
                    (.build))

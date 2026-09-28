@@ -11,7 +11,7 @@ namespace SeoWebChecker.SeoAudit
     public class SEOAuditor
     {
         private readonly HttpClient _httpClient;
-        public string UserAgent { get; set; } = "SEOWebChecker-DotNetBot/1.0 (+https://seowebchecker.com)";
+        public string UserAgent { get; set; } = "SEOWebChecker-DotNetBot/1.0 (+https://seowebchecker.com/)";
 
         public SEOAuditor(HttpClient? httpClient = null)
         {
@@ -38,7 +38,7 @@ namespace SeoWebChecker.SeoAudit
             return AuditHtml(content, url, sw.ElapsedMilliseconds, (int)resp.StatusCode);
         }
 
-        public AuditResult AuditHtml(string html, string url = "https://seowebchecker.com", double responseTimeMs = 120.0, int statusCode = 200)
+        public AuditResult AuditHtml(string html, string url = "https://seowebchecker.com/", double responseTimeMs = 120.0, int statusCode = 200)
         {
             var issues = new List<Issue>();
 

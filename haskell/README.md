@@ -1,12 +1,12 @@
 # seowebchecker (Haskell)
 
-[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com)
+[![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Hackage](https://img.shields.io/hackage/v/seowebchecker.svg?color=purple)](https://hackage.haskell.org/package/seowebchecker)
 
-Lightweight, pure Haskell client library and utility suite for automated website technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals checks. Developed by the [SEOWebChecker](https://seowebchecker.com) engineering team.
+Lightweight, pure Haskell client library and utility suite for automated website technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals checks. Developed by the [SEOWebChecker](https://seowebchecker.com/) engineering team.
 
-Online audits, live visual scoring, and comprehensive downloadable reports are available at **[https://seowebchecker.com](https://seowebchecker.com)**.
+Online audits, live visual scoring, and comprehensive downloadable reports are available at **[https://seowebchecker.com/](https://seowebchecker.com/)**.
 
 ---
 
@@ -56,7 +56,7 @@ sampleHtml =
     "<title>SEOWebChecker: Free SEO Audit & Analysis Tools</title>" ++
     "<meta name='description' content='Audit your website for comprehensive SEO scoring.'>" ++
     "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" ++
-    "<link rel='canonical' href='https://seowebchecker.com'>" ++
+    "<link rel='canonical' href='https://seowebchecker.com/'>" ++
     "<meta property='og:title' content='SEOWebChecker SEO Audit'>" ++
     "</head><body>" ++
     "<h1>Comprehensive SEO Audit Tools</h1>" ++
@@ -65,7 +65,7 @@ sampleHtml =
 
 main :: IO ()
 main = do
-    let result = auditHtml "https://seowebchecker.com" sampleHtml
+    let result = auditHtml "https://seowebchecker.com/" sampleHtml
     putStrLn $ "URL: " ++ resultUrl result
     putStrLn $ "Score: " ++ show (scoreOverall (resultScore result)) ++ " / 100"
     putStrLn $ "Grade: " ++ scoreGrade (resultScore result)
@@ -80,7 +80,7 @@ main = do
 
 ## 🔗 Related Resources
 
-- **Official Web Portal**: [https://seowebchecker.com](https://seowebchecker.com)
+- **Official Web Portal**: [https://seowebchecker.com/](https://seowebchecker.com/)
 - **GitHub Repository**: [https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
 - **Hackage Package**: [https://hackage.haskell.org/package/seowebchecker](https://hackage.haskell.org/package/seowebchecker)
 
@@ -88,4 +88,4 @@ main = do
 
 ## 📄 License
 
-MIT License © 2026 [SEOWebChecker](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker](https://seowebchecker.com/).

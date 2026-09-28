@@ -2,11 +2,11 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.seowebchecker/seowebchecker-seoaudit-sdk.svg)](https://central.sonatype.com/artifact/com.seowebchecker/seowebchecker-seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 Lightweight open-source Java client SDK for website SEO audits, technical analysis, and Core Web Vitals diagnostics.
 
-Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
+Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 
 ## Maven Dependency
 
@@ -43,4 +43,4 @@ public class Main {
 
 ## License
 
-MIT License © 2026 [SEOWebChecker](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker](https://seowebchecker.com/).

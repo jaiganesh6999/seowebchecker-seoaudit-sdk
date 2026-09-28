@@ -32,7 +32,7 @@ except ImportError:
     requests = None
 
 
-DEFAULT_USER_AGENT = "SEOWebChecker-AuditBot/1.0 (+https://seowebchecker.com)"
+DEFAULT_USER_AGENT = "SEOWebChecker-AuditBot/1.0 (+https://seowebchecker.com/)"
 
 
 class SEOAuditor:
@@ -111,7 +111,7 @@ class SEOAuditor:
     def audit_html(
         self,
         html: str,
-        url: str = "https://seowebchecker.com",
+        url: str = "https://seowebchecker.com/",
         headers: Optional[Dict[str, str]] = None,
         status_code: int = 200,
         response_time_ms: float = 120.0,

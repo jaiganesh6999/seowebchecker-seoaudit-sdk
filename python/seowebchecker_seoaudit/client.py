@@ -1,4 +1,4 @@
-"""Cloud API Client for SEOWebChecker (https://seowebchecker.com)."""
+"""Cloud API Client for SEOWebChecker (https://seowebchecker.com/)."""
 
 import json
 import urllib.request
@@ -20,7 +20,7 @@ class SeoWebCheckerError(Exception):
 
 
 class SeoWebCheckerClient:
-    """Official Python Client for SEOWebChecker API (https://seowebchecker.com)."""
+    """Official Python Client for SEOWebChecker API (https://seowebchecker.com/)."""
 
     def __init__(
         self,
@@ -36,7 +36,7 @@ class SeoWebCheckerClient:
         headers = {
             "Content-Type": "application/json",
             "Accept": "application/json",
-            "User-Agent": "SEOWebChecker-Python-SDK/1.0.0 (+https://seowebchecker.com)",
+            "User-Agent": "SEOWebChecker-Python-SDK/1.0.0 (+https://seowebchecker.com/)",
         }
         if self.api_key:
             headers["Authorization"] = f"Bearer {self.api_key}"

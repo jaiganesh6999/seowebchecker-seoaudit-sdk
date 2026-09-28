@@ -1,6 +1,6 @@
 """SEOWebChecker SEO Audit SDK
 Lightweight open-source client SDK for SEO auditing and website analysis.
-Official website: https://seowebchecker.com
+Official website: https://seowebchecker.com/
 """
 
 from seowebchecker_seoaudit.models import (
@@ -25,7 +25,7 @@ from seowebchecker_seoaudit.client import SeoWebCheckerClient
 __version__ = "1.0.0"
 __author__ = "SEOWebChecker"
 __email__ = "support@seowebchecker.com"
-__url__ = "https://seowebchecker.com"
+__url__ = "https://seowebchecker.com/"
 
 __all__ = [
     "SEOAuditor",

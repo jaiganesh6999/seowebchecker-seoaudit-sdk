@@ -2,7 +2,7 @@
 /// meta tag validations, heading structure inspections, image accessibility checks,
 /// and Core Web Vitals diagnostics.
 ///
-/// Powered by [SEOWebChecker](https://seowebchecker.com).
+/// Powered by [SEOWebChecker](https://seowebchecker.com/).
 library seowebchecker;
 
 export 'src/models.dart';

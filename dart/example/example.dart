@@ -20,7 +20,7 @@ void main() {
 </html>
 ''';
 
-  print('Running SEO Audit via SEOWebChecker (https://seowebchecker.com)...\n');
+  print('Running SEO Audit via SEOWebChecker (https://seowebchecker.com/)...\n');
   final result = auditHtml(sampleHtml, url: 'https://example.com/guide');
 
   print('=== SEO Audit Summary ===');
@@ -48,5 +48,5 @@ void main() {
     print('  Action:  ${issue.recommendation}\n');
   }
 
-  print('For live website audits and rank tracking, visit https://seowebchecker.com');
+  print('For live website audits and rank tracking, visit https://seowebchecker.com/');
 }

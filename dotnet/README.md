@@ -2,11 +2,11 @@
 
 [![NuGet Version](https://img.shields.io/nuget/v/SeoWebChecker.SeoAudit.svg)](https://www.nuget.org/packages/SeoWebChecker.SeoAudit/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com)
+[![Official Site](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
 Lightweight open-source .NET client SDK for full website SEO audits, technical analysis, and Core Web Vitals diagnostics.
 
-Official website: **[https://seowebchecker.com](https://seowebchecker.com)**
+Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 
 ## Installation
 
@@ -47,10 +47,10 @@ foreach (var issue in result.Issues)
 ## Audit HTML Strings Directly (ASP.NET Core, Blazor, SSR)
 
 ```csharp
-var result = auditor.AuditHtml(renderedHtml, "https://seowebchecker.com");
+var result = auditor.AuditHtml(renderedHtml, "https://seowebchecker.com/");
 Console.WriteLine($"Score: {result.Score.Overall}");
 ```
 
 ## License
 
-MIT License © 2026 [SEOWebChecker](https://seowebchecker.com).
+MIT License © 2026 [SEOWebChecker](https://seowebchecker.com/).
