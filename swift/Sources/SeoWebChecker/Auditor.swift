@@ -1,7 +1,7 @@
 import Foundation
 
 /// Engine to execute automated on-page technical SEO audits.
-public class Auditor {
+public final class Auditor: @unchecked Sendable {
     public var userAgent: String
     private let urlSession: URLSession
 
@@ -318,7 +318,7 @@ public class Auditor {
     }
 
     /// Fetches remote web page markup with completion handler (backward compatibility).
-    public func auditURL(_ urlString: String, completion: @escaping (Result<AuditResult, Error>) -> Void) {
+    public func auditURL(_ urlString: String, completion: @escaping @Sendable (Result<AuditResult, Error>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(URLError(.badURL)))
             return

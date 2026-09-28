@@ -1,7 +1,7 @@
 import Foundation
 
 /// Top-level public interface for SEOWebChecker Swift SDK.
-public enum SeoWebChecker {
+public enum SeoWebChecker: Sendable {
     private static let defaultAuditor = Auditor()
 
     /// Audits an HTML string against on-page technical SEO best practices.
@@ -16,7 +16,7 @@ public enum SeoWebChecker {
     }
 
     /// Fetches a remote URL with completion callback.
-    public static func auditURL(_ urlString: String, completion: @escaping (Result<AuditResult, Error>) -> Void) {
+    public static func auditURL(_ urlString: String, completion: @escaping @Sendable (Result<AuditResult, Error>) -> Void) {
         defaultAuditor.auditURL(urlString, completion: completion)
     }
 }

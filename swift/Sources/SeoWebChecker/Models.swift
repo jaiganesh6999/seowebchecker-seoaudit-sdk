@@ -1,14 +1,14 @@
 import Foundation
 
 /// Severity level of a diagnostic SEO check finding.
-public enum Severity: String, Codable, CaseIterable {
+public enum Severity: String, Codable, CaseIterable, Sendable {
     case pass
     case warning
     case error
 }
 
 /// Represents an individual diagnostic check finding.
-public struct Issue: Codable, Identifiable {
+public struct Issue: Codable, Identifiable, Sendable {
     public let id: String
     public let category: String
     public let severity: Severity
@@ -34,7 +34,7 @@ public struct Issue: Codable, Identifiable {
 }
 
 /// Overall calculated numerical SEO score (0-100) and letter grade (A-F).
-public struct SeoScore: Codable {
+public struct SeoScore: Codable, Sendable {
     public let overall: Int
     public let grade: String
 
@@ -45,7 +45,7 @@ public struct SeoScore: Codable {
 }
 
 /// Complete technical SEO audit report for a web page.
-public struct AuditResult: Codable {
+public struct AuditResult: Codable, Sendable {
     public let url: String
     public let score: SeoScore
     public let totalChecks: Int
