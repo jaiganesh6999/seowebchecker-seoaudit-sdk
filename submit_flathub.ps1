@@ -34,17 +34,22 @@ if (-not $remoteExists) {
     exit 1
 }
 
-Write-Host "Fork detected! Cloning $forkUrl (branch new-pr)..." -ForegroundColor Green
+Write-Host "Fork detected! Cloning $forkUrl..." -ForegroundColor Green
 if (Test-Path $tempDir) {
     Remove-Item -Recurse -Force $tempDir -ErrorAction SilentlyContinue
 }
 
-& $gitExe clone --branch new-pr $forkUrl $tempDir
+& $gitExe clone $forkUrl $tempDir
 Set-Location $tempDir
 
-# Create branch from new-pr
+# Add official upstream flathub repository and fetch new-pr branch
+Write-Host "Fetching official Flathub 'new-pr' branch..." -ForegroundColor Cyan
+& $gitExe remote add upstream "https://github.com/flathub/flathub.git"
+& $gitExe fetch upstream new-pr
+
+# Create branch from upstream/new-pr
 $branchName = "add-$AppId"
-& $gitExe checkout -b $branchName
+& $gitExe checkout -b $branchName upstream/new-pr
 
 # Copy all flatpak files into repo root
 Write-Host "Copying Flatpak manifest, metainfo, desktop entry, and icon..." -ForegroundColor Cyan
