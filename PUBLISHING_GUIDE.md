@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 35 Package Registries
+# Comprehensive Publishing Guide for 36 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 35 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 36 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -10,6 +10,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | :--- | :--- | :---: | :--- | :--- |
 | **R** | [cran.r-project.org](https://cran.r-project.org) | **99** | `seowebchecker` | [`r/`](./r) |
 | **Windows (WinGet)** | [microsoft.com](https://github.com/microsoft/winget-pkgs) | **98** | `SEOWebChecker.SEOWebChecker` | [`winget/`](./winget) |
+| **Windows (Scoop)** | [scoop.sh](https://scoop.sh) | **96** | `seowebchecker` | [`scoop/`](./scoop) |
 | **GitHub Packages** | [github.com](https://github.com/jaiganesh6999?tab=packages) | **96** | `SeoWebChecker.SeoAudit` / `ghcr.io` | Root (`./`) |
 | **Enterprise / Cloud** | [dev.azure.com](https://dev.azure.com) | **96** | `seowebchecker` (Feed) | Root (`./`) |
 | **Node.js** | [npmjs.com](https://npmjs.com) | **95** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
@@ -978,6 +979,49 @@ Submissions to Microsoft are handled directly via Microsoft's `wingetcreate`:
 ```powershell
 wingetcreate submit -p "New package: SEOWebChecker.SEOWebChecker version 1.0.1" winget\manifests\s\SEOWebChecker\SEOWebChecker\1.0.1
 ```
+
+---
+
+## 36. Scoop (`scoop.sh` - DA 96)
+
+[Scoop](https://scoop.sh/) is the premier command-line package installer for Windows developers, widely recognized as the Windows equivalent to Homebrew. It avoids UAC popups, eliminates GUI installers, and organizes tools cleanly in user space. The Scoop ecosystem carries a massive **Domain Authority of 96** via GitHub.
+
+Apps in Scoop receive instant developer accessibility, portable command shimming, and authoritative backlinks pointing to **`https://seowebchecker.com/`**.
+
+Package Name: **`seowebchecker`**  
+Package Directory: [`scoop/`](./scoop)  
+Official Scoop Bucket: **[jaiganesh6999/scoop-bucket](https://github.com/jaiganesh6999/scoop-bucket)** (100% Live)  
+Official Main Repository PR: **[ScoopInstaller/Main#8555](https://github.com/ScoopInstaller/Main/pull/8555)**  
+Manifest: [`scoop/bucket/seowebchecker.json`](./scoop/bucket/seowebchecker.json)
+
+### Installation Command for Users
+
+Users can install `seowebchecker` immediately via the official bucket:
+```powershell
+scoop bucket add seowebchecker https://github.com/jaiganesh6999/scoop-bucket
+scoop install seowebchecker
+```
+
+Once merged into the `Main` bucket:
+```powershell
+scoop install seowebchecker
+```
+
+### Running Audits via Scoop
+```powershell
+seowebchecker https://example.com
+# or
+seowebchecker-audit https://example.com --format pretty
+```
+
+### Manifest File
+The manifest in [`scoop/bucket/seowebchecker.json`](./scoop/bucket/seowebchecker.json) is validated against the official Scoop schema:
+- Points directly to the verified GitHub Release zip: `https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/releases/download/v1.0.1/seowebchecker-windows-x64.zip`
+- Hash: `4f7bff1ca7aa52a74530f7c470dc5f3ef1488b54de718d3cf80a48becc0e590f`
+- Configured with `bin` shims for both `seowebchecker` and `seowebchecker-audit`
+- Automated version checking with `"checkver": { "github": "jaiganesh6999/seowebchecker-seoaudit-sdk" }`
+- Automated binary URL updates via `"autoupdate"`
+
 
 
 

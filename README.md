@@ -77,8 +77,9 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Flathub (Flatpak)](https://flathub.org/)** | Universal Linux Application Store | `com.seowebchecker.seowebchecker` | [`flatpak/`](./flatpak) |
 | **[Arch Linux (AUR)](https://aur.archlinux.org/packages/seowebchecker)** | Arch Linux & Manjaro Community Repository | `seowebchecker` | [`aur/`](./aur) |
 | **[WinGet (Windows Package Manager)](https://github.com/microsoft/winget-pkgs)** | Windows 10 & 11 Native Package Manager | `SEOWebChecker.SEOWebChecker` | [`winget/`](./winget) |
+| **[Scoop](https://scoop.sh/)** | Windows Developer Package Manager | `seowebchecker` | [`scoop/`](./scoop) |
 
-*Step-by-step instructions for building and publishing to all 35 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 36 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
