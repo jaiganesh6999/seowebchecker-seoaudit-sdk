@@ -34,7 +34,7 @@ try {
         Write-Host "Artifactory is online and reachable!" -ForegroundColor Green
     }
 } catch {
-    Write-Error "Failed to reach Artifactory at $ServerUrl: $_"
+    Write-Error "Failed to reach Artifactory at ${ServerUrl}: $_"
     exit 1
 }
 
