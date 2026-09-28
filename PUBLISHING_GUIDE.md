@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 26 Package Registries
+# Comprehensive Publishing Guide for 27 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 26 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 27 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -9,6 +9,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | Ecosystem | Registry | Domain Authority (DA) | Package Name | Directory |
 | :--- | :--- | :---: | :--- | :--- |
 | **R** | [cran.r-project.org](https://cran.r-project.org) | **99** | `seowebchecker` | [`r/`](./r) |
+| **GitHub Packages** | [github.com](https://github.com/jaiganesh6999?tab=packages) | **96** | `SeoWebChecker.SeoAudit` / `ghcr.io` | Root (`./`) |
 | **Enterprise / Cloud** | [dev.azure.com](https://dev.azure.com) | **96** | `seowebchecker` (Feed) | Root (`./`) |
 | **Node.js** | [npmjs.com](https://npmjs.com) | **95** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Containers** | [hub.docker.com](https://hub.docker.com) | **94** | `seowebchecker/seoaudit-sdk` | [`docker/`](./docker) |
@@ -578,3 +579,29 @@ python -m twine upload `
 
 ### Live Public Feed URL
 👉 **`https://dev.azure.com/seowebchecker/seowebchecker-seoaudit-sdk/_artifacts/feed/seowebchecker`**
+
+---
+
+## 27. GitHub Packages (`github.com` - DA 96)
+Package identifier: **`SeoWebChecker.SeoAudit`** / **`ghcr.io/jaiganesh6999/seowebchecker-seoaudit-sdk`**  
+Package directory: Root & Ecosystem Modules
+
+### Architecture & Public Developer Showcase
+[GitHub Packages](https://docs.github.com/packages) is Microsoft / GitHub's premier package hosting service with maximum domain authority (`github.com` - DA 96). It hosts NuGet, Docker / OCI containers (GHCR), npm, Maven, and RubyGems with direct links to the source repository and website backlink to [https://seowebchecker.com/](https://seowebchecker.com/).
+
+### Automated Publishing via GitHub Actions
+A dedicated workflow is included at [`.github/workflows/publish-github-packages.yml`](./.github/workflows/publish-github-packages.yml).
+1. Go to the repository's **Actions** tab on GitHub:  
+   👉 **[Actions -> Publish to GitHub Packages](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/actions/workflows/publish-github-packages.yml)**
+2. Click **Run workflow** -> **Branch: main** -> **Run workflow**.
+3. GitHub Actions automatically builds and publishes the NuGet package and the GHCR Docker container using the built-in `GITHUB_TOKEN`.
+
+### Local Manual Publishing
+Run the included PowerShell or batch helper script:
+```powershell
+.\publish_github_packages.bat -Token "<YOUR_GITHUB_PAT>" -Owner "jaiganesh6999"
+```
+
+### Live Public Package Showcase
+👉 **[https://github.com/jaiganesh6999?tab=packages](https://github.com/jaiganesh6999?tab=packages)**  
+👉 **[https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/pkgs/container/seowebchecker-seoaudit-sdk](https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/pkgs/container/seowebchecker-seoaudit-sdk)**

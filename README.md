@@ -24,6 +24,7 @@
 [![JitPack](https://jitpack.io/v/jaiganesh6999/seowebchecker-seoaudit-sdk.svg)](https://jitpack.io/#jaiganesh6999/seowebchecker-seoaudit-sdk)
 [![Cloudsmith](https://img.shields.io/badge/Cloudsmith-seowebchecker-003559.svg)](https://cloudsmith.io)
 [![Azure Artifacts](https://img.shields.io/badge/Azure%20Artifacts-seowebchecker-0078D7.svg)](https://dev.azure.com)
+[![GitHub Packages](https://img.shields.io/badge/GitHub%20Packages-SeoWebChecker-181717.svg?logo=github)](https://github.com/jaiganesh6999?tab=packages)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
@@ -63,8 +64,9 @@ Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 | **[JitPack](https://jitpack.io/#jaiganesh6999/seowebchecker-seoaudit-sdk)** | Java / Android / JVM | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk:seowebchecker-seoaudit-sdk` | [`java/`](./java) |
 | **[Cloudsmith](https://cloudsmith.io)** | Multi-Format Cloud Packages | `seowebchecker-seoaudit-sdk` | Root (`./`) |
 | **[Azure Artifacts](https://dev.azure.com)** | Enterprise & Cloud Feeds (NuGet, NPM, PyPI) | `seowebchecker-seoaudit-sdk` | Root (`./`) |
+| **[GitHub Packages](https://github.com/jaiganesh6999?tab=packages)** | NuGet, Containers & Ecosystem Feeds | `SeoWebChecker.SeoAudit` / `ghcr.io` | Root (`./`) |
 
-*Step-by-step instructions for building and publishing to all 26 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 27 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
