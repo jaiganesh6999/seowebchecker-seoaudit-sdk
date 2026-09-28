@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 22 Package Registries
+# Comprehensive Publishing Guide for 23 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 22 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 23 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 ---
 
@@ -24,6 +24,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Rust** | [crates.io](https://crates.io) | **90** | `seowebchecker-seoaudit-sdk` | [`rust/`](./rust) |
 | **JavaScript (Yarn)** | [yarnpkg.com](https://yarnpkg.com) | **90** | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Web Assets** | [bower.io](https://bower.io) | **88** | `seowebchecker` | [Root (`./bower.json`)](./bower.json) |
+| **Frontend (Vite)** | [vite.dev](https://vite.dev) | **87** | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **Haskell** | [hackage.haskell.org](https://hackage.haskell.org) | **87** | `seowebchecker` | [`haskell/`](./haskell) |
 | **Julia** | [juliahub.com](https://juliahub.com) | **84** | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **Elixir / Erlang** | [hex.pm](https://hex.pm) | **83** | `seowebchecker` | [`elixir/`](./elixir) |
@@ -386,4 +387,45 @@ Yarn seamlessly indexes and distributes all packages published to the NPM regist
 3. Developers install via Yarn CLI:
    ```bash
    yarn add seowebchecker-seoaudit-sdk
+   ```
+
+---
+
+## 23. Vite (`vite.dev` - DA 87)
+Package identifier: **`vite-plugin-seowebchecker`**  
+Package directory: [`vite/`](./vite)
+
+### Architecture & Ecosystem Indexing
+As documented in the official [vite.dev Plugin Guide](https://vite.dev/guide/api-plugin.html), Vite plugins are published to npm using the `vite-plugin-` prefix and tagged with the `"vite-plugin"` keyword. The Vite community and [vite.dev/plugins](https://vite.dev/plugins/) index these packages automatically.
+
+### Publishing & Installation
+1. Publish from `vite/` directory:
+   ```bash
+   cd vite
+   npm publish --access public
+   ```
+2. Once published, the package is immediately live on the Vite plugin registry and NPM:  
+   👉 **[https://www.npmjs.com/package/vite-plugin-seowebchecker](https://www.npmjs.com/package/vite-plugin-seowebchecker)**  
+   👉 **[https://yarnpkg.com/package/vite-plugin-seowebchecker](https://yarnpkg.com/package/vite-plugin-seowebchecker)**
+
+3. Developers install via Vite project:
+   ```bash
+   npm install --save-dev vite-plugin-seowebchecker
+   # or
+   yarn add -D vite-plugin-seowebchecker
+   ```
+
+4. Configure in `vite.config.js`:
+   ```javascript
+   import { defineConfig } from 'vite';
+   import seoWebChecker from 'vite-plugin-seowebchecker';
+
+   export default defineConfig({
+     plugins: [
+       seoWebChecker({
+         failOnError: false, // Set to true to fail CI builds on SEO errors
+         minScore: 80,       // Minimum acceptable SEO score (0-100)
+       })
+     ]
+   });
    ```

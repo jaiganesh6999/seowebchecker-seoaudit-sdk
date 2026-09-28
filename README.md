@@ -19,6 +19,7 @@
 [![Swift Package Index](https://img.shields.io/badge/Swift%20Package%20Index-SeoWebChecker-FA7343.svg)](https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
 [![Bower](https://img.shields.io/badge/Bower-seowebchecker-FFCC29.svg)](https://bower.io)
 [![Yarn](https://img.shields.io/badge/Yarn-seowebchecker--seoaudit--sdk-2C8EBB.svg)](https://yarnpkg.com/package/seowebchecker-seoaudit-sdk)
+[![Vite Plugin](https://img.shields.io/badge/Vite-vite--plugin--seowebchecker-646CFF.svg)](https://www.npmjs.com/package/vite-plugin-seowebchecker)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seowebchecker/seoaudit-sdk.svg)](https://hub.docker.com/r/seowebchecker/seoaudit-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
@@ -55,8 +56,9 @@ Official website: **[https://seowebchecker.com/](https://seowebchecker.com/)**
 | **[Clojars](https://clojars.org)** | Clojure / JVM | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 | **[Bower](https://bower.io)** | Front-End & Web Assets | `seowebchecker` (`jaiganesh6999/seowebchecker-seoaudit-sdk`) | [Root (`./bower.json`)](./bower.json) |
 | **[Swift Package Index](https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk)** | Swift & Apple Platforms (SPM) | `SeoWebChecker` | [Root (`./Package.swift`)](./Package.swift) |
+| **[Vite](https://vite.dev)** | Frontend Build Tool (Plugin) | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 
-*Step-by-step instructions for building and publishing to all 22 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 23 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
