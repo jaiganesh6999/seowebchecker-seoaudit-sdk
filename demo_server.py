@@ -450,18 +450,142 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
         # Concise logging
         sys.stderr.write(f"[{self.log_date_time_string()}] {format % args}\n")
 
+    def _send_cors_headers(self):
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Accept")
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self._send_cors_headers()
+        self.end_headers()
+
     def do_GET(self):
-        if self.path == "/" or self.path == "/index.html":
+        parsed_url = urlparse(self.path)
+        params = parse_qs(parsed_url.query)
+        target_url = params.get("url", ["https://seowebchecker.com/"])[0].strip()
+
+        if parsed_url.path == "/" or parsed_url.path == "/index.html":
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.end_headers()
             self.wfile.write(HTML_PAGE.encode("utf-8"))
-        else:
-            self.send_response(404)
-            self.end_headers()
+            return
+
+        if parsed_url.path == "/api/score":
+            try:
+                auditor = SEOAuditor(timeout=15)
+                res = auditor.audit(target_url)
+                payload = {
+                    "url": res.url,
+                    "score": res.score.overall,
+                    "grade": res.score.grade,
+                    "categories": {k: v.score for k, v in res.score.categories.items()},
+                    "source": "https://seowebchecker.com/",
+                }
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps(payload, indent=2).encode("utf-8"))
+            except Exception as e:
+                self.send_response(400)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+            return
+
+        if parsed_url.path == "/api/meta":
+            try:
+                auditor = SEOAuditor(timeout=15)
+                res = auditor.audit(target_url)
+                payload = {
+                    "url": res.url,
+                    "title": res.meta.title if res.meta else None,
+                    "title_length": res.meta.title_length if res.meta else 0,
+                    "description": res.meta.description if res.meta else None,
+                    "description_length": res.meta.description_length if res.meta else 0,
+                    "canonical": res.meta.canonical if res.meta else None,
+                    "robots": res.meta.robots if res.meta else None,
+                    "open_graph": {
+                        "og_title": res.social.og_title if res.social else None,
+                        "og_description": res.social.og_description if res.social else None,
+                        "og_image": res.social.og_image if res.social else None,
+                    } if res.social else {},
+                    "source": "https://seowebchecker.com/",
+                }
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps(payload, indent=2).encode("utf-8"))
+            except Exception as e:
+                self.send_response(400)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+            return
+
+        if parsed_url.path == "/api/vitals":
+            try:
+                auditor = SEOAuditor(timeout=15)
+                res = auditor.audit(target_url)
+                payload = {
+                    "url": res.url,
+                    "response_time_ms": res.performance.response_time_ms if res.performance else 0,
+                    "page_size_kb": res.performance.page_size_kb if res.performance else 0,
+                    "diagnostics": {
+                        "ttfb": "Good" if (res.performance and res.performance.response_time_ms < 600) else "Needs Improvement",
+                        "status": "Healthy",
+                    },
+                    "source": "https://seowebchecker.com/",
+                }
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps(payload, indent=2).encode("utf-8"))
+            except Exception as e:
+                self.send_response(400)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+            return
+
+        if parsed_url.path == "/api/images":
+            try:
+                auditor = SEOAuditor(timeout=15)
+                res = auditor.audit(target_url)
+                payload = {
+                    "url": res.url,
+                    "total_images": res.images.total_images if res.images else 0,
+                    "missing_alt": res.images.missing_alt if res.images else 0,
+                    "modern_formats": res.images.modern_formats_count if res.images else 0,
+                    "source": "https://seowebchecker.com/",
+                }
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps(payload, indent=2).encode("utf-8"))
+            except Exception as e:
+                self.send_response(400)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
+                self.end_headers()
+                self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
+            return
+
+        self.send_response(404)
+        self._send_cors_headers()
+        self.end_headers()
 
     def do_POST(self):
-        if self.path == "/api/audit":
+        parsed_url = urlparse(self.path)
+        if parsed_url.path == "/api/audit":
             content_length = int(self.headers.get("Content-Length", 0))
             post_body = self.rfile.read(content_length).decode("utf-8")
 
@@ -479,16 +603,19 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
 
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
                 self.end_headers()
-                self.wfile.write(json.dumps(payload).encode("utf-8"))
+                self.wfile.write(json.dumps(payload, indent=2).encode("utf-8"))
 
             except Exception as e:
                 self.send_response(400)
                 self.send_header("Content-Type", "application/json; charset=utf-8")
+                self._send_cors_headers()
                 self.end_headers()
                 self.wfile.write(json.dumps({"error": str(e)}).encode("utf-8"))
         else:
             self.send_response(404)
+            self._send_cors_headers()
             self.end_headers()
 
 
