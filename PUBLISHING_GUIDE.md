@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 40 Package Registries
+# Comprehensive Publishing Guide for 41 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 40 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 41 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -49,6 +49,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Ubuntu / Debian (Launchpad PPA)** | [launchpad.net](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker) | **93** | `seowebchecker` | [`launchpad/`](./launchpad) |
 | **FreeBSD / BSD Unix** | [freebsd.org](https://www.freebsd.org/ports/) | **93** | `seowebchecker` | [`freebsd/`](./freebsd) |
 | **AI Assistants (MCP Server)** | [smithery.ai](https://smithery.ai) / [modelcontextprotocol.io](https://modelcontextprotocol.io) | **96** | `seowebchecker` | [`mcp/`](./mcp) |
+| **CI/CD DevOps (GitHub Actions)** | [github.com/marketplace](https://github.com/jaiganesh6999/seowebchecker-action) | **96** | `jaiganesh6999/seowebchecker-action@v1` | [`action/`](./action) |
 
 ---
 
@@ -1317,6 +1318,52 @@ In `~/.codeium/windsurf/mcp_config.json`:
 * **Official MCP Registry:** Configured via [`mcp/server.json`](./mcp/server.json) conforming to the official `server.schema.json` specification.
 * **Awesome MCP Servers:** Pull Request submitted to upstream [punkpeye/awesome-mcp-servers#15290](https://github.com/punkpeye/awesome-mcp-servers/pull/15290).
 * **Glama.ai & PulseMCP:** Indexed via npm package `seowebchecker-mcp-server` and repository manifest.
+
+---
+
+## 41. GitHub Actions Marketplace (`github.com/marketplace` - DA 96)
+
+Automate technical on-page SEO audits, meta tag validation, Open Graph verification, and Core Web Vitals checks inside GitHub Actions CI/CD workflows.
+
+* **Repository:** [jaiganesh6999/seowebchecker-action](https://github.com/jaiganesh6999/seowebchecker-action)
+* **Action Identifier:** `jaiganesh6999/seowebchecker-action@v1`
+* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **License:** MIT
+* **Directory:** [`action/`](./action)
+
+### Usage in Any GitHub Workflow
+
+Add this step to `.github/workflows/seo-audit.yml`:
+
+```yaml
+name: Continuous SEO Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Audit Website SEO
+        uses: jaiganesh6999/seowebchecker-action@v1
+        with:
+          url: 'https://seowebchecker.com/'
+          min-score: 80
+          fail-on-error: true
+```
+
+### Marketplace Publishing Steps
+
+1. The repository is live at [https://github.com/jaiganesh6999/seowebchecker-action](https://github.com/jaiganesh6999/seowebchecker-action).
+2. Go to **Releases** → [v1.0.0 Edit](https://github.com/jaiganesh6999/seowebchecker-action/releases/edit/v1.0.0).
+3. Check the box **"Publish this Action to the GitHub Marketplace"**.
+4. Confirm primary category: **Testing** or **Continuous integration**.
+5. Click **"Save release"** to publish to the global GitHub Actions Marketplace!
+
 
 
 

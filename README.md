@@ -85,8 +85,9 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Launchpad PPA](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker)** | Ubuntu & Debian (`apt`) | `seowebchecker` | [`launchpad/`](./launchpad) |
 | **[FreeBSD Ports](https://github.com/freebsd/freebsd-ports/pull/628)** | FreeBSD & BSD Unix | `seowebchecker` | [`freebsd/`](./freebsd) |
 | **[Model Context Protocol (MCP)](https://www.npmjs.com/package/seowebchecker-mcp-server)** | AI Assistants (Claude, Cursor, Windsurf) | `seowebchecker-mcp-server` | [`mcp/`](./mcp) |
+| **[GitHub Actions Marketplace](https://github.com/jaiganesh6999/seowebchecker-action)** | CI/CD DevOps & Automation | `jaiganesh6999/seowebchecker-action@v1` | [`action/`](./action) |
 
-*Step-by-step instructions for building and publishing to all 40 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 41 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
