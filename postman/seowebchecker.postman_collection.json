@@ -1,0 +1,226 @@
+{
+  "info": {
+    "_postman_id": "a9b1c2d3-e4f5-4678-90ab-cdef12345678",
+    "name": "SEOWebChecker API & SEO Audit Suite",
+    "description": "Comprehensive API collection for SEOWebChecker (https://seowebchecker.com/) — On-page technical SEO audits, meta tag validation, Open Graph verification, and Core Web Vitals checks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://seowebchecker.com/",
+      "type": "string"
+    },
+    {
+      "key": "targetUrl",
+      "value": "https://seowebchecker.com/",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Quick SEO Health Score",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 or successful\", function () {",
+              "    pm.response.to.be.success;",
+              "});",
+              "pm.test(\"Response time is acceptable (< 3000ms)\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}api/score?url={{targetUrl}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "score"],
+          "query": [
+            {
+              "key": "url",
+              "value": "{{targetUrl}}",
+              "description": "Target website URL to calculate SEO score for."
+            }
+          ]
+        },
+        "description": "Returns a rapid 0-100 technical SEO score and letter grade (A+, A, B, C, D, F) for the specified URL."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Full Technical SEO Audit",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 or successful\", function () {",
+              "    pm.response.to.be.success;",
+              "});",
+              "pm.test(\"Response has valid audit structure\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an('object');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"{{targetUrl}}\",\n  \"options\": {\n    \"check_robots\": true,\n    \"check_sitemap\": true,\n    \"check_vitals\": true\n  }\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/audit",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "audit"]
+        },
+        "description": "Performs a 50+ check technical audit covering meta tags, content, headings, links, images, social preview tags, and Core Web Vitals diagnostics."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Meta Tags & Social Previews",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 or successful\", function () {",
+              "    pm.response.to.be.success;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}api/meta?url={{targetUrl}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "meta"],
+          "query": [
+            {
+              "key": "url",
+              "value": "{{targetUrl}}",
+              "description": "URL to inspect meta tags for."
+            }
+          ]
+        },
+        "description": "Inspects `<title>`, `<meta name=\"description\">`, `<link rel=\"canonical\">`, viewport, robots directives, and OpenGraph/Twitter Card markup."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Core Web Vitals Diagnostics",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 or successful\", function () {",
+              "    pm.response.to.be.success;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}api/vitals?url={{targetUrl}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "vitals"],
+          "query": [
+            {
+              "key": "url",
+              "value": "{{targetUrl}}",
+              "description": "URL to evaluate Core Web Vitals metrics for."
+            }
+          ]
+        },
+        "description": "Evaluates page load speed, Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), Interaction to Next Paint (INP), and TTFB."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Image & Alt Text Inspection",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 or successful\", function () {",
+              "    pm.response.to.be.success;",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}api/images?url={{targetUrl}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "images"],
+          "query": [
+            {
+              "key": "url",
+              "value": "{{targetUrl}}",
+              "description": "URL to scan image assets and accessibility tags for."
+            }
+          ]
+        },
+        "description": "Scans all `<img>` tags on the page for missing alt attributes, unoptimized formats, and accessibility compliance."
+      },
+      "response": []
+    }
+  ]
+}

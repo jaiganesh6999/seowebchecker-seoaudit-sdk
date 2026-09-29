@@ -89,8 +89,9 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[LangChain Hub / Tools](https://python.langchain.com/)** | AI Agent & LLM Framework | `seowebchecker-seoaudit-sdk` | [`integrations/langchain/`](./integrations/langchain) |
 | **[LlamaIndex / LlamaHub](https://github.com/run-llama/llama_index/pull/23306)** | AI Data Framework & Tool Registry | `llama-index-tools-seowebchecker` | [`integrations/llamaindex/`](./integrations/llamaindex) |
 | **[Atmosphere (Meteor.js)](https://atmospherejs.com/)** | Full-Stack JavaScript & Meteor | `seowebchecker:seoaudit-sdk` | [`meteor/`](./meteor) |
+| **[Postman Public API Network](https://www.postman.com/)** | API Collections & Testing | `SEOWebChecker` | [`postman/`](./postman) |
 
-*Step-by-step instructions for building and publishing to all 44 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
+*Step-by-step instructions for building and publishing to all 45 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 
 ---
 
