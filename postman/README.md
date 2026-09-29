@@ -51,13 +51,58 @@ To make your collection publicly discoverable by millions of developers on the *
 
 ## 📦 Included Requests
 
-| Request | Method | Description |
-| :--- | :---: | :--- |
-| **1. Quick SEO Health Score** | `GET` | Rapid 0–100 score and letter grade (A+ to F). |
-| **2. Full Technical SEO Audit** | `POST` | Comprehensive 50+ check technical SEO report in JSON. |
-| **3. Meta Tags & Social Previews** | `GET` | Validates title, description, canonical link, mobile viewport, and OpenGraph/Twitter previews. |
-| **4. Core Web Vitals Diagnostics** | `GET` | Evaluates LCP, CLS, INP, page weight, and TTFB. |
-| **5. Image & Alt Text Inspection** | `GET` | Scans `<img>` elements for missing alt tags and modern formats. |
+| Request | Method | Path | Has Saved Example? | Description |
+| :--- | :---: | :---: | :---: | :--- |
+| **1. Quick SEO Health Score** | `GET` | `/api/score` | ✅ Yes (200 OK) | Rapid 0–100 score and letter grade (A+ to F). |
+| **2. Full Technical SEO Audit** | `POST` | `/api/audit` | ✅ Yes (200 OK) | Comprehensive 50+ check technical SEO report in JSON. |
+| **3. Meta Tags & Social Previews** | `GET` | `/api/meta` | ✅ Yes (200 OK) | Validates title, description, canonical link, mobile viewport, and OpenGraph/Twitter previews. |
+| **4. Core Web Vitals Diagnostics** | `GET` | `/api/vitals` | ✅ Yes (200 OK) | Evaluates LCP, CLS, INP, page weight, and TTFB. |
+| **5. Image & Alt Text Inspection** | `GET` | `/api/images` | ✅ Yes (200 OK) | Scans `<img>` elements for missing alt tags and modern formats. |
+
+---
+
+## 🎭 Postman Mock Server & Examples
+
+Postman Mock Servers return the **saved examples** configured inside the collection. Each request in this collection includes a realistic `200 OK` example response.
+
+### Mock Server URL
+```
+https://49d4b282-e139-41f5-b623-41bc064e1c62.mock.pstmn.io
+```
+
+### How to Test the Mock Server
+
+#### 1. In Postman App / Web
+- Set your active environment to `SEOWebChecker Postman Mock Server` (or set `baseUrl` variable to `https://49d4b282-e139-41f5-b623-41bc064e1c62.mock.pstmn.io/`).
+- Send any request (`/api/score`, `/api/meta`, `/api/vitals`, `/api/images`, `/api/audit`).
+- Postman Mock Server will immediately match the request to the saved example and return `200 OK`!
+
+#### 2. Using cURL / Terminal
+```bash
+# Test Health Score
+curl "https://49d4b282-e139-41f5-b623-41bc064e1c62.mock.pstmn.io/api/score?url=https://seowebchecker.com/"
+
+# Test Meta Tags
+curl "https://49d4b282-e139-41f5-b623-41bc064e1c62.mock.pstmn.io/api/meta?url=https://seowebchecker.com/"
+
+# Test Vitals
+curl "https://49d4b282-e139-41f5-b623-41bc064e1c62.mock.pstmn.io/api/vitals?url=https://seowebchecker.com/"
+
+# Test Image Audit
+curl "https://49d4b282-e139-41f5-b623-41bc064e1c62.mock.pstmn.io/api/images?url=https://seowebchecker.com/"
+
+# Test Full Audit (POST)
+curl -X POST "https://49d4b282-e139-41f5-b623-41bc064e1c62.mock.pstmn.io/api/audit" \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://seowebchecker.com/"}'
+```
+
+#### 3. How to Update Examples in Postman UI
+If you need to edit or add more examples directly in the Postman web/desktop app:
+1. In the left sidebar, click any request (e.g. `1. Quick SEO Health Score`).
+2. In the top right of the request tab, click the **Examples** dropdown (or click the `...` next to the request name in the sidebar and choose **Add Example**).
+3. Set **Status** to `200 OK`, body to `JSON`, paste the desired mock response, and click **Save**.
+
 
 ---
 
