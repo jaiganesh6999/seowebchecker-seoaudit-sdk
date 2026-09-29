@@ -87,7 +87,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Model Context Protocol (MCP)](https://www.npmjs.com/package/seowebchecker-mcp-server)** | AI Assistants (Claude, Cursor, Windsurf) | `seowebchecker-mcp-server` | [`mcp/`](./mcp) |
 | **[GitHub Actions Marketplace](https://github.com/jaiganesh6999/seowebchecker-action)** | CI/CD DevOps & Automation | `jaiganesh6999/seowebchecker-action@v1` | [`action/`](./action) |
 | **[LangChain Hub / Tools](https://python.langchain.com/)** | AI Agent & LLM Framework | `seowebchecker-seoaudit-sdk` | [`integrations/langchain/`](./integrations/langchain) |
-| **[LlamaIndex / LlamaHub](https://llamahub.ai/)** | AI Data Framework & Tool Registry | `seowebchecker-seoaudit-sdk` | [`integrations/llamaindex/`](./integrations/llamaindex) |
+| **[LlamaIndex / LlamaHub](https://github.com/run-llama/llama_index/pull/23306)** | AI Data Framework & Tool Registry | `llama-index-tools-seowebchecker` | [`integrations/llamaindex/`](./integrations/llamaindex) |
 
 *Step-by-step instructions for building and publishing to all 43 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
 

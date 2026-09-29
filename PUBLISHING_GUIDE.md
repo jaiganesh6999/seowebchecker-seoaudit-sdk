@@ -1392,7 +1392,8 @@ tools = get_langchain_tools()
 
 Official LlamaIndex Tool Specification for autonomous agents and workflows.
 
-* **Package:** `seowebchecker-seoaudit-sdk` (PyPI)
+* **Package:** `llama-index-tools-seowebchecker` / `seowebchecker-seoaudit-sdk`
+* **Upstream Pull Request:** **[run-llama/llama_index#23306](https://github.com/run-llama/llama_index/pull/23306)**
 * **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
 * **License:** MIT
 * **Directory:** [`integrations/llamaindex/`](./integrations/llamaindex)
@@ -1405,6 +1406,7 @@ from seowebchecker_seoaudit.integrations import SEOWebCheckerToolSpec
 spec = SEOWebCheckerToolSpec()
 tools = spec.to_tool_list()
 ```
+
 
 
 
