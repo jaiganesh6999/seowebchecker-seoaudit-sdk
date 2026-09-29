@@ -18,5 +18,11 @@
         "type": "stdio"
       }
     }
+  ],
+  "remotes": [
+    {
+      "type": "sse",
+      "url": "https://mcp.seowebchecker.com/sse"
+    }
   ]
 }
