@@ -1440,6 +1440,27 @@ meteor add seowebchecker:seoaudit-sdk
    ```
 *Your package goes live on Atmosphere instantly without any review process!*
 
+### Automated Deployment via GitHub Actions
+
+A dedicated workflow [`.github/workflows/publish-meteor.yml`](./.github/workflows/publish-meteor.yml) is available to publish directly to Atmosphere from GitHub:
+
+1. Add your credentials to **GitHub Repository Secrets**:
+   - `METEOR_USER` & `METEOR_PASSWORD` (or `METEOR_SESSION`).
+2. Go to **Actions** → **Publish Meteor Package** → **Run workflow**.
+3. Toggle `create: true` for the first publication.
+4. GitHub Actions will install the Meteor toolchain, authenticate, and publish the package directly to Atmosphere.
+
+### Direct Installation from GitHub (No Atmosphere Required)
+
+Meteor developers can also consume this package directly from GitHub inside their Meteor projects:
+
+```bash
+cd /path/to/meteor-app
+mkdir -p packages
+git submodule add https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk.git packages/seowebchecker
+meteor add seowebchecker:seoaudit-sdk
+```
+
 
 
 
