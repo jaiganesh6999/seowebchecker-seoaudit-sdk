@@ -1,7 +1,7 @@
 {
   "galaxy.meteor.com": {
     "env": {
-      "ROOT_URL": "https://seowebchecker.meteorapp.com"
+      "ROOT_URL": "https://seowebchecker.sandbox.galaxycloud.app"
     }
   },
   "public": {

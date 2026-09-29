@@ -21,7 +21,7 @@ https://my.galaxycloud.app/seowebchecker/us-east-1/deploy
 ```
 
 ### Step 2: Choose Hostname & Region
-- **Hostname / Domain**: Enter `seowebchecker.meteorapp.com` (or your preferred subdomain or custom domain).
+- **Hostname / Domain**: `seowebchecker.sandbox.galaxycloud.app` (Galaxy sandbox domain).
 - **Region**: `us-east-1` (US East, AWS).
 
 ### Step 3: Connect GitHub Repository
@@ -49,7 +49,7 @@ If you have the `meteor` CLI installed locally:
 ```bash
 cd meteor-app
 meteor login
-meteor deploy seowebchecker.meteorapp.com --settings settings.json --owner seowebchecker
+meteor deploy seowebchecker.sandbox.galaxycloud.app --settings settings.json --owner seowebchecker
 ```
 
 ---
@@ -60,7 +60,7 @@ Once deployed, your live Galaxy service will serve:
 
 | Route | Method | Description |
 | :--- | :---: | :--- |
-| `/` | `GET` | Interactive Web Dashboard |
+| `/` | `GET` | Interactive Web Dashboard at `https://seowebchecker.sandbox.galaxycloud.app/` |
 | `/api/score?url=https://moz.com` | `GET` | Technical SEO health score & grade |
 | `/api/meta?url=https://moz.com` | `GET` | Title, description, canonical, OpenGraph |
 | `/api/vitals?url=https://moz.com` | `GET` | Response time, TTFB, and payload diagnostics |
