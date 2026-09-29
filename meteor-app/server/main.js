@@ -233,6 +233,35 @@ WebApp.connectHandlers.use(async (req, res, next) => {
   const pathname = parsedUrl.pathname;
   const targetUrl = parsedUrl.searchParams.get('url') || 'https://seowebchecker.com/';
 
+  // Smithery Server Card: /.well-known/mcp/server-card.json
+  if (pathname === '/.well-known/mcp/server-card.json' || pathname === '/server-card.json') {
+    return sendJson(res, 200, {
+      $schema: 'https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json',
+      serverInfo: {
+        name: 'seowebchecker',
+        title: 'SEOWebChecker MCP Server',
+        version: '1.0.2',
+        description: 'On-page technical SEO audits, meta tag validation, heading hierarchy verification, and Core Web Vitals checks by SEOWebChecker.',
+      },
+      website: 'https://seowebchecker.com/',
+      authentication: { required: false },
+      tools: [
+        {
+          name: 'seowebchecker_audit',
+          description: 'Run full technical SEO audit on any URL.',
+          inputSchema: { type: 'object', properties: { url: { type: 'string' } }, required: ['url'] },
+        },
+        {
+          name: 'seowebchecker_quick_score',
+          description: 'Calculate instant 0-100 technical SEO score.',
+          inputSchema: { type: 'object', properties: { url: { type: 'string' } }, required: ['url'] },
+        },
+      ],
+      resources: [],
+      prompts: [],
+    });
+  }
+
   // 1. Health Score: GET /api/score
   if (req.method === 'GET' && pathname === '/api/score') {
     try {

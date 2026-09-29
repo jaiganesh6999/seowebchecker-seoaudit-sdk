@@ -196,6 +196,26 @@ const server = http.createServer(async (req, res) => {
     });
   }
 
+  // 1.5. Smithery Server Card: /.well-known/mcp/server-card.json
+  if (pathname === '/.well-known/mcp/server-card.json' || pathname === '/server-card.json') {
+    return sendJson(res, 200, {
+      $schema: 'https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json',
+      serverInfo: {
+        name: SERVER_NAME,
+        title: 'SEOWebChecker MCP Server',
+        version: SERVER_VERSION,
+        description: 'On-page technical SEO audits, meta tag validation, heading hierarchy verification, and Core Web Vitals checks by SEOWebChecker.',
+      },
+      website: CANONICAL_URL,
+      authentication: {
+        required: false,
+      },
+      tools: TOOLS,
+      resources: [],
+      prompts: [],
+    });
+  }
+
   // 2. Landing Page
   if (pathname === '/' && req.method === 'GET') {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });

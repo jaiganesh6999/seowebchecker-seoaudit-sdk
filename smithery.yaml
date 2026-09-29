@@ -4,7 +4,11 @@ startCommand:
   type: stdio
   configSchema:
     type: object
-    properties: {}
+    properties:
+      userAgent:
+        type: string
+        description: "Custom User-Agent header for crawler requests (optional)"
+        default: "SEOWebChecker-MCPAgent/1.0 (+https://seowebchecker.com/)"
   commandFunction: |-
     (config) => ({
       command: 'node',
