@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 41 Package Registries
+# Comprehensive Publishing Guide for 43 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 41 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 43 high Domain Authority (DA) registries to maximize SEO authority and backlink equity for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -50,6 +50,8 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **FreeBSD / BSD Unix** | [freebsd.org](https://www.freebsd.org/ports/) | **93** | `seowebchecker` | [`freebsd/`](./freebsd) |
 | **AI Assistants (MCP Server)** | [smithery.ai](https://smithery.ai) / [modelcontextprotocol.io](https://modelcontextprotocol.io) | **96** | `seowebchecker` | [`mcp/`](./mcp) |
 | **CI/CD DevOps (GitHub Actions)** | [github.com/marketplace](https://github.com/jaiganesh6999/seowebchecker-action) | **96** | `jaiganesh6999/seowebchecker-action@v1` | [`action/`](./action) |
+| **AI Agents (LangChain Hub)** | [langchain.com](https://python.langchain.com/) | **86** | `seowebchecker-seoaudit-sdk` | [`integrations/langchain/`](./integrations/langchain) |
+| **AI Data Agents (LlamaHub)** | [llamahub.ai](https://llamahub.ai/) | **84** | `seowebchecker-seoaudit-sdk` | [`integrations/llamaindex/`](./integrations/llamaindex) |
 
 ---
 
@@ -1363,6 +1365,46 @@ jobs:
 3. Check the box **"Publish this Action to the GitHub Marketplace"**.
 4. Confirm primary category: **Testing** or **Continuous integration**.
 5. Click **"Save release"** to publish to the global GitHub Actions Marketplace!
+
+---
+
+## 42. LangChain Hub & Community (`langchain.com` - DA 86)
+
+Official LangChain toolkit for automated on-page technical SEO audits, meta tag validation, Open Graph verification, and Core Web Vitals checks.
+
+* **Package:** `seowebchecker-seoaudit-sdk` (PyPI)
+* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **License:** MIT
+* **Directory:** [`integrations/langchain/`](./integrations/langchain)
+
+### Usage
+
+```python
+from seowebchecker_seoaudit.integrations import get_langchain_tools
+
+tools = get_langchain_tools()
+# Returns [SEOWebCheckerAuditTool(), SEOWebCheckerScoreTool(), SEOWebCheckerMetaTool()]
+```
+
+---
+
+## 43. LlamaIndex & LlamaHub (`llamahub.ai` - DA 84)
+
+Official LlamaIndex Tool Specification for autonomous agents and workflows.
+
+* **Package:** `seowebchecker-seoaudit-sdk` (PyPI)
+* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **License:** MIT
+* **Directory:** [`integrations/llamaindex/`](./integrations/llamaindex)
+
+### Usage
+
+```python
+from seowebchecker_seoaudit.integrations import SEOWebCheckerToolSpec
+
+spec = SEOWebCheckerToolSpec()
+tools = spec.to_tool_list()
+```
 
 
 

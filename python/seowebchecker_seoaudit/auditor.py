@@ -57,7 +57,7 @@ class SEOAuditor:
             "User-Agent": self.user_agent,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9",
-            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Encoding": "gzip, deflate, identity",
         }
         headers.update(self.custom_headers)
         return headers
@@ -82,6 +82,19 @@ class SEOAuditor:
                     elapsed_ms = (time.perf_counter() - start) * 1000.0
                     content = response.read()
                     resp_headers = dict(response.headers)
+                    enc = resp_headers.get("Content-Encoding", "").lower()
+                    if "gzip" in enc or (len(content) > 2 and content[:2] == b"\x1f\x8b"):
+                        try:
+                            import gzip
+                            content = gzip.decompress(content)
+                        except Exception:
+                            pass
+                    elif "deflate" in enc:
+                        try:
+                            import zlib
+                            content = zlib.decompress(content)
+                        except Exception:
+                            pass
                     return response.status, content, resp_headers, elapsed_ms
             except urllib.error.HTTPError as e:
                 elapsed_ms = (time.perf_counter() - start) * 1000.0
