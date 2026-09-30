@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: SEOWebChecker - Technical SEO Audit & On-Page Analyzer
- * Plugin URI: https://seowebchecker.com/
  * Description: Automated on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility, and Core Web Vitals checks inside your WordPress dashboard.
  * Version: 1.0.0
  * Requires at least: 5.8
