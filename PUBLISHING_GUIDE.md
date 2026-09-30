@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 47 Package Registries & CDNs
+# Comprehensive Publishing Guide for 48 Package Registries, CDNs & Edge Platforms
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 47 package registries and developer ecosystems for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 48 package registries, CDNs, and edge platforms for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -56,6 +56,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **API Collections & Testing (Postman)** | [postman.com/explore](https://www.postman.com/) | `SEOWebChecker` | [`postman/`](./postman) |
 | **JavaScript & TypeScript Registry (JSR)** | [jsr.io](https://jsr.io) | `@seowebchecker/audit` | [`jsr/`](./jsr) |
 | **Global Multi-CDN (jsDelivr)** | [jsdelivr.com](https://www.jsdelivr.com) | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
+| **Edge Computing (Cloudflare Workers)** | [workers.cloudflare.com](https://workers.cloudflare.com/) | `@seowebchecker/cloudflare-worker` | [`cloudflare/`](./cloudflare) |
 
 ---
 
@@ -1544,6 +1545,34 @@ Official high-availability global CDN delivery for [SEOWebChecker](https://seowe
   ```
 
 *No manual publishing needed: jsDelivr automatically mirrors and caches all releases from npm and GitHub within minutes.*
+
+---
+
+## 48. Cloudflare Workers Edge SEO Engine (`workers.cloudflare.com`)
+
+Official high-performance Edge SEO service and global serverless audit REST API running across Cloudflare's 330+ locations worldwide.
+
+* **Directory:** [`cloudflare/`](./cloudflare)
+* **Configuration:** [`cloudflare/wrangler.jsonc`](./cloudflare/wrangler.jsonc)
+* **Entrypoint:** [`cloudflare/src/index.ts`](./cloudflare/src/index.ts)
+* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+
+### 1-Click Instant Deploy
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/tree/main/cloudflare)
+
+### Two Main Use Cases:
+1. **Global Serverless SEO Audit REST API**:
+   - `GET /audit?url=https://example.com` $\rightarrow$ Fetches and returns comprehensive SEO scorecard JSON directly from nearest edge location.
+   - `POST /audit` $\rightarrow$ Audits raw HTML payloads (ideal for CI/CD staging checks).
+2. **Edge SEO Middleware (`HTMLRewriter`)**:
+   - `GET /edge-proxy?url=https://example.com` $\rightarrow$ Reverse proxy that streams origin HTML and auto-injects missing `<link rel="canonical">` and `<meta name="viewport">` tags on the fly with sub-millisecond edge overhead.
+
+### Local Development & Deployment
+```powershell
+cd cloudflare
+npx wrangler dev
+npx wrangler deploy
+```
 
 
 
