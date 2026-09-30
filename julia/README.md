@@ -2,7 +2,7 @@
 
 [![Official Website](https://img.shields.io/badge/Website-seowebchecker.com-blue?style=flat-square)](https://seowebchecker.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Julia: 1.6+](https://img.shields.io/badge/Julia-1.6+-purple.svg)](https://julialang.org)
+[![Julia: 1.10+](https://img.shields.io/badge/Julia-1.10+-purple.svg)](https://julialang.org)
 
 Lightweight, fast, and dependency-free open-source SEO audit SDK for the Julia programming language. Engineered by the [SEOWebChecker](https://seowebchecker.com/) team to empower developers, data scientists, and webmasters to automate on-page technical SEO audits, meta tag validations, heading structure inspections, image accessibility analysis, and Core Web Vitals readiness checks directly in Julia.
 
