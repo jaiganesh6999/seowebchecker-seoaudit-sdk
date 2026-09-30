@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-seowebchecker",
   "version": "1.0.0",
-  "description": "Vite plugin for automated on-page technical SEO audits, meta tag validations, heading structure inspections, and Core Web Vitals diagnostics by SEOWebChecker.",
+  "description": "Build-time Vite plugin to audit HTML templates, validate OpenGraph/meta tags, and catch SEO regressions before production deployment.",
   "main": "index.js",
   "types": "index.d.ts",
   "keywords": [
