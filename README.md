@@ -34,6 +34,7 @@
 [![VS Code Extension](https://img.shields.io/badge/VS%20Code-seowebchecker-007ACC.svg?logo=visualstudiocode)](./vscode)
 [![WordPress Plugin](https://img.shields.io/badge/WordPress-seowebchecker-21759B.svg?logo=wordpress)](./wordpress)
 [![Astro Integration](https://img.shields.io/badge/Astro-astro--seowebchecker-FF5D01.svg?logo=astro)](https://www.npmjs.com/package/astro-seowebchecker)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/seowebchecker)](https://artifacthub.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
@@ -96,6 +97,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[WordPress Plugin Directory](https://wordpress.org/plugins/)** | CMS & Digital Publishing | `seowebchecker` | [`wordpress/`](./wordpress) |
 | **[Visual Studio Code Marketplace](https://marketplace.visualstudio.com/)** | Developer IDE & Editor (VS Code) | `seowebchecker` | [`vscode/`](./vscode) |
 | **[Astro Integrations](https://astro.build/integrations)** | Astro Modern Web Framework | [`astro-seowebchecker`](https://www.npmjs.com/package/astro-seowebchecker) | [`astro/`](./astro) |
+| **[Artifact Hub (Helm)](https://artifacthub.io/)** | Kubernetes & Cloud-Native (Helm) | `seowebchecker` | [`helm/`](./helm) |
 
 ---
 
