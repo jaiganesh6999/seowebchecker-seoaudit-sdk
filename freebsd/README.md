@@ -1,6 +1,6 @@
-# FreeBSD Ports Submission Guide: `www/seowebchecker` 🔴
+# FreeBSD Ports Submission Guide: `www/seowebchecker`
 
-This guide provides the exact steps to submit `seowebchecker` as an official new port in the **FreeBSD Ports Collection** via **FreeBSD Bugzilla** (DA 93).
+This guide provides the exact steps to submit `seowebchecker` as an official new port in the **FreeBSD Ports Collection** via **FreeBSD Bugzilla**.
 
 Canonical Homepage: [https://seowebchecker.com/](https://seowebchecker.com/)
 
