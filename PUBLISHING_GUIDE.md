@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 48 Package Registries, CDNs & Edge Platforms
+# Comprehensive Publishing Guide for 49 Package Registries, CDNs & Edge Platforms
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 48 package registries, CDNs, and edge platforms for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 49 package registries, CDNs, and edge platforms for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -57,6 +57,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **JavaScript & TypeScript Registry (JSR)** | [jsr.io](https://jsr.io) | `@seowebchecker/audit` | [`jsr/`](./jsr) |
 | **Global Multi-CDN (jsDelivr)** | [jsdelivr.com](https://www.jsdelivr.com) | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 | **Edge Computing (Cloudflare Workers)** | [workers.cloudflare.com](https://workers.cloudflare.com/) | `@seowebchecker/cloudflare-worker` | [`cloudflare/`](./cloudflare) |
+| **Multi-CDN & GitHub Mirror (Statically)** | [statically.io](https://statically.io) | `seowebchecker` | [`npm/`](./npm) |
 
 ---
 
@@ -1573,6 +1574,32 @@ cd cloudflare
 npx wrangler dev
 npx wrangler deploy
 ```
+
+---
+
+## 49. Statically Open Source Multi-CDN (`statically.io`)
+
+High-performance global multi-CDN powered by Cloudflare, Fastly, and BunnyCDN that automatically serves open-source assets directly from GitHub with on-the-fly minification and compression.
+
+* **Status:** **Active & Live**
+* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+* **Automatic Minification:** Supported on-the-fly by adding `.min.js`
+
+### Live CDN URLs:
+* **Main Branch Direct CDN:**
+  ```text
+  https://cdn.statically.io/gh/jaiganesh6999/seowebchecker-seoaudit-sdk/main/npm/index.js
+  ```
+* **Tagged Release CDN (v1.0.2):**
+  ```text
+  https://cdn.statically.io/gh/jaiganesh6999/seowebchecker-seoaudit-sdk/v1.0.2/npm/index.js
+  ```
+* **HTML Script Tag Usage:**
+  ```html
+  <script src="https://cdn.statically.io/gh/jaiganesh6999/seowebchecker-seoaudit-sdk/main/npm/index.js"></script>
+  ```
+
+*(Note regarding Google Hosted Libraries: Google Hosted Libraries does not accept public submissions and only hosts a closed, curated set of ~15 legacy web libraries. Modern open-source libraries use Statically, jsDelivr, and unpkg).*
 
 
 
