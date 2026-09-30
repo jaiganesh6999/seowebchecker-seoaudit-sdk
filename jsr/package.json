@@ -1,0 +1,6 @@
+{
+  "name": "@seowebchecker/audit",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./mod.ts"
+}

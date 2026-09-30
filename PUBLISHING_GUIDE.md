@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 45 Package Registries
+# Comprehensive Publishing Guide for 46 Package Registries
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 45 package registries and developer ecosystems for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 46 package registries and developer ecosystems for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -54,6 +54,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **AI Data Agents (LlamaHub)** | [llamahub.ai](https://llamahub.ai/) | `seowebchecker-seoaudit-sdk` | [`integrations/llamaindex/`](./integrations/llamaindex) |
 | **Full-Stack JavaScript (Atmosphere / Meteor)** | [atmospherejs.com](https://atmospherejs.com/) | `seowebchecker:seoaudit-sdk` | [`meteor/`](./meteor) |
 | **API Collections & Testing (Postman)** | [postman.com/explore](https://www.postman.com/) | `SEOWebChecker` | [`postman/`](./postman) |
+| **JavaScript & TypeScript Registry (JSR)** | [jsr.io](https://jsr.io) | `@seowebchecker/audit` | [`jsr/`](./jsr) |
 
 ---
 
@@ -1487,6 +1488,38 @@ Official Postman API Collection and Environment for [SEOWebChecker](https://seow
 3. Import the `seowebchecker.postman_collection.json`.
 4. Click collection options (`...`) → **Share** → **Publish to API Network**.
 5. Your collection will be publicly discoverable by millions of developers on `https://www.postman.com/explore`!
+
+---
+
+## 46. JSR - JavaScript & TypeScript Registry (`jsr.io`)
+
+Official modern TypeScript and cross-runtime SDK for [SEOWebChecker](https://seowebchecker.com/) across Deno, Bun, Node.js, and modern browsers.
+
+* **Package:** `@seowebchecker/audit`
+* **Directory:** [`jsr/`](./jsr)
+* **Configuration:** [`jsr/jsr.json`](./jsr/jsr.json)
+* **Entrypoint:** [`jsr/mod.ts`](./jsr/mod.ts)
+* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+
+### Step 1: Claim Scope on JSR
+1. Log in to **[jsr.io](https://jsr.io/)** with your GitHub account.
+2. Click your avatar $\rightarrow$ **Scopes** $\rightarrow$ **New Scope**.
+3. Create the scope: `seowebchecker`.
+4. Under the `seowebchecker` scope, click **Create Package** and name it `audit`.
+
+### Step 2: Publish via GitHub Actions or CLI
+
+#### Option A: Local Publish via CLI
+```powershell
+cd jsr
+npx.cmd jsr publish
+```
+*(A browser authentication window will open to approve the publish).*
+
+#### Option B: Automated via GitHub Actions (OIDC)
+1. On [jsr.io](https://jsr.io), go to package settings for `@seowebchecker/audit` $\rightarrow$ **Publishing**.
+2. Link GitHub repository `jaiganesh6999/seowebchecker-seoaudit-sdk` and set subdirectory to `jsr`.
+3. The included workflow `.github/workflows/publish-jsr.yml` publishes automatically on every push to `main` without needing long-lived access tokens.
 
 
 
