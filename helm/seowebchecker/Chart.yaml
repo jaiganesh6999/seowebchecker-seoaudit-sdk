@@ -23,7 +23,7 @@ maintainers:
 icon: https://raw.githubusercontent.com/jaiganesh6999/seowebchecker-seoaudit-sdk/main/flatpak/com.seowebchecker.seowebchecker.png
 annotations:
   artifacthub.io/displayName: "SEOWebChecker - Technical SEO & Core Web Vitals Auditor"
-  artifacthub.io/category: "monitoring-observability"
+  artifacthub.io/category: "monitoring-logging"
   artifacthub.io/license: "MIT"
   artifacthub.io/links: |
     - name: Official Platform

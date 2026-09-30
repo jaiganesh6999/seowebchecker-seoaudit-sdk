@@ -1,6 +1,0 @@
-# Artifact Hub repository metadata
-# https://artifacthub.io/docs/topics/repositories/
-repositoryID: seowebchecker-helm-charts
-owners:
-  - name: seowebchecker
-    email: support@seowebchecker.com
