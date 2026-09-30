@@ -3,7 +3,7 @@
   "displayName": "SEOWebChecker - Technical SEO Audit & Analyzer",
   "description": "Real-time technical SEO linter for HTML, JSX, TSX, Astro, Vue, Svelte, and Markdown. Detects missing alt tags, duplicate H1s, title/meta lengths, and OpenGraph issues.",
   "version": "1.0.0",
-  "publisher": "seowebchecker",
+  "publisher": "seo-audit-tool",
   "license": "MIT",
   "engines": {
     "vscode": "^1.80.0"
