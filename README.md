@@ -91,8 +91,6 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Atmosphere (Meteor.js)](https://atmospherejs.com/)** | Full-Stack JavaScript & Meteor | `seowebchecker:seoaudit-sdk` | [`meteor/`](./meteor) |
 | **[Postman Public API Network](https://www.postman.com/)** | API Collections & Testing | `SEOWebChecker` | [`postman/`](./postman) |
 
-*Step-by-step instructions for building and publishing to all 45 registries are in **[PUBLISHING_GUIDE.md](./PUBLISHING_GUIDE.md)**.*
-
 ---
 
 ## 🖥️ Local Interactive Web Dashboard
