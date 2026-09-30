@@ -1,6 +1,6 @@
-# Comprehensive Publishing Guide for 46 Package Registries
+# Comprehensive Publishing Guide for 47 Package Registries & CDNs
 
-This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 46 package registries and developer ecosystems for [seowebchecker.com](https://seowebchecker.com/).
+This guide provides exact, production-ready steps to publish the **`seowebchecker-seoaudit-sdk`** suite across 47 package registries and developer ecosystems for [seowebchecker.com](https://seowebchecker.com/).
 
 
 ---
@@ -55,6 +55,7 @@ This guide provides exact, production-ready steps to publish the **`seowebchecke
 | **Full-Stack JavaScript (Atmosphere / Meteor)** | [atmospherejs.com](https://atmospherejs.com/) | `seowebchecker:seoaudit-sdk` | [`meteor/`](./meteor) |
 | **API Collections & Testing (Postman)** | [postman.com/explore](https://www.postman.com/) | `SEOWebChecker` | [`postman/`](./postman) |
 | **JavaScript & TypeScript Registry (JSR)** | [jsr.io](https://jsr.io) | `@seowebchecker/audit` | [`jsr/`](./jsr) |
+| **Global Multi-CDN (jsDelivr)** | [jsdelivr.com](https://www.jsdelivr.com) | `seowebchecker-seoaudit-sdk` | [`npm/`](./npm) |
 
 ---
 
@@ -1520,6 +1521,29 @@ npx.cmd jsr publish
 1. On [jsr.io](https://jsr.io), go to package settings for `@seowebchecker/audit` $\rightarrow$ **Publishing**.
 2. Link GitHub repository `jaiganesh6999/seowebchecker-seoaudit-sdk` and set subdirectory to `jsr`.
 3. The included workflow `.github/workflows/publish-jsr.yml` publishes automatically on every push to `main` without needing long-lived access tokens.
+
+---
+
+## 47. jsDelivr Open Source Multi-CDN (`jsdelivr.com`)
+
+Official high-availability global CDN delivery for [SEOWebChecker](https://seowebchecker.com/) client SDK assets and browser scripts.
+
+* **Package Page:** [https://www.jsdelivr.com/package/npm/seowebchecker-seoaudit-sdk](https://www.jsdelivr.com/package/npm/seowebchecker-seoaudit-sdk)
+* **Status:** **Active & Live**
+* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+
+### CDN Delivery Links
+* **Latest Release:** `https://cdn.jsdelivr.net/npm/seowebchecker-seoaudit-sdk@latest/`
+* **Direct Script Import:**
+  ```html
+  <script src="https://cdn.jsdelivr.net/npm/seowebchecker-seoaudit-sdk@1.0.1/index.js"></script>
+  ```
+* **GitHub Direct CDN:**
+  ```html
+  <script src="https://cdn.jsdelivr.net/gh/jaiganesh6999/seowebchecker-seoaudit-sdk@main/npm/index.js"></script>
+  ```
+
+*No manual publishing needed: jsDelivr automatically mirrors and caches all releases from npm and GitHub within minutes.*
 
 
 
