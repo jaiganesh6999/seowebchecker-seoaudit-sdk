@@ -1072,7 +1072,7 @@ The derivation in [`nix/package.nix`](./nix/package.nix) is built with `stdenv.m
 - Zero external runtime npm dependencies
 - Wraps execution using `makeWrapper` with `nodejs`
 - Provides symlinks for both `seowebchecker` and `seowebchecker-audit`
-- Canonical homepage set to **`https://seowebchecker.com/`** (with trailing slash)
+- Canonical homepage set to **`https://seowebchecker.com/`**
 
 ---
 
@@ -1183,7 +1183,7 @@ To publish a new version:
 
 * **Port Name:** `www/seowebchecker`
 * **Maintainer:** `support@seowebchecker.com`
-* **Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **Homepage:** **`https://seowebchecker.com/`**
 * **License:** MIT
 * **Port Directory:** [`freebsd/`](./freebsd)
 * **Shar Archive:** [`freebsd/seowebchecker.shar`](./freebsd/seowebchecker.shar)
@@ -1244,7 +1244,7 @@ The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is the open
 * **Server Name:** `seowebchecker`
 * **Package Name:** `seowebchecker-mcp-server`
 * **Maintainer:** `support@seowebchecker.com`
-* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **Official Homepage:** **`https://seowebchecker.com/`**
 * **License:** MIT
 * **Directory:** [`mcp/`](./mcp)
 * **Smithery Config:** [`smithery.yaml`](./smithery.yaml)
@@ -1331,7 +1331,7 @@ Automate technical on-page SEO audits, meta tag validation, Open Graph verificat
 
 * **Repository:** [jaiganesh6999/seowebchecker-action](https://github.com/jaiganesh6999/seowebchecker-action)
 * **Action Identifier:** `jaiganesh6999/seowebchecker-action@v1`
-* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **Official Homepage:** **`https://seowebchecker.com/`**
 * **License:** MIT
 * **Directory:** [`action/`](./action)
 
@@ -1375,7 +1375,7 @@ jobs:
 Official LangChain toolkit for automated on-page technical SEO audits, meta tag validation, Open Graph verification, and Core Web Vitals checks.
 
 * **Package:** `seowebchecker-seoaudit-sdk` (PyPI)
-* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **Official Homepage:** **`https://seowebchecker.com/`**
 * **License:** MIT
 * **Directory:** [`integrations/langchain/`](./integrations/langchain)
 
@@ -1396,7 +1396,7 @@ Official LlamaIndex Tool Specification for autonomous agents and workflows.
 
 * **Package:** `llama-index-tools-seowebchecker` / `seowebchecker-seoaudit-sdk`
 * **Upstream Pull Request:** **[run-llama/llama_index#23306](https://github.com/run-llama/llama_index/pull/23306)**
-* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **Official Homepage:** **`https://seowebchecker.com/`**
 * **License:** MIT
 * **Directory:** [`integrations/llamaindex/`](./integrations/llamaindex)
 
@@ -1417,7 +1417,7 @@ Official Meteor package for automated on-page technical SEO audits, meta tag val
 
 * **Package:** `seowebchecker:seoaudit-sdk`
 * **Official Registry:** [https://atmospherejs.com/](https://atmospherejs.com/)
-* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **Official Homepage:** **`https://seowebchecker.com/`**
 * **License:** MIT
 * **Directory:** [`meteor/`](./meteor)
 
@@ -1470,7 +1470,7 @@ Official Postman API Collection and Environment for [SEOWebChecker](https://seow
 
 * **Collection File:** [`postman/seowebchecker.postman_collection.json`](./postman/seowebchecker.postman_collection.json)
 * **Environment File:** [`postman/seowebchecker.postman_environment.json`](./postman/seowebchecker.postman_environment.json)
-* **Official Homepage:** **`https://seowebchecker.com/`** (with trailing slash)
+* **Official Homepage:** **`https://seowebchecker.com/`**
 * **License:** MIT
 * **Directory:** [`postman/`](./postman)
 
@@ -1502,7 +1502,7 @@ Official modern TypeScript and cross-runtime SDK for [SEOWebChecker](https://seo
 * **Directory:** [`jsr/`](./jsr)
 * **Configuration:** [`jsr/jsr.json`](./jsr/jsr.json)
 * **Entrypoint:** [`jsr/mod.ts`](./jsr/mod.ts)
-* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+* **Official Homepage:** `https://seowebchecker.com/`
 
 ### Step 1: Claim Scope on JSR
 1. Log in to **[jsr.io](https://jsr.io/)** with your GitHub account.
@@ -1532,7 +1532,7 @@ Official high-availability global CDN delivery for [SEOWebChecker](https://seowe
 
 * **Package Page:** [https://www.jsdelivr.com/package/npm/seowebchecker-seoaudit-sdk](https://www.jsdelivr.com/package/npm/seowebchecker-seoaudit-sdk)
 * **Status:** **Active & Live**
-* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+* **Official Homepage:** `https://seowebchecker.com/`
 
 ### CDN Delivery Links
 * **Latest Release:** `https://cdn.jsdelivr.net/npm/seowebchecker-seoaudit-sdk@latest/`
@@ -1556,7 +1556,7 @@ Official high-performance Edge SEO service and global serverless audit REST API 
 * **Directory:** [`cloudflare/`](./cloudflare)
 * **Configuration:** [`cloudflare/wrangler.jsonc`](./cloudflare/wrangler.jsonc)
 * **Entrypoint:** [`cloudflare/src/index.ts`](./cloudflare/src/index.ts)
-* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+* **Official Homepage:** `https://seowebchecker.com/`
 
 ### 1-Click Instant Deploy
 [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk/tree/main/cloudflare)
@@ -1582,7 +1582,7 @@ npx wrangler deploy
 High-performance global multi-CDN powered by Cloudflare, Fastly, and BunnyCDN that automatically serves open-source assets directly from GitHub with on-the-fly minification and compression.
 
 * **Status:** **Active & Live**
-* **Official Homepage:** `https://seowebchecker.com/` (with trailing slash)
+* **Official Homepage:** `https://seowebchecker.com/`
 * **Automatic Minification:** Supported on-the-fly by adding `.min.js`
 
 ### Live CDN URLs:
@@ -1599,7 +1599,6 @@ High-performance global multi-CDN powered by Cloudflare, Fastly, and BunnyCDN th
   <script src="https://cdn.statically.io/gh/jaiganesh6999/seowebchecker-seoaudit-sdk/main/npm/index.js"></script>
   ```
 
-*(Note regarding Google Hosted Libraries: Google Hosted Libraries does not accept public submissions and only hosts a closed, curated set of ~15 legacy web libraries. Modern open-source libraries use Statically, jsDelivr, and unpkg).*
 
 
 
