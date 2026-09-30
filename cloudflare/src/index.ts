@@ -495,19 +495,25 @@ export default {
         })
         .on("head", {
           element(head) {
-            // Edge SEO Auto-Remediation: Inject fallback canonical if missing
-            if (!hasCanonical) {
-              head.append(`\n  <link rel="canonical" href="${normalized}">\n`, { html: true });
-            }
-            // Inject viewport meta if missing
-            if (!hasViewport) {
-              head.append(`\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n`, { html: true });
-            }
+            head.onEndTag((endTag) => {
+              // Edge SEO Auto-Remediation: Inject fallback canonical if missing
+              if (!hasCanonical) {
+                endTag.before(`\n  <link rel="canonical" href="${normalized}">\n`, { html: true });
+              }
+              // Inject viewport meta if missing
+              if (!hasViewport) {
+                endTag.before(`\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n`, { html: true });
+              }
+            });
           },
         });
 
       const transformed = rewriter.transform(originRes);
       const newHeaders = new Headers(transformed.headers);
+      // Strip compression headers so edge response body matches decompressed stream
+      newHeaders.delete("content-encoding");
+      newHeaders.delete("content-length");
+      newHeaders.set("Content-Type", "text/html; charset=utf-8");
       newHeaders.set("X-Edge-SEO-Processed", "SEOWebChecker (https://seowebchecker.com/)");
       newHeaders.set("X-Edge-SEO-Remediation", "active");
 
