@@ -35,6 +35,8 @@
 [![WordPress Plugin](https://img.shields.io/badge/WordPress-seowebchecker-21759B.svg?logo=wordpress)](./wordpress)
 [![Astro Integration](https://img.shields.io/badge/Astro-astro--seowebchecker-FF5D01.svg?logo=astro)](https://www.npmjs.com/package/astro-seowebchecker)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/seowebchecker)](https://artifacthub.io/)
+[![Drupal Module](https://img.shields.io/badge/Drupal-seowebchecker-0678BE.svg?logo=drupal&logoColor=white)](./drupal)
+[![Joomla Plugin](https://img.shields.io/badge/Joomla-seowebchecker-185A9D.svg?logo=joomla&logoColor=white)](./joomla)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
@@ -98,6 +100,8 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Visual Studio Code Marketplace](https://marketplace.visualstudio.com/)** | Developer IDE & Editor (VS Code) | `seowebchecker` | [`vscode/`](./vscode) |
 | **[Astro Integrations](https://astro.build/integrations)** | Astro Modern Web Framework | [`astro-seowebchecker`](https://www.npmjs.com/package/astro-seowebchecker) | [`astro/`](./astro) |
 | **[Artifact Hub (Helm)](https://artifacthub.io/)** | Kubernetes & Cloud-Native (Helm) | `seowebchecker` | [`helm/`](./helm) |
+| **[Drupal Projects](https://www.drupal.org/project/project_module)** | Enterprise CMS (Drupal 10 & 11) | `seowebchecker` | [`drupal/`](./drupal) |
+| **[Joomla Extensions Directory (JED)](https://extensions.joomla.org/)** | Open-Source Web Publishing (Joomla 5) | `plg_system_seowebchecker` | [`joomla/`](./joomla) |
 
 ---
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+  <name>plg_system_seowebchecker</name>
+  <author>SEOWebChecker</author>
+  <creationDate>2026-09-30</creationDate>
+  <copyright>Copyright (C) 2026 SEOWebChecker. All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <authorEmail>support@seowebchecker.com</authorEmail>
+  <authorUrl>https://seowebchecker.com/</authorUrl>
+  <version>1.0.0</version>
+  <description>Automated on-page technical SEO audits, heading structure inspections, image accessibility analysis, and Core Web Vitals checks for Joomla 5.</description>
+  <namespace path="src">SeoWebChecker\Plugin\System\SeoWebChecker</namespace>
+  <files>
+    <folder plugin="seowebchecker">services</folder>
+    <folder>src</folder>
+    <folder>assets</folder>
+    <filename>README.md</filename>
+  </files>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+        <field
+          name="min_score"
+          type="number"
+          label="Minimum SEO Score"
+          description="Minimum acceptable score before warning administrators."
+          default="80"
+          min="0"
+          max="100"
+        />
+        <field
+          name="check_images"
+          type="radio"
+          label="Check Image Alt Attributes"
+          description="Verify image accessibility alt tags across content."
+          default="1"
+          class="btn-group btn-group-yesno">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field
+          name="check_headings"
+          type="radio"
+          label="Check Heading Hierarchy"
+          description="Detect missing or duplicate H1 headings."
+          default="1"
+          class="btn-group btn-group-yesno">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+      </fieldset>
+    </fields>
+  </config>
+</extension>
