@@ -40,6 +40,7 @@ yarn-error.log*
 *.tgz
 vscode/out/
 !vscode/dist/
+!astro/dist/
 
 # Composer / PHP
 /vendor/
