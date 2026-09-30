@@ -1,8 +1,8 @@
-=== SEOWebChecker - Technical SEO Audit & On-Page Analyzer ===
+=== SEOWebChecker ===
 Contributors: jaiganesh6999, seowebchecker
 Tags: seo, seo audit, technical seo, meta tags, core web vitals
 Requires at least: 5.8
-Tested up to: 6.7
+Tested up to: 7.1
 Stable tag: 1.0.0
 Requires PHP: 8.0
 License: GPLv2 or later
