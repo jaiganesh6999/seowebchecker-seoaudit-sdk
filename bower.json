@@ -1,7 +1,7 @@
 {
   "name": "seowebchecker",
   "description": "Automated technical on-page SEO audit client SDK for validating meta tags, headings, OpenGraph social cards, Core Web Vitals, and image accessibility.",
-  "main": "npm/lib/index.js",
+  "main": "dist/seowebchecker.js",
   "authors": [
     "Rahul Gupta <jaiganesh6999@gmail.com>"
   ],
