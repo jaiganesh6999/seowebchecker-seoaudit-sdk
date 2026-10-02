@@ -116,25 +116,6 @@ Right-click the widget on your panel or desktop and select **Configure SEOWebChe
 
 ---
 
-## 🌐 Publishing to the KDE Store
-
-To publish to the official [KDE Store](https://store.kde.org/):
-
-1. Go to **[https://store.kde.org/](https://store.kde.org/)** and log in with your KDE Identity or OpenDesktop account.
-2. Click **Add Product** (or go to your developer dashboard).
-3. Select Category: **Plasma 6 Applets** (and optionally **Plasma 5 Applets**).
-4. Fill in Product Details:
-   * **Name**: `SEOWebChecker - Technical SEO & On-Page Analyzer`
-   * **Description**: Copy from `README.md`
-   * **Home Page**: `https://seowebchecker.com/`
-   * **License**: `GPL-2.0-or-later`
-5. Upload File:
-   * Select `org.kde.plasma.seowebchecker.plasmoid`
-   * Set version to `1.0.0`
-6. Click **Save Product**. Your widget will immediately become downloadable directly through Plasma's built-in *"Get New Widgets"* browser worldwide!
-
----
-
 ## 📄 License
 
 GPL-2.0-or-later &copy; [SEOWebChecker](https://seowebchecker.com/).
