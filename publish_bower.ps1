@@ -1,65 +1,42 @@
-# SEOWebChecker Bower Registration & Verification Script
+# SEOWebChecker Bower Installation & Distribution Guide
 # Official Website: https://seowebchecker.com/
 
-$PackageName = "seowebchecker"
-$RepoUrl = "https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk.git"
-$RegistryUrl = "https://registry.bower.io/packages"
+$RepoSlug = "jaiganesh6999/seowebchecker-seoaudit-sdk"
+$RepoUrl = "https://github.com/$RepoSlug.git"
 
 Write-Host "=========================================================" -ForegroundColor Cyan
-Write-Host "  SEOWebChecker: Bower.io Package Registration Script     " -ForegroundColor Cyan
+Write-Host "  SEOWebChecker: Bower Package Distribution Status        " -ForegroundColor Cyan
 Write-Host "=========================================================`n" -ForegroundColor Cyan
 
-# 1. Check if package already registered
-Write-Host "[1/3] Checking Bower registry for '$PackageName'..." -ForegroundColor Yellow
-try {
-    $existing = Invoke-RestMethod -Uri "$RegistryUrl/$PackageName" -Method Get -ErrorAction Stop
-    Write-Host "Package '$PackageName' is already registered on Bower:" -ForegroundColor Green
-    Write-Host "  Name: $($existing.name)"
-    Write-Host "  URL:  $($existing.url)"
-    Write-Host "`nTo install in your web project:" -ForegroundColor Cyan
-    Write-Host "  bower install $PackageName --save`n" -ForegroundColor White
-    exit 0
-} catch {
-    Write-Host "Package '$PackageName' is not yet registered on Bower." -ForegroundColor Yellow
-}
+Write-Host "[IMPORTANT NOTE ABOUT BOWER.IO REGISTRY]" -ForegroundColor Yellow
+Write-Host "The public Bower central registry (registry.bower.io) was permanently"
+Write-Host "deprecated and closed to NEW package registrations by the Bower team."
+Write-Host "The registry returns HTTP 500 on all new registration attempts.`n"
 
-# 2. Attempt registration
-Write-Host "`n[2/3] Registering '$PackageName' on Bower registry..." -ForegroundColor Yellow
-Write-Host "  Repository: $RepoUrl"
+Write-Host "[HOW BOWER PACKAGES ARE DISTRIBUTED TODAY]" -ForegroundColor Green
+Write-Host "Bower natively supports GitHub repository packages directly without needing"
+Write-Host "central registry registration. Because our repository contains a valid"
+Write-Host "'bower.json' and 'dist/seowebchecker.js' at the root, any developer can"
+Write-Host "install SEOWebChecker using standard Bower commands:`n"
 
-# Check if bower CLI is available
-$bowerCli = Get-Command bower -ErrorAction SilentlyContinue
+Write-Host "Option 1 (GitHub Slug):" -ForegroundColor Cyan
+Write-Host "  bower install $RepoSlug --save`n" -ForegroundColor White
 
-if ($bowerCli) {
-    Write-Host "Found bower CLI. Running: bower register $PackageName $RepoUrl" -ForegroundColor Cyan
-    & bower register $PackageName $RepoUrl
-} else {
-    Write-Host "Bower CLI not found in PATH. Submitting directly to Bower REST API..." -ForegroundColor Cyan
-    try {
-        $body = @{
-            name = $PackageName
-            url  = $RepoUrl
-        } | ConvertTo-Json
+Write-Host "Option 2 (Full Git URL):" -ForegroundColor Cyan
+Write-Host "  bower install $RepoUrl --save`n" -ForegroundColor White
 
-        $response = Invoke-RestMethod -Uri $RegistryUrl -Method Post -Body $body -ContentType "application/json"
-        Write-Host "Successfully registered '$PackageName' on Bower!" -ForegroundColor Green
-        Write-Host ($response | Format-List | Out-String)
-    } catch {
-        Write-Host "Bower API response: $($_.Exception.Message)" -ForegroundColor Red
-        Write-Host "`nIf the remote repo needs git tags pushed first, push a semver tag:" -ForegroundColor Yellow
-        Write-Host "  git tag v1.0.0"
-        Write-Host "  git push origin v1.0.0"
-        Write-Host "`nThen register via:"
-        Write-Host "  bower register $PackageName $RepoUrl" -ForegroundColor White
-    }
-}
+Write-Host "Option 3 (Specific Release Tag):" -ForegroundColor Cyan
+Write-Host "  bower install $RepoSlug#v1.0.3 --save`n" -ForegroundColor White
 
-# 3. Verification
-Write-Host "`n[3/3] Verifying registration..." -ForegroundColor Yellow
-try {
-    $verify = Invoke-RestMethod -Uri "$RegistryUrl/$PackageName" -Method Get -ErrorAction Stop
-    Write-Host "Verification PASSED! '$PackageName' is live on Bower registry." -ForegroundColor Green
-} catch {
-    Write-Host "Note: Once your git repository tag is pushed to GitHub, run:" -ForegroundColor Yellow
-    Write-Host "  bower register $PackageName $RepoUrl" -ForegroundColor White
-}
+Write-Host "[HTML USAGE AFTER INSTALLATION]" -ForegroundColor Green
+Write-Host @"
+<script src="bower_components/seowebchecker-seoaudit-sdk/dist/seowebchecker.min.js"></script>
+<script>
+  // Instant on-page SEO diagnostics
+  const report = SEOWebChecker.auditCurrentPage();
+  console.log('Score:', report.score.overall, 'Grade:', report.score.grade);
+</script>
+"@ -ForegroundColor Gray
+
+Write-Host "`nMake sure your latest commits and tags are pushed to GitHub:" -ForegroundColor Yellow
+Write-Host "  git push origin main --tags`n" -ForegroundColor White
