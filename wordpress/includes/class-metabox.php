@@ -26,7 +26,7 @@ final class SEOWebChecker_Metabox {
         foreach ($post_types as $post_type) {
             add_meta_box(
                 'seowebchecker_audit_metabox',
-                __('SEOWebChecker: Live On-Page SEO Scorecard', 'seowebchecker'),
+                __('SEOWebChecker: Live On-Page Scorecard', 'seowebchecker'),
                 [self::class, 'render_metabox'],
                 $post_type,
                 'side',
@@ -40,37 +40,35 @@ final class SEOWebChecker_Metabox {
         $permalink = get_permalink($post->ID);
         ?>
         <div id="seowebchecker-metabox-wrapper">
-            <p class="description">
+            <p class="description" style="margin-bottom: 10px;">
                 <?php esc_html_e('Inspect technical SEO factors before publishing.', 'seowebchecker'); ?>
             </p>
 
             <div style="margin-bottom: 12px;">
-                <button type="button" class="button button-primary" id="seowebchecker-run-post-audit" data-post-id="<?php echo esc_attr((string) $post->ID); ?>" data-url="<?php echo esc_url($permalink ?: ''); ?>">
-                    <?php esc_html_e('Run On-Page SEO Audit', 'seowebchecker'); ?>
+                <button type="button" class="button button-primary" id="seowebchecker-run-post-audit" data-post-id="<?php echo esc_attr((string) $post->ID); ?>" data-url="<?php echo esc_url($permalink ?: ''); ?>" style="width: 100%; text-align: center;">
+                    <span class="dashicons dashicons-search" style="vertical-align: text-top; font-size: 16px; width: 16px; height: 16px;"></span>
+                    <?php esc_html_e('Analyze On-Page SEO', 'seowebchecker'); ?>
                 </button>
-                <span class="spinner" id="seowebchecker-metabox-spinner" style="float: none; margin: 0 0 0 6px;"></span>
+                <div id="seowebchecker-metabox-spinner-wrap" style="display: none; text-align: center; margin-top: 8px;">
+                    <span class="spinner is-active" id="seowebchecker-metabox-spinner" style="float: none; margin: 0 4px 0 0;"></span>
+                    <span style="font-size: 11px; color: #646970;"><?php esc_html_e('Checking headings, meta, alt text...', 'seowebchecker'); ?></span>
+                </div>
             </div>
 
             <div id="seowebchecker-metabox-results" style="display: none;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 10px; background: #f6f7f7; border-radius: 4px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding: 10px; background: #f0f6fc; border: 1px solid #c8d7e1; border-radius: 4px;">
                     <div>
                         <strong><?php esc_html_e('SEO Score:', 'seowebchecker'); ?></strong>
                         <span id="seowebchecker-post-score" style="font-size: 1.3em; font-weight: bold; margin-left: 4px;">--</span>/100
                     </div>
                     <div>
-                        <span id="seowebchecker-post-grade" style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: bold; color: #fff; background: #666;">-</span>
+                        <span id="seowebchecker-post-grade" style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: bold; color: #fff; background: #2271b1;">-</span>
                     </div>
                 </div>
 
                 <ul id="seowebchecker-post-issues-list" style="margin: 0; padding: 0; list-style: none; font-size: 12px;">
                     <!-- Populated via JS -->
                 </ul>
-
-                <p style="margin-top: 10px; font-size: 11px; text-align: center;">
-                    <a href="https://seowebchecker.com/" target="_blank" rel="noopener noreferrer">
-                        <?php esc_html_e('Audit live URL on SEOWebChecker &rarr;', 'seowebchecker'); ?>
-                    </a>
-                </p>
             </div>
         </div>
         <?php
@@ -86,26 +84,12 @@ final class SEOWebChecker_Metabox {
         $post_id = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
         $post = get_post($post_id);
 
-        if (!$post) {
+        if (!$post instanceof WP_Post) {
             wp_send_json_error(__('Invalid post ID provided.', 'seowebchecker'), 400);
         }
 
-        $url = get_permalink($post->ID);
-        if (!$url) {
-            $url = home_url('/?p=' . $post->ID);
-        }
-
-        // Render preview HTML for draft or published post
-        $html = sprintf(
-            '<!DOCTYPE html><html><head><title>%s</title><meta name="description" content="%s"></head><body><h1>%s</h1>%s</body></html>',
-            esc_html(get_the_title($post)),
-            esc_attr(wp_strip_all_tags(get_the_excerpt($post))),
-            esc_html(get_the_title($post)),
-            apply_filters('the_content', $post->post_content)
-        );
-
         $auditor = new SEOWebChecker_Auditor();
-        $report = $auditor->audit_html($html, $url);
+        $report = $auditor->audit_post_object($post);
 
         wp_send_json_success($report);
     }
