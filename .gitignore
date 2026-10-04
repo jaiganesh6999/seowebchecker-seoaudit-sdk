@@ -63,3 +63,7 @@ deps/
 # Snapcraft packages
 *.snap
 *.spec
+
+# PureScript / Spago
+.spago/
+output/

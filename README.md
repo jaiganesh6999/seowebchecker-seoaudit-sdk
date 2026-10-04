@@ -18,6 +18,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/SeoWebChecker.svg)](https://cocoapods.org/pods/SeoWebChecker)
 [![Swift Package Index](https://img.shields.io/badge/Swift%20Package%20Index-SeoWebChecker-FA7343.svg)](https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk)
 [![Bower](https://img.shields.io/badge/Bower-seowebchecker-FFCC29.svg)](https://bower.io)
+[![PureScript](https://img.shields.io/badge/PureScript-seowebchecker-1D222D.svg?logo=purescript)](https://pursuit.purescript.org/)
 [![Yarn](https://img.shields.io/badge/Yarn-seowebchecker--seoaudit--sdk-2C8EBB.svg)](https://yarnpkg.com/package/seowebchecker-seoaudit-sdk)
 [![Vite Plugin](https://img.shields.io/badge/Vite-vite--plugin--seowebchecker-646CFF.svg)](https://www.npmjs.com/package/vite-plugin-seowebchecker)
 [![Docker Pulls](https://img.shields.io/docker/pulls/seowebchecker/seoaudit-sdk.svg)](https://hub.docker.com/r/seowebchecker/seoaudit-sdk)
@@ -72,6 +73,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[JuliaHub](https://juliahub.com)** | Julia 1.6+ | `SeoWebCheckerAudit` | [`julia/`](./julia) |
 | **[Clojars](https://clojars.org)** | Clojure / JVM | `net.clojars.seoaitools/seowebchecker-seoaudit-sdk` | [`clojure/`](./clojure) |
 | **[Bower](https://bower.io)** | Front-End & Web Assets | `seowebchecker` (`jaiganesh6999/seowebchecker-seoaudit-sdk`) | [Root (`./bower.json`)](./bower.json) |
+| **[PureScript Registry & Pursuit](https://pursuit.purescript.org/)** | PureScript (0.15+) | `seowebchecker` | [Root (`./spago.yaml`)](./spago.yaml) |
 | **[Swift Package Index](https://swiftpackageindex.com/jaiganesh6999/seowebchecker-seoaudit-sdk)** | Swift & Apple Platforms (SPM) | `SeoWebChecker` | [Root (`./Package.swift`)](./Package.swift) |
 | **[Vite](https://vite.dev)** | Frontend Build Tool (Plugin) | `vite-plugin-seowebchecker` | [`vite/`](./vite) |
 | **[JitPack](https://jitpack.io/#jaiganesh6999/seowebchecker-seoaudit-sdk)** | Java / Android / JVM | `com.github.jaiganesh6999.seowebchecker-seoaudit-sdk:seowebchecker-seoaudit-sdk` | [`java/`](./java) |
