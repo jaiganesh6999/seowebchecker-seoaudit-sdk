@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package     Joomla.Plugin
+ * @subpackage  System.seowebchecker
+ *
+ * @copyright   (C) 2026 SEOWebChecker (https://seowebchecker.com/). All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @link        https://seowebchecker.com/
+ */
 
 declare(strict_types=1);
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="system" method="upgrade">
-  <name>plg_system_seowebchecker</name>
+  <name>System - SEOWebChecker</name>
   <author>SEOWebChecker</author>
-  <creationDate>2026-09-30</creationDate>
+  <creationDate>2026-10-04</creationDate>
   <copyright>Copyright (C) 2026 SEOWebChecker. All rights reserved.</copyright>
   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
   <authorEmail>support@seowebchecker.com</authorEmail>
@@ -14,16 +14,22 @@
     <folder plugin="seowebchecker">services</folder>
     <folder>src</folder>
     <folder>assets</folder>
+    <filename>index.html</filename>
     <filename>README.md</filename>
+    <filename>LICENSE.txt</filename>
   </files>
+  <languages folder="language">
+    <language tag="en-GB">en-GB/plg_system_seowebchecker.ini</language>
+    <language tag="en-GB">en-GB/plg_system_seowebchecker.sys.ini</language>
+  </languages>
   <config>
     <fields name="params">
       <fieldset name="basic">
         <field
           name="min_score"
           type="number"
-          label="Minimum SEO Score"
-          description="Minimum acceptable score before warning administrators."
+          label="PLG_SYSTEM_SEOWEBCHECKER_MIN_SCORE_LABEL"
+          description="PLG_SYSTEM_SEOWEBCHECKER_MIN_SCORE_DESC"
           default="80"
           min="0"
           max="100"
@@ -31,8 +37,8 @@
         <field
           name="check_images"
           type="radio"
-          label="Check Image Alt Attributes"
-          description="Verify image accessibility alt tags across content."
+          label="PLG_SYSTEM_SEOWEBCHECKER_CHECK_IMAGES_LABEL"
+          description="PLG_SYSTEM_SEOWEBCHECKER_CHECK_IMAGES_DESC"
           default="1"
           class="btn-group btn-group-yesno">
           <option value="1">JYES</option>
@@ -41,8 +47,8 @@
         <field
           name="check_headings"
           type="radio"
-          label="Check Heading Hierarchy"
-          description="Detect missing or duplicate H1 headings."
+          label="PLG_SYSTEM_SEOWEBCHECKER_CHECK_HEADINGS_LABEL"
+          description="PLG_SYSTEM_SEOWEBCHECKER_CHECK_HEADINGS_DESC"
           default="1"
           class="btn-group btn-group-yesno">
           <option value="1">JYES</option>
@@ -51,4 +57,7 @@
       </fieldset>
     </fields>
   </config>
+  <updateservers>
+    <server type="extension" priority="1" name="SEOWebChecker Updates">https://raw.githubusercontent.com/jaiganesh6999/seowebchecker-seoaudit-sdk/main/joomla/update.xml</server>
+  </updateservers>
 </extension>
