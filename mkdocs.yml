@@ -29,6 +29,7 @@ theme:
 nav:
   - Overview: index.md
   - Quickstart: quickstart.md
+  - Joomla Extension: joomla.md
   - Multi-Ecosystem Distribution: distribution.md
   - Publishing Guide: publishing.md
 
