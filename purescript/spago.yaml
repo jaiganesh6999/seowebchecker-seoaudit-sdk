@@ -1,0 +1,13 @@
+package:
+  name: seowebchecker
+  description: "Automated technical on-page SEO diagnostics, meta tag validations, heading structure inspections, and Core Web Vitals checks."
+  license: "MIT"
+  repository:
+    type: git
+    url: "https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk.git"
+  dependencies:
+    - console
+    - effect
+    - maybe
+    - prelude
+    - strings
