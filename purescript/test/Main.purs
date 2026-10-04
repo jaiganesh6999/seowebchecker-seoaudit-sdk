@@ -20,5 +20,5 @@ main = do
   log $ "Severity formatting test: " <> formatSeverity Pass
 
   let md = generateMarkdown report
-  log "Markdown formatted successfully."
+  log md
   log ">>> ALL PURESCRIPT TESTS PASSED."

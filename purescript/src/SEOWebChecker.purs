@@ -14,7 +14,6 @@ module SEOWebChecker
   ) where
 
 import Prelude
-import Data.Maybe (Maybe(..))
 import Data.String (toUpper)
 
 -- | Severity level for technical SEO diagnostics.
