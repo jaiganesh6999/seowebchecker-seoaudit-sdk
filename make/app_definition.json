@@ -1,0 +1,11 @@
+{
+  "name": "seowebchecker",
+  "label": "SEOWebChecker",
+  "description": "Real-time technical SEO auditing engine that validates on-page HTML, headings, meta tags, and mobile readiness with automated alerts.",
+  "theme": "#10b981",
+  "version": 1,
+  "public": false,
+  "platformUrl": "https://seowebchecker.com/",
+  "repository": "https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk",
+  "baseUrl": "https://seowebchecker.com/"
+}

@@ -1,0 +1,16 @@
+[
+  { "name": "id", "type": "text", "label": "Audit ID" },
+  { "name": "targetUrl", "type": "text", "label": "Target URL" },
+  { "name": "score", "type": "number", "label": "Technical SEO Score (0-100)" },
+  { "name": "grade", "type": "text", "label": "Letter Grade (A-F)" },
+  { "name": "status", "type": "text", "label": "Status (PASS / ALERT)" },
+  { "name": "isAlert", "type": "boolean", "label": "Is Below Threshold?" },
+  { "name": "title", "type": "text", "label": "Page Title" },
+  { "name": "metaDescription", "type": "text", "label": "Meta Description" },
+  { "name": "issuesCount", "type": "number", "label": "Issues Count" },
+  { "name": "issues", "type": "text", "label": "Issues Summary" },
+  { "name": "passesCount", "type": "number", "label": "Passes Count" },
+  { "name": "passes", "type": "text", "label": "Passes Summary" },
+  { "name": "auditedAt", "type": "date", "label": "Audit Timestamp" },
+  { "name": "platformUrl", "type": "text", "label": "Platform URL" }
+]

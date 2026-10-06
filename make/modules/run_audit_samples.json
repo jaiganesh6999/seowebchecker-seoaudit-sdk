@@ -1,0 +1,16 @@
+{
+  "id": "audit_1700000000000",
+  "targetUrl": "https://seowebchecker.com/",
+  "score": 100,
+  "grade": "A",
+  "status": "PASS",
+  "isAlert": false,
+  "title": "Free SEO Audit Tool — Website SEO Checker",
+  "metaDescription": "SEO Web Checker, Run a free website SEO audit in seconds. 50+ checks: technical SEO, on-page, Core Web Vitals & more.",
+  "issuesCount": 0,
+  "issues": "",
+  "passesCount": 6,
+  "passes": "Title tag optimal\nMeta description optimal\nExactly one <h1> heading present\nMobile viewport meta tag configured\nCanonical link tag present\nOpenGraph social tags present",
+  "auditedAt": "2026-10-05T00:00:00.000Z",
+  "platformUrl": "https://seowebchecker.com/"
+}
