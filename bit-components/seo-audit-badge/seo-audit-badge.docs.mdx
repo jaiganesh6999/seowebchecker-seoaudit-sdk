@@ -1,0 +1,40 @@
+---
+description: 'A composable React badge component displaying real-time SEO health diagnostics and Core Web Vitals readiness powered by SEOWebChecker.'
+labels: ['react', 'seo', 'seo-audit', 'core-web-vitals', 'badge', 'analytics']
+---
+
+import { SeoAuditBadge } from './seo-audit-badge';
+
+## React SEO Audit Badge
+
+A drop-in visual component to display live technical SEO health, Core Web Vitals status, and on-page diagnostics in SaaS dashboards and websites.
+
+### Basic Usage
+
+```tsx
+import { SeoAuditBadge } from '@seowebchecker/seo-audit.seo-audit-badge';
+
+export function DashboardHeader() {
+  return (
+    <SeoAuditBadge url="https://seowebchecker.com/" initialScore={98} />
+  );
+}
+```
+
+### Expanded with Detailed Diagnostics
+
+```tsx
+<SeoAuditBadge
+  url="https://seowebchecker.com/"
+  initialScore={100}
+  showDetails={true}
+/>
+```
+
+### Properties
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `url` | `string` | `'https://seowebchecker.com/'` | Target webpage URL to audit |
+| `initialScore` | `number` | `98` | On-page SEO health score (0-100) |
+| `showDetails` | `boolean` | `false` | Expand detailed diagnostics list |
