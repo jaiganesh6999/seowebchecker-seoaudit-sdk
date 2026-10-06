@@ -67,3 +67,8 @@ deps/
 # PureScript / Spago
 .spago/
 output/
+
+# Bit workspace cache
+bit-components/.bit/cache/
+bit-components/.bit/
+bit-components/node_modules/
