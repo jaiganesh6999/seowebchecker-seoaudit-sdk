@@ -143,14 +143,21 @@ function renderResults(score, diagnostics) {
     scoreEl.style.color = '#ef4444';
   }
 
-  listEl.innerHTML = '';
+  listEl.textContent = '';
   diagnostics.forEach(item => {
     const card = document.createElement('div');
     card.className = `diag-item ${item.status}`;
-    card.innerHTML = `
-      <div class="diag-title">${item.name}</div>
-      <div class="diag-msg">${item.msg}</div>
-    `;
+    
+    const titleEl = document.createElement('div');
+    titleEl.className = 'diag-title';
+    titleEl.textContent = item.name;
+
+    const msgEl = document.createElement('div');
+    msgEl.className = 'diag-msg';
+    msgEl.textContent = item.msg;
+
+    card.appendChild(titleEl);
+    card.appendChild(msgEl);
     listEl.appendChild(card);
   });
 }
