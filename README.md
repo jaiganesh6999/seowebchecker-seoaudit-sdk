@@ -38,6 +38,7 @@
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/seowebchecker)](https://artifacthub.io/)
 [![Drupal Module](https://img.shields.io/badge/Drupal-seowebchecker-0678BE.svg?logo=drupal&logoColor=white)](./drupal)
 [![StackBlitz](https://img.shields.io/badge/StackBlitz-Open%20in%20WebContainer-1389FD.svg?logo=stackblitz)](https://stackblitz.com/github/jaiganesh6999/seowebchecker-seoaudit-sdk/tree/main/examples/stackblitz)
+[![CodeSandbox](https://img.shields.io/badge/CodeSandbox-Open%20in%20Cloud-151515.svg?logo=codesandbox)](https://codesandbox.io/p/sandbox/github/jaiganesh6999/seowebchecker-seoaudit-sdk/tree/main/examples/codesandbox)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
@@ -105,6 +106,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Drupal Projects](https://www.drupal.org/project/project_module)** | Enterprise CMS (Drupal 10 & 11) | `seowebchecker` | [`drupal/`](./drupal) |
 | **[Joomla Extensions Directory (JED)](https://extensions.joomla.org/)** | Open-Source Web Publishing (Joomla 5) | `plg_system_seowebchecker` | [`joomla/`](./joomla) |
 | **[StackBlitz](https://stackblitz.com/)** | Instant Browser Dev Environment & Playground | `seowebchecker-stackblitz-starter` | [`examples/stackblitz/`](./examples/stackblitz) |
+| **[CodeSandbox](https://codesandbox.io/)** | Cloud Sandbox & Interactive Browser Micro-VM | `seowebchecker-codesandbox-demo` | [`examples/codesandbox/`](./examples/codesandbox) |
 
 ---
 
