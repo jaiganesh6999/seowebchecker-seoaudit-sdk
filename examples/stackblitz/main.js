@@ -1,15 +1,13 @@
 import { BrowserSEOAuditor } from './auditor.js';
 
-let auditor = new BrowserSEOAuditor();
+const auditor = new BrowserSEOAuditor();
 
-// Try loading full SDK dynamically if available
-try {
-  const sdk = await import('seowebchecker-seoaudit-sdk');
-  if (sdk && sdk.SEOAuditor) {
-    auditor = new sdk.SEOAuditor();
-  }
-} catch (e) {
-  console.info('Running with client-side BrowserSEOAuditor engine:', e.message);
+// Global polyfill for Buffer if any nested tool inspects window
+if (typeof window !== 'undefined' && !window.Buffer) {
+  window.Buffer = {
+    from: (str) => new TextEncoder().encode(str),
+    byteLength: (str) => new TextEncoder().encode(str).length,
+  };
 }
 
 const htmlInput = document.getElementById('htmlInput');
