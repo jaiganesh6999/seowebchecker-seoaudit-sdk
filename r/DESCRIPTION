@@ -5,6 +5,8 @@ Authors@R: c(
     person("Rahul", "Gupta", email = "jaiganesh6999@gmail.com", role = c("aut", "cre")),
     person("SEOWebChecker", role = "cph")
   )
+Author: Rahul Gupta [aut, cre], SEOWebChecker [cph]
+Maintainer: Rahul Gupta <jaiganesh6999@gmail.com>
 Description: Provides a lightweight client software development kit (SDK) and
     utility suite for automated website technical Search Engine Optimization
     (SEO) audits, meta tag validations, Core Web Vitals checks, and search
