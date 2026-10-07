@@ -1,4 +1,6 @@
-import { auditHtml } from 'seowebchecker-seoaudit-sdk';
+import { SEOAuditor } from 'seowebchecker-seoaudit-sdk';
+
+const auditor = new SEOAuditor();
 
 const htmlInput = document.getElementById('htmlInput');
 const runBtn = document.getElementById('runBtn');
@@ -9,7 +11,7 @@ const issuesList = document.getElementById('issuesList');
 
 function performAudit() {
   const html = htmlInput.value;
-  const result = auditHtml(html, { url: 'https://seowebchecker.com/' });
+  const result = auditor.auditHtml(html, 'https://seowebchecker.com/');
 
   scoreVal.textContent = result.score?.overall ?? 100;
   scoreGrade.textContent = `Grade ${result.score?.grade ?? 'A'}`;
