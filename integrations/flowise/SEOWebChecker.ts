@@ -1,5 +1,5 @@
-import { ICommonObject, INode, INodeData, INodeParams } from '../../Interface'
-import { getBaseClasses } from '../../utils'
+import { ICommonObject, INode, INodeData, INodeParams } from '../../../src/Interface'
+import { getBaseClasses } from '../../../src/utils'
 import { Tool } from '@langchain/core/tools'
 import { z } from 'zod'
 
