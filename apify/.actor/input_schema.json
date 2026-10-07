@@ -24,7 +24,8 @@
       "title": "User-Agent Header",
       "type": "string",
       "description": "Custom User-Agent header for the audit crawler.",
-      "default": "SEOWebChecker-ApifyBot/1.0 (+https://seowebchecker.com/)"
+      "default": "SEOWebChecker-ApifyBot/1.0 (+https://seowebchecker.com/)",
+      "editor": "textfield"
     }
   },
   "required": ["startUrls"]
