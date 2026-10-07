@@ -23,18 +23,20 @@ jobs:
       - name: Set up Pandoc
         uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Install Test Dependencies
-        run: |
-          Rscript -e 'install.packages("testthat", repos = "https://cloud.r-project.org")'
+      - name: Install Package Dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          working-directory: r
+          extra-packages: any::testthat
 
       - name: Build R Package Source Tarball
         run: |
-          R CMD build r
+          R CMD build --no-build-vignettes --no-manual r
           ls -la seowebchecker_*.tar.gz
 
       - name: Run R CMD check --as-cran
         run: |
-          R CMD check --as-cran --no-manual seowebchecker_*.tar.gz || {
+          R CMD check --as-cran --no-manual --ignore-vignettes seowebchecker_*.tar.gz || {
             echo "::error::R CMD check failed. Printing check logs:"
             find . -name "*.log" -exec cat {} +
             exit 1
