@@ -34,7 +34,11 @@ jobs:
 
       - name: Run R CMD check --as-cran
         run: |
-          R CMD check --as-cran seowebchecker_*.tar.gz
+          R CMD check --as-cran --no-manual seowebchecker_*.tar.gz || {
+            echo "::error::R CMD check failed. Printing check logs:"
+            find . -name "*.log" -exec cat {} +
+            exit 1
+          }
 
       - name: Upload CRAN Source Tarball Artifact
         uses: actions/upload-artifact@v4
