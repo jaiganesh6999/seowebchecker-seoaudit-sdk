@@ -1,79 +1,12 @@
 {
   "actorOutputSchemaVersion": 1,
   "title": "SEOWebChecker Audit Results",
-  "description": "Technical SEO audit metrics, overall health score, on-page diagnostic issues, and metadata extracted by SEOWebChecker.",
+  "description": "Technical SEO audit scores, on-page diagnostic issues, and metadata extracted by SEOWebChecker.",
   "properties": {
-    "url": {
+    "results": {
       "type": "string",
-      "title": "Audited Webpage URL",
-      "format": "uri"
-    },
-    "score": {
-      "type": "integer",
-      "title": "Overall SEO Health Score (0-100)"
-    },
-    "grade": {
-      "type": "string",
-      "title": "SEO Health Grade (A+ to F)"
-    },
-    "meta": {
-      "type": "object",
-      "title": "On-Page Meta Tags & Hygiene",
-      "properties": {
-        "title": { "type": "string" },
-        "titleLength": { "type": "integer" },
-        "description": { "type": "string" },
-        "descriptionLength": { "type": "integer" },
-        "canonical": { "type": "string" }
-      }
-    },
-    "performance": {
-      "type": "object",
-      "title": "Performance Metrics",
-      "properties": {
-        "responseTimeMs": { "type": "number" },
-        "pageSizeKb": { "type": "number" }
-      }
-    },
-    "images": {
-      "type": "object",
-      "title": "Image Accessibility",
-      "properties": {
-        "total": { "type": "integer" },
-        "missingAlt": { "type": "integer" }
-      }
-    },
-    "passedChecks": {
-      "type": "integer",
-      "title": "Count of Passed Checks"
-    },
-    "failedChecks": {
-      "type": "integer",
-      "title": "Count of Failed Checks"
-    },
-    "issues": {
-      "type": "array",
-      "title": "Diagnostic Issues and Remediation Steps",
-      "items": {
-        "type": "object",
-        "properties": {
-          "category": { "type": "string" },
-          "severity": { "type": "string" },
-          "name": { "type": "string" },
-          "message": { "type": "string" },
-          "rec": { "type": "string" }
-        }
-      }
-    },
-    "scannedAt": {
-      "type": "string",
-      "title": "Audit Timestamp",
-      "format": "date-time"
-    },
-    "source": {
-      "type": "string",
-      "title": "Platform Homepage",
-      "default": "https://seowebchecker.com/"
+      "title": "Dataset Items",
+      "template": "{{storages.datasets.default.apiUrl}}/items"
     }
   }
 }
