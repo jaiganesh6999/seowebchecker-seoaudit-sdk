@@ -10,4 +10,4 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new submission.
-* Acronyms (SDK, SEO) have been spelled out in full upon first use in DESCRIPTION.
+* Acronyms have been replaced with their full forms ('search engine optimization' and 'software development kit') across DESCRIPTION to eliminate spellcheck warnings.
