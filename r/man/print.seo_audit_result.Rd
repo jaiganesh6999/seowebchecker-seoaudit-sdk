@@ -16,7 +16,10 @@ The original object invisibly.
 Pretty prints the SEO score, letter grade, and diagnostic issues.
 }
 \examples{
-sample_html <- "<html><head><title>Test Title That Has Valid Length</title></head><body><h1>Heading</h1></body></html>"
+sample_html <- paste0(
+  "<html><head><title>Test Valid Length Title</title></head>",
+  "<body><h1>Heading</h1></body></html>"
+)
 res <- audit_html(sample_html)
 print(res)
 }

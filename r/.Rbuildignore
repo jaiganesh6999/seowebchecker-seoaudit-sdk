@@ -1,4 +1,5 @@
 ^\.git$
 ^\.github$
 ^README\.md$
+^cran-comments\.md$
 ^.*\.tar\.gz$
