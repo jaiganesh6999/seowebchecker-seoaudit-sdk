@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       target_hostname:
-        description: 'Galaxy Hostname (e.g. seowebchecker.us-east-1.galaxycloud.app)'
+        description: 'Galaxy Hostname (e.g. seowebchecker.meteorapp.com)'
         required: true
-        default: 'seowebchecker.us-east-1.galaxycloud.app'
+        default: 'seowebchecker.meteorapp.com'
   push:
     branches:
       - main
@@ -53,6 +53,6 @@ jobs:
 
       - name: Deploy to Galaxy Cloud
         env:
-          DEPLOY_HOSTNAME: ${{ github.event.inputs.target_hostname || 'seowebchecker.us-east-1.galaxycloud.app' }}
+          DEPLOY_HOSTNAME: ${{ github.event.inputs.target_hostname || 'seowebchecker.meteorapp.com' }}
         run: |
-          meteor deploy "$DEPLOY_HOSTNAME" --settings settings.json --owner seowebchecker
+          meteor deploy "$DEPLOY_HOSTNAME" --settings settings.json --owner seowebchecker --free
