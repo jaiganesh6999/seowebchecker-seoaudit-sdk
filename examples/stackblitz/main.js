@@ -1,6 +1,16 @@
-import { SEOAuditor } from 'seowebchecker-seoaudit-sdk';
+import { BrowserSEOAuditor } from './auditor.js';
 
-const auditor = new SEOAuditor();
+let auditor = new BrowserSEOAuditor();
+
+// Try loading full SDK dynamically if available
+try {
+  const sdk = await import('seowebchecker-seoaudit-sdk');
+  if (sdk && sdk.SEOAuditor) {
+    auditor = new sdk.SEOAuditor();
+  }
+} catch (e) {
+  console.info('Running with client-side BrowserSEOAuditor engine:', e.message);
+}
 
 const htmlInput = document.getElementById('htmlInput');
 const runBtn = document.getElementById('runBtn');
@@ -10,43 +20,64 @@ const scoreGrade = document.getElementById('scoreGrade');
 const issuesList = document.getElementById('issuesList');
 
 function performAudit() {
-  const html = htmlInput.value;
-  const result = auditor.auditHtml(html, 'https://seowebchecker.com/');
+  try {
+    const html = htmlInput.value;
+    const result = auditor.auditHtml(html, 'https://seowebchecker.com/');
 
-  scoreVal.textContent = result.score?.overall ?? 100;
-  scoreGrade.textContent = `Grade ${result.score?.grade ?? 'A'}`;
+    const score = result.score?.overall ?? 100;
+    const grade = result.score?.grade ?? 'A';
 
-  issuesList.innerHTML = '';
-  const issues = result.issues || [];
+    scoreVal.textContent = score;
+    scoreGrade.textContent = `Grade ${grade}`;
 
-  if (issues.length === 0) {
-    const emptyNotice = document.createElement('div');
-    emptyNotice.className = 'issue-item pass';
-    emptyNotice.textContent = 'All on-page SEO best practices and checks passed!';
-    issuesList.appendChild(emptyNotice);
-  } else {
-    issues.forEach(issue => {
-      const item = document.createElement('div');
-      item.className = `issue-item ${issue.severity || 'info'}`;
+    // Update color styling based on score
+    if (score >= 90) {
+      scoreVal.style.color = '#10b981';
+      document.querySelector('.score-circle').style.borderColor = '#10b981';
+    } else if (score >= 70) {
+      scoreVal.style.color = '#f59e0b';
+      document.querySelector('.score-circle').style.borderColor = '#f59e0b';
+    } else {
+      scoreVal.style.color = '#ef4444';
+      document.querySelector('.score-circle').style.borderColor = '#ef4444';
+    }
 
-      const title = document.createElement('div');
-      title.className = 'issue-title';
-      title.textContent = `[${(issue.severity || 'INFO').toUpperCase()}] ${issue.title}`;
+    issuesList.innerHTML = '';
+    const issues = result.issues || [];
 
-      const desc = document.createElement('div');
-      desc.className = 'issue-desc';
-      desc.textContent = issue.message || issue.recommendation;
+    if (issues.length === 0) {
+      const emptyNotice = document.createElement('div');
+      emptyNotice.className = 'issue-item pass';
+      emptyNotice.textContent = 'All on-page SEO best practices and checks passed!';
+      issuesList.appendChild(emptyNotice);
+    } else {
+      issues.forEach(issue => {
+        const item = document.createElement('div');
+        item.className = `issue-item ${issue.severity || 'info'}`;
 
-      item.appendChild(title);
-      item.appendChild(desc);
-      issuesList.appendChild(item);
-    });
+        const title = document.createElement('div');
+        title.className = 'issue-title';
+        title.textContent = `[${(issue.severity || 'INFO').toUpperCase()}] ${issue.title}`;
+
+        const desc = document.createElement('div');
+        desc.className = 'issue-desc';
+        desc.textContent = issue.message || issue.recommendation;
+
+        item.appendChild(title);
+        item.appendChild(desc);
+        issuesList.appendChild(item);
+      });
+    }
+
+    resultCard.style.display = 'block';
+  } catch (err) {
+    console.error('Audit execution error:', err);
+    issuesList.innerHTML = `<div class="issue-item error"><div class="issue-title">[ERROR] Evaluation Failed</div><div class="issue-desc">${err.message}</div></div>`;
+    resultCard.style.display = 'block';
   }
-
-  resultCard.style.display = 'block';
 }
 
 runBtn.addEventListener('click', performAudit);
 
-// Automatically execute once on boot
+// Execute on initial boot
 performAudit();
