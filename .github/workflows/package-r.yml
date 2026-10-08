@@ -11,6 +11,8 @@ jobs:
   build-and-check:
     name: R CMD check & Package (.tar.gz)
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
