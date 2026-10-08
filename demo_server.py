@@ -17,7 +17,8 @@ if SDK_PATH not in sys.path:
 from seowebchecker_seoaudit.auditor import SEOAuditor
 from seowebchecker_seoaudit.formatters import format_markdown, format_html
 
-PORT = 5000
+PORT = int(os.environ.get("PORT", 5000))
+HOST = os.environ.get("HOST", "0.0.0.0")
 
 HTML_PAGE = """<!DOCTYPE html>
 <html lang="en">
@@ -620,9 +621,9 @@ class DashboardRequestHandler(BaseHTTPRequestHandler):
 
 
 def start_server():
-    server_address = ("127.0.0.1", PORT)
+    server_address = (HOST, PORT)
     httpd = HTTPServer(server_address, DashboardRequestHandler)
-    url = f"http://localhost:{PORT}"
+    url = f"http://{HOST}:{PORT}"
 
     print("=" * 65)
     print(f"  SEOWebChecker SDK Interactive Local Frontend")
@@ -630,7 +631,11 @@ def start_server():
     print("=" * 65)
     print("Press Ctrl+C to stop the server\n")
 
-    webbrowser.open(url)
+    if os.environ.get("HEADLESS", "false").lower() != "true" and "FLY_APP_NAME" not in os.environ:
+        try:
+            webbrowser.open(f"http://localhost:{PORT}")
+        except Exception:
+            pass
 
     try:
         httpd.serve_forever()
