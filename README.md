@@ -41,6 +41,7 @@
 [![CodeSandbox](https://img.shields.io/badge/CodeSandbox-Open%20in%20Cloud-151515.svg?logo=codesandbox)](https://codesandbox.io/p/sandbox/github/jaiganesh6999/seowebchecker-seoaudit-sdk/tree/main/examples/codesandbox)
 [![Flowise](https://img.shields.io/badge/Flowise%20AI-Custom%20Tool-6366F1.svg)](./integrations/flowise)
 [![Langflow](https://img.shields.io/badge/Langflow-Component-10B981.svg)](./integrations/langflow)
+[![Poetry](https://img.shields.io/badge/Poetry-Compatible-60A5FA.svg?logo=poetry)](https://python-poetry.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![SEOWebChecker](https://img.shields.io/badge/Official%20Site-seowebchecker.com-indigo)](https://seowebchecker.com/)
 
@@ -111,6 +112,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[CodeSandbox](https://codesandbox.io/)** | Cloud Sandbox & Interactive Browser Micro-VM | `seowebchecker-codesandbox-demo` | [`examples/codesandbox/`](./examples/codesandbox) |
 | **[Flowise AI](https://flowiseai.com/)** | Visual LLM Agents & Flowise Custom Node Tool | `seowebcheckerAudit` | [`integrations/flowise/`](./integrations/flowise) |
 | **[Langflow](https://www.langflow.org/)** | Open-Source Visual Agent Framework & Custom Component | `SEOWebCheckerAudit` | [`integrations/langflow/`](./integrations/langflow) |
+| **[Poetry](https://python-poetry.org/)** | Python Packaging & Dependency Management | `seowebchecker-seoaudit-sdk` | [`python/`](./python) |
 
 ---
 
