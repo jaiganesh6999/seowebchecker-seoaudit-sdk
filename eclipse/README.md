@@ -64,10 +64,18 @@ To publish SEOWebChecker on the **Eclipse Marketplace**, go to **[https://market
 
 ---
 
-### 3. URLs
+### 3. URLs & Update Site
+* **Update Site URL (P2 Repository)**:
+  ```text
+  https://jaiganesh6999.github.io/seowebchecker-seoaudit-sdk/eclipse/update-site/
+  ```
 * **Home Page URL**:
   ```text
   https://seowebchecker.com/
+  ```
+* **Source Code / Repository URL**:
+  ```text
+  https://github.com/jaiganesh6999/seowebchecker-seoaudit-sdk
   ```
 * **Documentation URL**:
   ```text
