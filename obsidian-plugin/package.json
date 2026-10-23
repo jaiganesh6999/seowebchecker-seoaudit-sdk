@@ -1,6 +1,6 @@
 {
   "name": "seowebchecker-seo-audit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Audit Markdown notes for on-page SEO, analyze heading hierarchy, keyword density, reading time, and inspect live URLs with SEOWebChecker.",
   "main": "main.js",
   "scripts": {
