@@ -693,7 +693,7 @@ var SEOWebCheckerSettingTab = class extends import_obsidian2.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "SEOWebChecker SEO Audit Settings" });
+    new import_obsidian2.Setting(containerEl).setName("SEOWebChecker SEO Audit Settings").setHeading();
     new import_obsidian2.Setting(containerEl).setName("Target Word Count").setDesc("Ideal comprehensive article word count (default: 1,000 words).").addText(
       (text) => text.setPlaceholder("1000").setValue(String(this.plugin.settings.targetWordCount)).onChange(async (value) => {
         const num = parseInt(value, 10);
@@ -841,7 +841,7 @@ slug: "${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
       }
     }
     if (leaf) {
-      workspace.revealLeaf(leaf);
+      await workspace.revealLeaf(leaf);
       this.triggerAudit();
     }
   }

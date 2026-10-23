@@ -125,7 +125,7 @@ export default class SEOWebCheckerPlugin extends Plugin {
     }
 
     if (leaf) {
-      workspace.revealLeaf(leaf);
+      await workspace.revealLeaf(leaf);
       this.triggerAudit();
     }
   }
