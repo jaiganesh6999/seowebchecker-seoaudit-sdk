@@ -256,14 +256,19 @@ export class MarkdownSEOAnalyzer {
     }
 
     // 4. Images & Alt Text
-    const imageMatches = [...bodyContent.matchAll(/!\[(.*?)\]\((.*?)\)/g)];
+    const imageRegex = /!\[(.*?)\]\((.*?)\)/g;
+    let imgMatch: RegExpExecArray | null;
+    let totalImages = 0;
     let missingAltCount = 0;
-    imageMatches.forEach((m) => {
-      const alt = m[1].trim();
-      if (!alt) missingAltCount++;
-    });
+    while ((imgMatch = imageRegex.exec(bodyContent)) !== null) {
+      totalImages++;
+      const alt = (imgMatch[1] || "").trim();
+      if (!alt) {
+        missingAltCount++;
+      }
+    }
 
-    if (imageMatches.length === 0) {
+    if (totalImages === 0) {
       contentIssues.push({
         id: "images-none",
         title: "No Visual Media Detected",
@@ -275,32 +280,41 @@ export class MarkdownSEOAnalyzer {
       imageIssues.push({
         id: "images-missing-alt",
         title: "Images Missing Alt Text",
-        message: `${missingAltCount} of ${imageMatches.length} images lack descriptive alt attributes for accessibility and image search.`,
+        message: `${missingAltCount} of ${totalImages} images lack descriptive alt attributes for accessibility and image search.`,
         severity: "critical",
       });
     } else {
       imageIssues.push({
         id: "images-alt-valid",
         title: "All Images Have Alt Text",
-        message: `All ${imageMatches.length} images have descriptive alt text tags.`,
+        message: `All ${totalImages} images have descriptive alt text tags.`,
         severity: "pass",
       });
     }
 
     // 5. Links & Anchor Text
-    const internalLinks = [...bodyContent.matchAll(/\[\[(.*?)\]\]/g)];
-    const markdownLinks = [...bodyContent.matchAll(/\[(.*?)\]\((https?:\/\/.*?)\)/g)];
+    const internalLinkRegex = /\[\[(.*?)\]\]/g;
+    let intMatch: RegExpExecArray | null;
+    let internalLinksCount = 0;
+    while ((intMatch = internalLinkRegex.exec(bodyContent)) !== null) {
+      internalLinksCount++;
+    }
+
+    const mdLinkRegex = /\[(.*?)\]\((https?:\/\/.*?)\)/g;
+    let mdMatch: RegExpExecArray | null;
+    let markdownLinksCount = 0;
     let weakAnchorCount = 0;
     const weakAnchors = ["here", "click here", "read more", "link", "more", "this", "learn more"];
 
-    markdownLinks.forEach((m) => {
-      const anchor = m[1].trim().toLowerCase();
+    while ((mdMatch = mdLinkRegex.exec(bodyContent)) !== null) {
+      markdownLinksCount++;
+      const anchor = (mdMatch[1] || "").trim().toLowerCase();
       if (weakAnchors.includes(anchor)) {
         weakAnchorCount++;
       }
-    });
+    }
 
-    if (internalLinks.length === 0 && markdownLinks.length === 0) {
+    if (internalLinksCount === 0 && markdownLinksCount === 0) {
       linkIssues.push({
         id: "links-none",
         title: "No Hyperlinks Found",
@@ -311,7 +325,7 @@ export class MarkdownSEOAnalyzer {
       linkIssues.push({
         id: "links-present",
         title: "Hyperlinks Detected",
-        message: `Found ${internalLinks.length} internal note links and ${markdownLinks.length} external web references.`,
+        message: `Found ${internalLinksCount} internal note links and ${markdownLinksCount} external web references.`,
         severity: "pass",
       });
     }

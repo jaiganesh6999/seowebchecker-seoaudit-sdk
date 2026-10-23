@@ -268,13 +268,18 @@ var MarkdownSEOAnalyzer = class {
         severity: "pass"
       });
     }
-    const imageMatches = [...bodyContent.matchAll(/!\[(.*?)\]\((.*?)\)/g)];
+    const imageRegex = /!\[(.*?)\]\((.*?)\)/g;
+    let imgMatch;
+    let totalImages = 0;
     let missingAltCount = 0;
-    imageMatches.forEach((m) => {
-      const alt = m[1].trim();
-      if (!alt) missingAltCount++;
-    });
-    if (imageMatches.length === 0) {
+    while ((imgMatch = imageRegex.exec(bodyContent)) !== null) {
+      totalImages++;
+      const alt = (imgMatch[1] || "").trim();
+      if (!alt) {
+        missingAltCount++;
+      }
+    }
+    if (totalImages === 0) {
       contentIssues.push({
         id: "images-none",
         title: "No Visual Media Detected",
@@ -286,28 +291,36 @@ var MarkdownSEOAnalyzer = class {
       imageIssues.push({
         id: "images-missing-alt",
         title: "Images Missing Alt Text",
-        message: `${missingAltCount} of ${imageMatches.length} images lack descriptive alt attributes for accessibility and image search.`,
+        message: `${missingAltCount} of ${totalImages} images lack descriptive alt attributes for accessibility and image search.`,
         severity: "critical"
       });
     } else {
       imageIssues.push({
         id: "images-alt-valid",
         title: "All Images Have Alt Text",
-        message: `All ${imageMatches.length} images have descriptive alt text tags.`,
+        message: `All ${totalImages} images have descriptive alt text tags.`,
         severity: "pass"
       });
     }
-    const internalLinks = [...bodyContent.matchAll(/\[\[(.*?)\]\]/g)];
-    const markdownLinks = [...bodyContent.matchAll(/\[(.*?)\]\((https?:\/\/.*?)\)/g)];
+    const internalLinkRegex = /\[\[(.*?)\]\]/g;
+    let intMatch;
+    let internalLinksCount = 0;
+    while ((intMatch = internalLinkRegex.exec(bodyContent)) !== null) {
+      internalLinksCount++;
+    }
+    const mdLinkRegex = /\[(.*?)\]\((https?:\/\/.*?)\)/g;
+    let mdMatch;
+    let markdownLinksCount = 0;
     let weakAnchorCount = 0;
     const weakAnchors = ["here", "click here", "read more", "link", "more", "this", "learn more"];
-    markdownLinks.forEach((m) => {
-      const anchor = m[1].trim().toLowerCase();
+    while ((mdMatch = mdLinkRegex.exec(bodyContent)) !== null) {
+      markdownLinksCount++;
+      const anchor = (mdMatch[1] || "").trim().toLowerCase();
       if (weakAnchors.includes(anchor)) {
         weakAnchorCount++;
       }
-    });
-    if (internalLinks.length === 0 && markdownLinks.length === 0) {
+    }
+    if (internalLinksCount === 0 && markdownLinksCount === 0) {
       linkIssues.push({
         id: "links-none",
         title: "No Hyperlinks Found",
@@ -318,7 +331,7 @@ var MarkdownSEOAnalyzer = class {
       linkIssues.push({
         id: "links-present",
         title: "Hyperlinks Detected",
-        message: `Found ${internalLinks.length} internal note links and ${markdownLinks.length} external web references.`,
+        message: `Found ${internalLinksCount} internal note links and ${markdownLinksCount} external web references.`,
         severity: "pass"
       });
     }
@@ -500,7 +513,7 @@ var SEOWebCheckerView = class extends import_obsidian.ItemView {
     const header = container.createDiv({ cls: "seowebchecker-header" });
     const titleArea = header.createDiv({ cls: "seowebchecker-title-area" });
     titleArea.createEl("h4", { text: "SEOWebChecker" });
-    titleArea.createEl("span", { text: "SEO & Content Audit", cls: "seowebchecker-subtitle" });
+    titleArea.createSpan({ text: "SEO & Content Audit", cls: "seowebchecker-subtitle" });
     const btnRefresh = header.createEl("button", { cls: "seowebchecker-icon-btn", text: "\u{1F504}" });
     btnRefresh.title = "Re-audit active note";
     btnRefresh.addEventListener("click", () => {
@@ -518,11 +531,11 @@ var SEOWebCheckerView = class extends import_obsidian.ItemView {
     const res = this.currentResult;
     const hero = container.createDiv({ cls: `seowebchecker-hero grade-${res.grade.toLowerCase().replace("+", "-plus")}` });
     const scoreCircle = hero.createDiv({ cls: "seowebchecker-score-circle" });
-    scoreCircle.createEl("div", { text: `${res.score}`, cls: "score-number" });
-    scoreCircle.createEl("div", { text: "/ 100", cls: "score-max" });
+    scoreCircle.createDiv({ text: String(res.score), cls: "score-number" });
+    scoreCircle.createDiv({ text: "/ 100", cls: "score-max" });
     const heroDetails = hero.createDiv({ cls: "seowebchecker-hero-details" });
-    heroDetails.createEl("div", { text: `Grade ${res.grade}`, cls: "grade-text" });
-    heroDetails.createEl("div", {
+    heroDetails.createDiv({ text: "Grade " + res.grade, cls: "grade-text" });
+    heroDetails.createDiv({
       text: `${res.passesCount} Passes \u2022 ${res.warningsCount} Warnings \u2022 ${res.criticalsCount} Critical`,
       cls: "breakdown-text"
     });
@@ -566,18 +579,18 @@ var SEOWebCheckerView = class extends import_obsidian.ItemView {
   }
   createMetricPill(parent, label, val) {
     const pill = parent.createDiv({ cls: "metric-pill" });
-    pill.createEl("span", { text: label, cls: "pill-label" });
-    pill.createEl("span", { text: val, cls: "pill-val" });
+    pill.createSpan({ text: label, cls: "pill-label" });
+    pill.createSpan({ text: val, cls: "pill-val" });
   }
   renderOverviewTab(parent, res) {
     if (res.keywordData) {
       const kwBox = parent.createDiv({ cls: "seowebchecker-section-box" });
       kwBox.createEl("h5", { text: `Focus Keyword: "${res.keywordData.keyword}"` });
       const kwGrid = kwBox.createDiv({ cls: "seowebchecker-kw-grid" });
-      kwGrid.createEl("span", { text: `Density: ${res.keywordData.densityPercent}% (${res.keywordData.count} mentions)` });
-      kwGrid.createEl("span", { text: `Title: ${res.keywordData.inTitle ? "\u2714 Yes" : "\u274C No"}` });
-      kwGrid.createEl("span", { text: `Intro: ${res.keywordData.inFirstParagraph ? "\u2714 Yes" : "\u274C No"}` });
-      kwGrid.createEl("span", { text: `Headings: ${res.keywordData.inHeadings ? "\u2714 Yes" : "\u274C No"}` });
+      kwGrid.createSpan({ text: `Density: ${res.keywordData.densityPercent}% (${res.keywordData.count} mentions)` });
+      kwGrid.createSpan({ text: `Title: ${res.keywordData.inTitle ? "\u2714 Yes" : "\u274C No"}` });
+      kwGrid.createSpan({ text: `Intro: ${res.keywordData.inFirstParagraph ? "\u2714 Yes" : "\u274C No"}` });
+      kwGrid.createSpan({ text: `Headings: ${res.keywordData.inHeadings ? "\u2714 Yes" : "\u274C No"}` });
     }
     this.renderIssueGroup(parent, "SEO Frontmatter", res.frontmatterIssues);
     this.renderIssueGroup(parent, "Content Depth", res.contentIssues);
@@ -588,10 +601,11 @@ var SEOWebCheckerView = class extends import_obsidian.ItemView {
     const box = parent.createDiv({ cls: "seowebchecker-section-box" });
     box.createEl("h5", { text: "Heading Hierarchy Distribution" });
     const countRow = box.createDiv({ cls: "heading-counts-row" });
-    Object.entries(res.headingCounts).forEach(([lvl, count]) => {
+    const entries = Object.entries(res.headingCounts);
+    entries.forEach(([lvl, count]) => {
       const item = countRow.createDiv({ cls: "heading-count-item" });
-      item.createEl("span", { text: lvl, cls: "lvl" });
-      item.createEl("span", { text: `${count}`, cls: "num" });
+      item.createSpan({ text: lvl, cls: "lvl" });
+      item.createSpan({ text: String(count), cls: "num" });
     });
     this.renderIssueGroup(parent, "Structural Checks", res.headingIssues);
   }
@@ -601,11 +615,11 @@ var SEOWebCheckerView = class extends import_obsidian.ItemView {
     box.createEl("p", { text: `Score: ${res.fleschScore} / 100 \u2014 ${res.fleschGrade}` });
     const statsBox = parent.createDiv({ cls: "seowebchecker-section-box" });
     statsBox.createEl("h5", { text: "Content Statistics" });
-    statsBox.createEl("div", { text: `\u2022 Total Words: ${res.wordCount.toLocaleString()}` });
-    statsBox.createEl("div", { text: `\u2022 Total Characters: ${res.characterCount.toLocaleString()}` });
-    statsBox.createEl("div", { text: `\u2022 Sentences: ${res.sentenceCount}` });
-    statsBox.createEl("div", { text: `\u2022 Estimated Reading Time: ~${res.readingTimeMinutes} minute(s)` });
-    statsBox.createEl("div", { text: `\u2022 Estimated Speaking Time: ~${Math.ceil(res.wordCount / 130)} minute(s)` });
+    statsBox.createDiv({ text: `\u2022 Total Words: ${res.wordCount.toLocaleString()}` });
+    statsBox.createDiv({ text: `\u2022 Total Characters: ${res.characterCount.toLocaleString()}` });
+    statsBox.createDiv({ text: `\u2022 Sentences: ${res.sentenceCount}` });
+    statsBox.createDiv({ text: `\u2022 Estimated Reading Time: ~${res.readingTimeMinutes} minute(s)` });
+    statsBox.createDiv({ text: `\u2022 Estimated Speaking Time: ~${Math.ceil(res.wordCount / 130)} minute(s)` });
   }
   renderLiveTab(parent) {
     const liveBox = parent.createDiv({ cls: "seowebchecker-section-box" });
@@ -619,33 +633,36 @@ var SEOWebCheckerView = class extends import_obsidian.ItemView {
     });
     const runBtn = inputRow.createEl("button", { text: "Audit URL", cls: "mod-cta" });
     const resultsContainer = liveBox.createDiv({ cls: "live-audit-results" });
-    runBtn.addEventListener("click", async () => {
-      const url = urlInput.value.trim();
-      if (!url.startsWith("http://") && !url.startsWith("https://")) {
-        new import_obsidian.Notice("Please enter a valid URL starting with http:// or https://");
-        return;
-      }
-      runBtn.disabled = true;
-      runBtn.setText("Auditing...");
-      resultsContainer.empty();
-      resultsContainer.createEl("p", { text: `Fetching and auditing ${url}...` });
-      try {
-        const startTime = Date.now();
-        const response = await (0, import_obsidian.requestUrl)({ url });
-        const latency = Date.now() - startTime;
-        const html = response.text;
+    runBtn.addEventListener("click", () => {
+      void (async () => {
+        const url = urlInput.value.trim();
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+          new import_obsidian.Notice("Please enter a valid URL starting with http:// or https://");
+          return;
+        }
+        runBtn.disabled = true;
+        runBtn.setText("Auditing...");
         resultsContainer.empty();
-        this.renderLiveResults(resultsContainer, url, response.status, latency, html);
-      } catch (err) {
-        resultsContainer.empty();
-        resultsContainer.createEl("p", {
-          text: `Audit failed: ${err.message || String(err)}`,
-          cls: "text-error"
-        });
-      } finally {
-        runBtn.disabled = false;
-        runBtn.setText("Audit URL");
-      }
+        resultsContainer.createEl("p", { text: `Fetching and auditing ${url}...` });
+        try {
+          const startTime = Date.now();
+          const response = await (0, import_obsidian.requestUrl)({ url });
+          const latency = Date.now() - startTime;
+          const html = response.text;
+          resultsContainer.empty();
+          this.renderLiveResults(resultsContainer, url, response.status, latency, html);
+        } catch (err) {
+          const message = err instanceof Error ? err.message : String(err);
+          resultsContainer.empty();
+          resultsContainer.createEl("p", {
+            text: `Audit failed: ${message}`,
+            cls: "text-error"
+          });
+        } finally {
+          runBtn.disabled = false;
+          runBtn.setText("Audit URL");
+        }
+      })();
     });
   }
   renderLiveResults(parent, url, status, latency, html) {
@@ -675,7 +692,7 @@ var SEOWebCheckerView = class extends import_obsidian.ItemView {
     issues.forEach((issue) => {
       const item = group.createDiv({ cls: `issue-item sev-${issue.severity}` });
       const icon = issue.severity === "pass" ? "\u2714" : issue.severity === "critical" ? "\u2716" : "\u26A0";
-      item.createEl("span", { text: icon, cls: "issue-icon" });
+      item.createSpan({ text: icon, cls: "issue-icon" });
       const textWrap = item.createDiv({ cls: "issue-text" });
       textWrap.createEl("strong", { text: issue.title });
       textWrap.createEl("p", { text: issue.message });
@@ -693,7 +710,7 @@ var SEOWebCheckerSettingTab = class extends import_obsidian2.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    new import_obsidian2.Setting(containerEl).setName("SEOWebChecker SEO Audit Settings").setHeading();
+    new import_obsidian2.Setting(containerEl).setName("Content targets").setHeading();
     new import_obsidian2.Setting(containerEl).setName("Target Word Count").setDesc("Ideal comprehensive article word count (default: 1,000 words).").addText(
       (text) => text.setPlaceholder("1000").setValue(String(this.plugin.settings.targetWordCount)).onChange(async (value) => {
         const num = parseInt(value, 10);
@@ -746,13 +763,13 @@ var SEOWebCheckerPlugin = class extends import_obsidian3.Plugin {
       (leaf) => new SEOWebCheckerView(leaf, this)
     );
     this.addRibbonIcon("gauge", "SEOWebChecker SEO Audit", () => {
-      this.activateView();
+      void this.activateView();
     });
     this.addCommand({
       id: "open-seo-audit-view",
       name: "Open SEO Audit Sidebar",
       callback: () => {
-        this.activateView();
+        void this.activateView();
       }
     });
     this.addCommand({
@@ -818,7 +835,8 @@ slug: "${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
   onunload() {
   }
   async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    const loaded = await this.loadData();
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, loaded != null ? loaded : {});
   }
   async saveSettings() {
     await this.saveData(this.settings);

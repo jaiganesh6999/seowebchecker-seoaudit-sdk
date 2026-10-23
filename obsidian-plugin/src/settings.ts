@@ -13,7 +13,7 @@ export class SEOWebCheckerSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    new Setting(containerEl).setName("SEOWebChecker SEO Audit Settings").setHeading();
+    new Setting(containerEl).setName("Content targets").setHeading();
 
     new Setting(containerEl)
       .setName("Target Word Count")

@@ -1,6 +1,5 @@
 import { ItemView, WorkspaceLeaf, requestUrl, Notice } from "obsidian";
 import { AuditResult, IssueItem } from "./types";
-import { MarkdownSEOAnalyzer } from "./analyzer";
 import type SEOWebCheckerPlugin from "./main";
 
 export const VIEW_TYPE_SEO_AUDIT = "seowebchecker-audit-view";
@@ -37,7 +36,7 @@ export class SEOWebCheckerView extends ItemView {
   }
 
   private render() {
-    const container = this.containerEl.children[1];
+    const container = this.containerEl.children[1] as HTMLElement;
     container.empty();
     container.addClass("seowebchecker-container");
 
@@ -45,7 +44,7 @@ export class SEOWebCheckerView extends ItemView {
     const header = container.createDiv({ cls: "seowebchecker-header" });
     const titleArea = header.createDiv({ cls: "seowebchecker-title-area" });
     titleArea.createEl("h4", { text: "SEOWebChecker" });
-    titleArea.createEl("span", { text: "SEO & Content Audit", cls: "seowebchecker-subtitle" });
+    titleArea.createSpan({ text: "SEO & Content Audit", cls: "seowebchecker-subtitle" });
 
     const btnRefresh = header.createEl("button", { cls: "seowebchecker-icon-btn", text: "🔄" });
     btnRefresh.title = "Re-audit active note";
@@ -68,12 +67,12 @@ export class SEOWebCheckerView extends ItemView {
     // Score Hero Banner
     const hero = container.createDiv({ cls: `seowebchecker-hero grade-${res.grade.toLowerCase().replace("+", "-plus")}` });
     const scoreCircle = hero.createDiv({ cls: "seowebchecker-score-circle" });
-    scoreCircle.createEl("div", { text: `${res.score}`, cls: "score-number" });
-    scoreCircle.createEl("div", { text: "/ 100", cls: "score-max" });
+    scoreCircle.createDiv({ text: String(res.score), cls: "score-number" });
+    scoreCircle.createDiv({ text: "/ 100", cls: "score-max" });
 
     const heroDetails = hero.createDiv({ cls: "seowebchecker-hero-details" });
-    heroDetails.createEl("div", { text: `Grade ${res.grade}`, cls: "grade-text" });
-    heroDetails.createEl("div", {
+    heroDetails.createDiv({ text: "Grade " + res.grade, cls: "grade-text" });
+    heroDetails.createDiv({
       text: `${res.passesCount} Passes • ${res.warningsCount} Warnings • ${res.criticalsCount} Critical`,
       cls: "breakdown-text"
     });
@@ -128,8 +127,8 @@ export class SEOWebCheckerView extends ItemView {
 
   private createMetricPill(parent: HTMLElement, label: string, val: string) {
     const pill = parent.createDiv({ cls: "metric-pill" });
-    pill.createEl("span", { text: label, cls: "pill-label" });
-    pill.createEl("span", { text: val, cls: "pill-val" });
+    pill.createSpan({ text: label, cls: "pill-label" });
+    pill.createSpan({ text: val, cls: "pill-val" });
   }
 
   private renderOverviewTab(parent: HTMLElement, res: AuditResult) {
@@ -138,10 +137,10 @@ export class SEOWebCheckerView extends ItemView {
       const kwBox = parent.createDiv({ cls: "seowebchecker-section-box" });
       kwBox.createEl("h5", { text: `Focus Keyword: "${res.keywordData.keyword}"` });
       const kwGrid = kwBox.createDiv({ cls: "seowebchecker-kw-grid" });
-      kwGrid.createEl("span", { text: `Density: ${res.keywordData.densityPercent}% (${res.keywordData.count} mentions)` });
-      kwGrid.createEl("span", { text: `Title: ${res.keywordData.inTitle ? "✔ Yes" : "❌ No"}` });
-      kwGrid.createEl("span", { text: `Intro: ${res.keywordData.inFirstParagraph ? "✔ Yes" : "❌ No"}` });
-      kwGrid.createEl("span", { text: `Headings: ${res.keywordData.inHeadings ? "✔ Yes" : "❌ No"}` });
+      kwGrid.createSpan({ text: `Density: ${res.keywordData.densityPercent}% (${res.keywordData.count} mentions)` });
+      kwGrid.createSpan({ text: `Title: ${res.keywordData.inTitle ? "✔ Yes" : "❌ No"}` });
+      kwGrid.createSpan({ text: `Intro: ${res.keywordData.inFirstParagraph ? "✔ Yes" : "❌ No"}` });
+      kwGrid.createSpan({ text: `Headings: ${res.keywordData.inHeadings ? "✔ Yes" : "❌ No"}` });
     }
 
     // Frontmatter Diagnostics
@@ -158,10 +157,11 @@ export class SEOWebCheckerView extends ItemView {
     const box = parent.createDiv({ cls: "seowebchecker-section-box" });
     box.createEl("h5", { text: "Heading Hierarchy Distribution" });
     const countRow = box.createDiv({ cls: "heading-counts-row" });
-    Object.entries(res.headingCounts).forEach(([lvl, count]) => {
+    const entries = Object.entries(res.headingCounts) as Array<[string, number]>;
+    entries.forEach(([lvl, count]) => {
       const item = countRow.createDiv({ cls: "heading-count-item" });
-      item.createEl("span", { text: lvl, cls: "lvl" });
-      item.createEl("span", { text: `${count}`, cls: "num" });
+      item.createSpan({ text: lvl, cls: "lvl" });
+      item.createSpan({ text: String(count), cls: "num" });
     });
 
     this.renderIssueGroup(parent, "Structural Checks", res.headingIssues);
@@ -174,11 +174,11 @@ export class SEOWebCheckerView extends ItemView {
 
     const statsBox = parent.createDiv({ cls: "seowebchecker-section-box" });
     statsBox.createEl("h5", { text: "Content Statistics" });
-    statsBox.createEl("div", { text: `• Total Words: ${res.wordCount.toLocaleString()}` });
-    statsBox.createEl("div", { text: `• Total Characters: ${res.characterCount.toLocaleString()}` });
-    statsBox.createEl("div", { text: `• Sentences: ${res.sentenceCount}` });
-    statsBox.createEl("div", { text: `• Estimated Reading Time: ~${res.readingTimeMinutes} minute(s)` });
-    statsBox.createEl("div", { text: `• Estimated Speaking Time: ~${Math.ceil(res.wordCount / 130)} minute(s)` });
+    statsBox.createDiv({ text: `• Total Words: ${res.wordCount.toLocaleString()}` });
+    statsBox.createDiv({ text: `• Total Characters: ${res.characterCount.toLocaleString()}` });
+    statsBox.createDiv({ text: `• Sentences: ${res.sentenceCount}` });
+    statsBox.createDiv({ text: `• Estimated Reading Time: ~${res.readingTimeMinutes} minute(s)` });
+    statsBox.createDiv({ text: `• Estimated Speaking Time: ~${Math.ceil(res.wordCount / 130)} minute(s)` });
   }
 
   private renderLiveTab(parent: HTMLElement) {
@@ -196,36 +196,39 @@ export class SEOWebCheckerView extends ItemView {
     const runBtn = inputRow.createEl("button", { text: "Audit URL", cls: "mod-cta" });
     const resultsContainer = liveBox.createDiv({ cls: "live-audit-results" });
 
-    runBtn.addEventListener("click", async () => {
-      const url = urlInput.value.trim();
-      if (!url.startsWith("http://") && !url.startsWith("https://")) {
-        new Notice("Please enter a valid URL starting with http:// or https://");
-        return;
-      }
+    runBtn.addEventListener("click", () => {
+      void (async () => {
+        const url = urlInput.value.trim();
+        if (!url.startsWith("http://") && !url.startsWith("https://")) {
+          new Notice("Please enter a valid URL starting with http:// or https://");
+          return;
+        }
 
-      runBtn.disabled = true;
-      runBtn.setText("Auditing...");
-      resultsContainer.empty();
-      resultsContainer.createEl("p", { text: `Fetching and auditing ${url}...` });
-
-      try {
-        const startTime = Date.now();
-        const response = await requestUrl({ url });
-        const latency = Date.now() - startTime;
-        const html = response.text;
-
+        runBtn.disabled = true;
+        runBtn.setText("Auditing...");
         resultsContainer.empty();
-        this.renderLiveResults(resultsContainer, url, response.status, latency, html);
-      } catch (err: any) {
-        resultsContainer.empty();
-        resultsContainer.createEl("p", {
-          text: `Audit failed: ${err.message || String(err)}`,
-          cls: "text-error",
-        });
-      } finally {
-        runBtn.disabled = false;
-        runBtn.setText("Audit URL");
-      }
+        resultsContainer.createEl("p", { text: `Fetching and auditing ${url}...` });
+
+        try {
+          const startTime = Date.now();
+          const response = await requestUrl({ url });
+          const latency = Date.now() - startTime;
+          const html = response.text;
+
+          resultsContainer.empty();
+          this.renderLiveResults(resultsContainer, url, response.status, latency, html);
+        } catch (err: unknown) {
+          const message = err instanceof Error ? err.message : String(err);
+          resultsContainer.empty();
+          resultsContainer.createEl("p", {
+            text: `Audit failed: ${message}`,
+            cls: "text-error",
+          });
+        } finally {
+          runBtn.disabled = false;
+          runBtn.setText("Audit URL");
+        }
+      })();
     });
   }
 
@@ -264,7 +267,7 @@ export class SEOWebCheckerView extends ItemView {
     issues.forEach((issue) => {
       const item = group.createDiv({ cls: `issue-item sev-${issue.severity}` });
       const icon = issue.severity === "pass" ? "✔" : issue.severity === "critical" ? "✖" : "⚠";
-      item.createEl("span", { text: icon, cls: "issue-icon" });
+      item.createSpan({ text: icon, cls: "issue-icon" });
       const textWrap = item.createDiv({ cls: "issue-text" });
       textWrap.createEl("strong", { text: issue.title });
       textWrap.createEl("p", { text: issue.message });

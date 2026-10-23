@@ -20,7 +20,7 @@ export default class SEOWebCheckerPlugin extends Plugin {
 
     // Ribbon Icon (Gauge / Search)
     this.addRibbonIcon("gauge", "SEOWebChecker SEO Audit", () => {
-      this.activateView();
+      void this.activateView();
     });
 
     // Commands
@@ -28,7 +28,7 @@ export default class SEOWebCheckerPlugin extends Plugin {
       id: "open-seo-audit-view",
       name: "Open SEO Audit Sidebar",
       callback: () => {
-        this.activateView();
+        void this.activateView();
       },
     });
 
@@ -98,7 +98,8 @@ export default class SEOWebCheckerPlugin extends Plugin {
   }
 
   async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    const loaded = (await this.loadData()) as Partial<SEOWebCheckerSettings> | null;
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, loaded ?? {});
   }
 
   async saveSettings() {
