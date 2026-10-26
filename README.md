@@ -107,6 +107,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Postman Public API Network](https://www.postman.com/)** | API Collections & Testing | `SEOWebChecker` | [`postman/`](./postman) |
 | **[WordPress Plugin Directory](https://wordpress.org/plugins/)** | CMS & Digital Publishing | `seowebchecker` | [`wordpress/`](./wordpress) |
 | **[Visual Studio Code Marketplace](https://marketplace.visualstudio.com/)** | Developer IDE & Editor (VS Code) | `seowebchecker` | [`vscode/`](./vscode) |
+| **[MELPA (GNU Emacs)](https://melpa.org/#/seowebchecker)** | Extensible Text Editor & IDE (Emacs Lisp) | `seowebchecker` | [Repository](https://github.com/jaiganesh6999/seowebchecker.el) |
 | **[Astro Integrations](https://astro.build/integrations)** | Astro Modern Web Framework | [`astro-seowebchecker`](https://www.npmjs.com/package/astro-seowebchecker) | [`astro/`](./astro) |
 | **[Artifact Hub (Helm)](https://artifacthub.io/)** | Kubernetes & Cloud-Native (Helm) | `seowebchecker` | [`helm/`](./helm) |
 | **[Drupal Projects](https://www.drupal.org/project/project_module)** | Enterprise CMS (Drupal 10 & 11) | `seowebchecker` | [`drupal/`](./drupal) |
