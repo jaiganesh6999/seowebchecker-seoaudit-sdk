@@ -3,61 +3,60 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in
-      rec {
-        packages.seowebchecker = pkgs.stdenv.mkDerivation rec {
-          pname = "seowebchecker";
-          version = "1.0.1";
+  outputs = { self, nixpkgs }:
+    let
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      packages = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        rec {
+          seowebchecker = pkgs.callPackage ./nix/package.nix { };
+          default = seowebchecker;
+        }
+      );
 
-          src = ./npm;
+      apps = forAllSystems (system: {
+        seowebchecker = {
+          type = "app";
+          program = "${self.packages.${system}.seowebchecker}/bin/seowebchecker";
+        };
+        default = self.apps.${system}.seowebchecker;
+      });
 
-          nativeBuildInputs = [ pkgs.makeWrapper ];
-          buildInputs = [ pkgs.nodejs ];
-
-          installPhase = ''
-            runHook preInstall
-
-            mkdir -p $out/lib/node_modules/seowebchecker-seoaudit-sdk $out/bin
-            cp -r * $out/lib/node_modules/seowebchecker-seoaudit-sdk/
-
-            makeWrapper ${pkgs.nodejs}/bin/node $out/bin/seowebchecker \
-              --add-flags "$out/lib/node_modules/seowebchecker-seoaudit-sdk/bin/cli.js"
-
-            ln -s $out/bin/seowebchecker $out/bin/seowebchecker-audit
-
-            runHook postInstall
-          '';
-
-          meta = with pkgs.lib; {
-            description = "Lightweight website SEO audit tool and CLI by SEOWebChecker";
-            homepage = "https://seowebchecker.com/";
-            license = licenses.mit;
-            mainProgram = "seowebchecker";
-            platforms = platforms.all;
+      devShells = forAllSystems (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.nodejs
+              self.packages.${system}.seowebchecker
+            ];
           };
-        };
+        }
+      );
 
-        packages.default = packages.seowebchecker;
+      nixosModules = {
+        seowebchecker = import ./nix/module.nix;
+        default = self.nixosModules.seowebchecker;
+      };
 
-        apps.seowebchecker = flake-utils.lib.mkApp {
-          drv = packages.seowebchecker;
-          name = "seowebchecker";
+      overlays = {
+        default = final: prev: {
+          seowebchecker = prev.callPackage ./nix/package.nix { };
         };
-        apps.default = apps.seowebchecker;
-
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            nodejs
-            python3
-          ];
-        };
-      }
-    );
+      };
+    };
 }

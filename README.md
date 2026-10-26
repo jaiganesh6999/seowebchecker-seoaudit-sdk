@@ -96,7 +96,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Arch Linux (AUR)](https://aur.archlinux.org/packages/seowebchecker)** | Arch Linux & Manjaro Community Repository | `seowebchecker` | [`aur/`](./aur) |
 | **[WinGet (Windows Package Manager)](https://github.com/microsoft/winget-pkgs)** | Windows 10 & 11 Native Package Manager | `SEOWebChecker.SEOWebChecker` | [`winget/`](./winget) |
 | **[Scoop](https://scoop.sh/)** | Windows Developer Package Manager | `seowebchecker` | [`scoop/`](./scoop) |
-| **[Nix / Nixpkgs](https://github.com/NixOS/nixpkgs)** | Linux & macOS Reproducible Package Collection | `seowebchecker` | [`nix/`](./nix) |
+| **[Nix / NixOS & NUR](https://github.com/nix-community/NUR)** | Nixpkgs, Flakes & NixOS Service Module | `seowebchecker` / `nur.repos.jaiganesh6999.seowebchecker` | [`nix/`](./nix) |
 | **[Launchpad PPA](https://launchpad.net/~seoaitools/+archive/ubuntu/seowebchecker)** | Ubuntu & Debian (`apt`) | `seowebchecker` | [`launchpad/`](./launchpad) |
 | **[FreeBSD Ports](https://github.com/freebsd/freebsd-ports/pull/628)** | FreeBSD & BSD Unix | `seowebchecker` | [`freebsd/`](./freebsd) |
 | **[Model Context Protocol (MCP)](https://www.npmjs.com/package/seowebchecker-mcp-server)** | AI Assistants (Claude, Cursor, Windsurf) | `seowebchecker-mcp-server` | [`mcp/`](./mcp) |
