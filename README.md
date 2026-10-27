@@ -112,6 +112,7 @@ Official documentation: **[https://seo-ai-tools.readthedocs.io/en/latest/](https
 | **[Artifact Hub (Helm)](https://artifacthub.io/)** | Kubernetes & Cloud-Native (Helm) | `seowebchecker` | [`helm/`](./helm) |
 | **[Drupal Projects](https://www.drupal.org/project/project_module)** | Enterprise CMS (Drupal 10 & 11) | `seowebchecker` | [`drupal/`](./drupal) |
 | **[Joomla Extensions Directory (JED)](https://extensions.joomla.org/)** | Open-Source Web Publishing (Joomla 5) | `plg_system_seowebchecker` | [`joomla/`](./joomla) |
+| **[Umbraco Marketplace](https://marketplace.umbraco.com/)** | Open-Source .NET CMS (Umbraco 10–15+) | SeoWebChecker.Umbraco | [Repository](https://github.com/jaiganesh6999/seowebchecker-umbraco) |
 | **[StackBlitz](https://stackblitz.com/)** | Instant Browser Dev Environment & Playground | `seowebchecker-stackblitz-starter` | [`examples/stackblitz/`](./examples/stackblitz) |
 | **[CodeSandbox](https://codesandbox.io/)** | Cloud Sandbox & Interactive Browser Micro-VM | `seowebchecker-codesandbox-demo` | [`examples/codesandbox/`](./examples/codesandbox) |
 | **[Flowise AI](https://flowiseai.com/)** | Visual LLM Agents & Flowise Custom Node Tool | `seowebcheckerAudit` | [`integrations/flowise/`](./integrations/flowise) |
