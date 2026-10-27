@@ -6,6 +6,40 @@
 const https = require('https');
 const http = require('http');
 const { URL } = require('url');
+const zlib = require('zlib');
+
+function decodeHtmlEntities(str) {
+  if (!str) return str;
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&#x2F;/gi, '/')
+    .replace(/&#(\d+);/g, (m, n) => String.fromCharCode(parseInt(n, 10)));
+}
+
+function extractMeta(html, key) {
+  const pattern1 = new RegExp(`<meta\\s+[^>]*?(?:name|property)\\s*=\\s*["']?${key}["']?\\s+[^>]*?content\\s*=\\s*["']([^"']*)["']`, 'is');
+  const pattern2 = new RegExp(`<meta\\s+[^>]*?content\\s*=\\s*["']([^"']*)["']\\s+[^>]*?(?:name|property)\\s*=\\s*["']?${key}["']?`, 'is');
+  const m1 = html.match(pattern1);
+  if (m1) return decodeHtmlEntities(m1[1].trim());
+  const m2 = html.match(pattern2);
+  if (m2) return decodeHtmlEntities(m2[1].trim());
+  return null;
+}
+
+function extractCanonical(html) {
+  const pattern1 = /<link\s+[^>]*?rel\s*=\s*["']?canonical["']?\s+[^>]*?href\s*=\s*["']([^"']*)["']/is;
+  const pattern2 = /<link\s+[^>]*?href\s*=\s*["']([^"']*)["']\s+[^>]*?rel\s*=\s*["']?canonical["']?/is;
+  const m1 = html.match(pattern1);
+  if (m1) return m1[1].trim();
+  const m2 = html.match(pattern2);
+  if (m2) return m2[1].trim();
+  return null;
+}
 
 class SEOAuditor {
   constructor(options = {}) {
@@ -37,13 +71,32 @@ class SEOAuditor {
         const chunks = [];
         res.on('data', (c) => chunks.push(c));
         res.on('end', () => {
-          const buffer = Buffer.concat(chunks);
+          const rawBuffer = Buffer.concat(chunks);
           const elapsed = Date.now() - start;
+          const encoding = (res.headers['content-encoding'] || '').toLowerCase().trim();
+
+          let bodyBuffer = rawBuffer;
+          try {
+            if (encoding === 'gzip' || encoding === 'x-gzip') {
+              bodyBuffer = zlib.gunzipSync(rawBuffer);
+            } else if (encoding === 'deflate') {
+              try {
+                bodyBuffer = zlib.inflateSync(rawBuffer);
+              } catch (e) {
+                bodyBuffer = zlib.inflateRawSync(rawBuffer);
+              }
+            } else if (encoding === 'br' && typeof zlib.brotliDecompressSync === 'function') {
+              bodyBuffer = zlib.brotliDecompressSync(rawBuffer);
+            }
+          } catch (decompressErr) {
+            bodyBuffer = rawBuffer;
+          }
+
           resolve({
             statusCode: res.statusCode,
             headers: res.headers,
-            body: buffer.toString('utf-8'),
-            contentBytes: buffer,
+            body: bodyBuffer.toString('utf-8'),
+            contentBytes: bodyBuffer,
             responseTimeMs: elapsed,
           });
         });
@@ -67,22 +120,15 @@ class SEOAuditor {
 
     // 1. Meta & Header extraction
     const titleMatch = html.match(/<title[^>]*>(.*?)<\/title>/is);
-    const title = titleMatch ? titleMatch[1].replace(/\s+/g, ' ').trim() : null;
+    const title = titleMatch ? decodeHtmlEntities(titleMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()) : null;
     const titleLength = title ? title.length : 0;
 
-    const descMatch = html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/is) ||
-                      html.match(/<meta[^>]*content=["']([^"']*)["'][^>]*name=["']description["']/is);
-    const description = descMatch ? descMatch[1].trim() : null;
+    const description = extractMeta(html, 'description');
     const descriptionLength = description ? description.length : 0;
 
-    const canonMatch = html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/is);
-    const canonical = canonMatch ? canonMatch[1].trim() : null;
-
-    const viewportMatch = html.match(/<meta[^>]*name=["']viewport["'][^>]*content=["']([^"']*)["']/is);
-    const viewport = viewportMatch ? viewportMatch[1].trim() : null;
-
-    const robotsMatch = html.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']*)["']/is);
-    const robots = robotsMatch ? robotsMatch[1].trim() : null;
+    const canonical = extractCanonical(html);
+    const viewport = extractMeta(html, 'viewport');
+    const robots = extractMeta(html, 'robots');
 
     // Checks - Title
     if (!title) {
@@ -119,8 +165,8 @@ class SEOAuditor {
     }
 
     // 2. Headings & Content
-    const h1Matches = [...html.matchAll(/<h1[^>]*>(.*?)<\/h1>/gis)].map(m => m[1].replace(/<[^>]+>/g, '').trim());
-    const h2Matches = [...html.matchAll(/<h2[^>]*>(.*?)<\/h2>/gis)].map(m => m[1].replace(/<[^>]+>/g, '').trim());
+    const h1Matches = [...html.matchAll(/<h1[^>]*>(.*?)<\/h1>/gis)].map(m => decodeHtmlEntities(m[1].replace(/<[^>]+>/g, '').trim()));
+    const h2Matches = [...html.matchAll(/<h2[^>]*>(.*?)<\/h2>/gis)].map(m => decodeHtmlEntities(m[1].replace(/<[^>]+>/g, '').trim()));
     const cleanText = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ' ')
                           .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, ' ')
                           .replace(/<[^>]+>/g, ' ');

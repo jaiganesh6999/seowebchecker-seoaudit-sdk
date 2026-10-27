@@ -1,11 +1,13 @@
 {
   "name": "seowebchecker-seoaudit-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Lightweight open-source client SDK and CLI tool for website SEO audits, on-page analysis, and Core Web Vitals checks by SEOWebChecker.",
   "main": "index.js",
   "types": "index.d.ts",
   "bin": {
-    "seowebchecker-audit": "bin/cli.js"
+    "seowebchecker": "bin/cli.js",
+    "seowebchecker-audit": "bin/cli.js",
+    "seowebchecker-seoaudit-sdk": "bin/cli.js"
   },
   "scripts": {
     "test": "node test/test.js",

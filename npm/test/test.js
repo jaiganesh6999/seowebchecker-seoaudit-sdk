@@ -41,4 +41,11 @@ assert(consoleText.includes('SEOWebChecker SEO Audit Report'));
 const mdText = formatMarkdown(result);
 assert(mdText.includes('# SEO Audit Report'));
 
+console.log('Testing unquoted attributes & HTML entity decoding...');
+const unquotedHtml = '<!doctype html><html><head><meta name=viewport content="width=device-width,initial-scale=1"><title>Rock &amp; Roll &#39;n&#39; Code</title></head><body><h1>Music &amp; Software</h1></body></html>';
+const unquotedResult = auditor.auditHtml(unquotedHtml, 'https://example.com/');
+assert.strictEqual(unquotedResult.meta.title, "Rock & Roll 'n' Code");
+assert.strictEqual(unquotedResult.meta.viewport, "width=device-width,initial-scale=1");
+assert.strictEqual(unquotedResult.content.h1_tags[0], "Music & Software");
+
 console.log('All Node.js SDK tests passed successfully!');
